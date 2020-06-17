@@ -74,7 +74,7 @@
     ;; manually register the minor mode since it does not define any
     ;; lighter
     (push '(fci-mode "") minor-mode-alist)
-    (setq whitespace-line-column 79)
+    (setq whitespace-line-column 80)
     (setq whitespace-style '(face lines-tail))
     (custom-set-faces
      '(whitespace-line ((t (:foreground "black" :background "red" :underline t))))
