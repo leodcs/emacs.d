@@ -18,6 +18,7 @@
 (global-set-key (kbd "s-p") 'counsel-projectile-find-file)
 (global-set-key (kbd "s-p") 'counsel-projectile-find-file)
 (global-set-key (kbd "s-F") 'counsel-ag-search-all-project)
+(global-set-key (kbd "s-C") 'copy-relative-file-path)
 
 (defun counsel-ag-search-all-project ()
   (interactive)
@@ -143,17 +144,26 @@
 
 (setq kill-buffer-query-functions nil)
 
-(defun copy-filepath (&optional @dir-path-only-p)
+(defun copy-relative-file-path ()
+  "Copy the current buffer's relative file path to `kill-ring'."
+  (interactive)
+  (kill-new
+   (file-relative-name buffer-file-name (projectile-project-root)))
+  (evil-echo "File path copied: \"%s\"" (car kill-ring))
+)
+
+(defun copy-full-file-path (&optional @dir-path-only-p)
   "Copy the current buffer's file path or dired path to `kill-ring'.
-Result is full path.
-If `universal-argument' is called first, copy only the dir path.
+   Result is full path.
+   If `universal-argument' is called first, copy only the dir path.
 
-If in dired, copy the file/dir cursor is on, or marked files.
+   If in dired, copy the file/dir cursor is on, or marked files.
 
-If a buffer is not file and not dired, copy value of `default-directory' (which is usually the “current” dir when that buffer was created)
+   If a buffer is not file and not dired, copy value of `default-directory' (which is usually the “current” dir when that buffer was created)
 
-URL `http://ergoemacs.org/emacs/emacs_copy_file_path.html'
-Version 2017-09-01"
+   URL `http://ergoemacs.org/emacs/emacs_copy_file_path.html'
+   Version 2017-09-01"
+
   (interactive "P")
   (let (($fpath
          (if (string-equal major-mode 'dired-mode)
