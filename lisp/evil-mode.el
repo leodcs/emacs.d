@@ -46,9 +46,17 @@
         (interactive "P")
         (neo-buffer--execute arg 'neo-open-file-hide 'neo-open-dir))
 
+      (defun neotree-search-inside-current-node-directory ()
+        "Calls counsel-ag passing the directory at point as parameter"
+        (interactive)
+        (neotree-select-up-node)
+        (counsel-ag nil (neo-buffer--get-filename-current-line))
+      )
+
       (evil-define-key 'normal neotree-mode-map (kbd "s-r") 'neotree-rename-node)
       (evil-define-key 'normal neotree-mode-map (kbd "s-c") 'neotree-copy-node)
       (evil-define-key 'normal neotree-mode-map (kbd "s-n") 'neotree-create-node)
+      (evil-define-key 'normal neotree-mode-map (kbd "s-F") 'neotree-search-inside-current-node-directory)
       (evil-define-key 'normal neotree-mode-map (kbd "<s-backspace>") 'neotree-delete-node)
       (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter-hide)
       (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
