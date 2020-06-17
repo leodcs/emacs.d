@@ -2,6 +2,7 @@
   :init (global-evil-leader-mode)
   :config
   (evil-leader/set-leader "<SPC>")
+
   (evil-leader/set-key "<SPC>" 'ivy-switch-buffer)
   (evil-leader/set-key "<down>" 'open-html-tag)
   (evil-leader/set-key "<up>" 'close-html-tag)
@@ -15,8 +16,11 @@
     :init (evil-mode)
     :config
     (add-hook 'after-save-hook 'evil-normal-state)
+    ; Normal Mode
     (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
     (define-key evil-normal-state-map (kbd "C-t") 'projectile-run-shell)
+
+    ; Insert Mode
     (define-key evil-insert-state-map (kbd "C-y") 'yank)
     (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
     (define-key evil-insert-state-map (kbd "M-q") 'yas-expand)
@@ -31,10 +35,12 @@
       (setq-default evil-symbol-word-search t))
     (use-package neotree
       :config
+      (setq-default neo-show-hidden-files t)
       (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
       (setq neo-smart-open t)
       (setq neo-confirm-create-file 'off-p)
-      (setq-default neo-show-hidden-files t)
+      (setq neo-window-width 35)
+
       (defun neo-open-file-hide (full-path &optional arg)
         "Open a file node and hides tree."
         (neo-global--select-mru-window arg)
@@ -61,8 +67,7 @@
       (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter-hide)
       (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
       (evil-define-key 'normal neotree-mode-map (kbd "p") 'neotree-previous-line)
-      (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-stretch-toggle)
-      (evil-define-key 'normal neotree-mode-map (kbd "L") 'neotree-stretch-toggle)
+      (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
       (evil-define-key 'normal neotree-mode-map (kbd "P") 'neotree-select-up-node)
       (evil-define-key 'normal neotree-mode-map (kbd "R") 'neotree-refresh)
       )

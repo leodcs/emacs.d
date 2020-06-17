@@ -8,7 +8,6 @@
 (global-set-key (kbd "C-(") 'rubocop-check-current-file)
 (global-set-key (kbd "C-)") 'rubocop-autocorrect-current-file)
 (global-set-key (kbd "C-q") (kbd "C-x 0"))
-(global-set-key (kbd "C-c C-d") 'duplicate-line)
 (global-set-key (kbd "C-u") 'undo)
 (global-set-key (kbd "C-<return>") 'counsel-bookmark)
 (global-set-key (kbd "C-q") 'yas-expand)
@@ -21,13 +20,37 @@
 (global-set-key (kbd "s-F") 'counsel-ag-search-all-project)
 (global-set-key (kbd "s-C") 'copy-relative-file-path)
 (global-set-key (kbd "s-w") 'delete-window)
+(global-set-key (kbd "s-d") 'evil-mc-make-and-goto-next-match)
+(global-set-key (kbd "s-J") 'duplicate-line)
+
+; -------------------------- Variables --------------------------------
+
+(setq-default tab-width 2)
+(setq tab-width 2)
+(progn (setq-default indent-tabs-mode nil))
+(setq system-uses-terminfo nil)
+(global-auto-revert-mode 1)
+(show-paren-mode 1)
+(setq ivy-re-builders-alist '((ivy-switch-buffer . ivy--regex-plus)))
+(setq ivy-initial-inputs-alist nil)
+(setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
+(setq x-select-enable-clipboard t)
+(setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
+(setq kill-buffer-query-functions nil)
+(evil-set-initial-state 'ivy-occur-grep-mode 'normal)
+(setq org-hide-emphasis-markers t)
+
 
 ; -------------------------- Hooks --------------------------------
+
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook)
 (add-hook 'ruby-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-rubocop)))
 (add-hook 'web-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-erblint)))
 (add-hook 'dired-after-readin-hook 'sof/dired-sort)
+
+
+; -------------------------- Functions --------------------------------
 
 (defun counsel-ag-search-all-project ()
   (interactive)
@@ -88,7 +111,6 @@
     )
   )
 
-(setq frame-resize-pixelwise t)
 
 (use-package json-mode
   :config
@@ -119,20 +141,6 @@
   (rvm-activate-corresponding-ruby)
   )
 
-
-(evil-set-initial-state 'ivy-occur-grep-mode 'normal)
-;; set default tab char's display width to 4 spaces
-(setq-default tab-width 2) ; emacs 23.1 to 26 default to 8
-
-;; set current buffer's tab char's display width to 4 spaces
-(setq tab-width 2)
-(progn
-  ;; make indent commands use space only (never tab character)
-  (setq-default indent-tabs-mode nil)
-  ;; emacs 23.1 to 26, default to t
-  ;; if indent-tabs-mode is t, it means it may use tab, resulting mixed space and tab
-  )
-
 (defun create-untitled-buffer ()
   "Create a new buffer with name untitled."
   (interactive)
@@ -140,8 +148,6 @@
   (nlinum-relative-mode)
   (evil-insert-state)
 )
-
-(setq kill-buffer-query-functions nil)
 
 (defun copy-relative-file-path ()
   "Copy the current buffer's relative file path to `kill-ring'."
@@ -185,10 +191,7 @@
 
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 
-(setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 (use-package undo-tree)
-
-(setq x-select-enable-clipboard t)
 
 (defun save-and-run-rubocop ()
   "Saves buffer and runs rubocop autocorrect"
@@ -244,21 +247,6 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;;; dired START
 (require 'dired-x)
-
-;; Nice listing
-(setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
-
-;; Always copy/delete recursively
-(setq dired-recursive-copies (quote always))
-(setq dired-recursive-deletes (quote top))
-
-;; Auto refresh dired, but be quiet about it
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
-
-;; Hide some files
-(setq dired-omit-files "^\\..*$\\|^\\.\\.$")
-(setq dired-omit-mode t)
 
 ;; List directories first
 (defun sof/dired-sort ()
@@ -321,14 +309,6 @@ point reaches the beginning or end of the buffer, stop there."
 (use-package anzu
   :init (global-anzu-mode +1))
 
-(setq system-uses-terminfo nil)
-(global-auto-revert-mode 1)
-(show-paren-mode 1)
-
-(use-package flx)
-(setq ivy-re-builders-alist
-      '((ivy-switch-buffer . ivy--regex-plus)))
-(setq ivy-initial-inputs-alist nil)
 
 
 (defun duplicate-line (arg)
@@ -422,3 +402,12 @@ point reaches the beginning or end of the buffer, stop there."
 
 (use-package dotenv-mode
   :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
+
+(use-package flx)
+
+(defun org-toggle-emphasis-markers ()
+  (interactive)
+  (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
+    (message (or (and org-hide-emphasis-markers "Hiding emphasis markers")
+             "Showing emphasis markers"))
+)
