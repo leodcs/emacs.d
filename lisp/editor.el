@@ -20,6 +20,7 @@
 (global-set-key (kbd "s-p") 'counsel-projectile-find-file)
 (global-set-key (kbd "s-F") 'counsel-ag-search-all-project)
 (global-set-key (kbd "s-C") 'copy-relative-file-path)
+(global-set-key (kbd "s-w") 'delete-window)
 
 ; -------------------------- Hooks --------------------------------
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
