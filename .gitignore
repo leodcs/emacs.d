@@ -1,10 +1,10 @@
-backups
 eshell
 auto-save-list
 elpa
 transient
 places
 .places
+backups
 
 snippets/*
 !snippets/web-mode

@@ -2,6 +2,8 @@
 
 My Emacs configuration directory to use on Ruby on Rails and Javascript development.
 
+![demonstration.png](https://www.imagemhost.com.br/images/2020/06/16/demonstration.png)
+
 ## Requirements
 
 - Vim keybindings knowledge. This is mandatory because I use a vim emulator called evil (hate that name btw). If you're not familiar with vim, go ahead and launch `vimtutor` on the terminal.
@@ -14,9 +16,12 @@ My Emacs configuration directory to use on Ruby on Rails and Javascript developm
 
 `$ git clone https://github.com/leodcs/emacs.d ~/.emacs.d`
 
-Open Emacs and run: `M-x all-the-icons-install-fonts <RET>`
+Open Emacs and run:
+- `M-x all-the-icons-install-fonts`
+- `M-x projectile-discover-projects-in-directory`
+- Press `C-c p p` to find your newly discovered project.
 
-## Keybindings
+## Useful keybindings
 
 > M - Alt <br/>
 > C - Control <br/>
@@ -27,21 +32,21 @@ Open Emacs and run: `M-x all-the-icons-install-fonts <RET>`
 
 | Keybinding | Action |
 | ---------- | ------ |
+| `s-p` | Search files in project |
+| `s-e` | Toggle neotree plugin |
+| `s-F` | Search text in project (auto includes selected text in visual mode) |
+| `s-n` | Create an untitled buffer |
+| `s-r` | Rename current buffer |
+| `s-k` | Kill current buffer |
+| `C-n` | Multiple cursor on next occurrence |
+| `M-o` | Switch windows |
 | `SPC-SPC` | Switch to buffer |
 | `SPC-RET` | Go back to previous buffer |
-| `s-S-<up>` | Move code up |
-| `s-S-<down>` | Move code down |
-| `C-n` | Multiple cursor on next occurrence |
+| `s-S-<up>` | Move text up |
+| `s-S-<down>` | Move text down |
+| `SPC-d` | Delete other windows |
 | `C-(` | Rubocop on current buffer file |
 | `C-)` | Rubocop autocorrect on current buffer file |
-| `M-o` | Switch windows |
-| `SPC-d` | Delete other windows |
-| `s-k` | Kill current buffer |
-| `s-e` | Toggle neotree plugin |
-| `s-r` | Rename current buffer |
-| `s-n` | Create an untitled buffer |
-| `s-p` | Search files in project |
-| `s-F` | Search code in project |
 
 
 ## Search and replace
