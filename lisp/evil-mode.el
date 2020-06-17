@@ -19,6 +19,7 @@
     ; Normal Mode
     (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
     (define-key evil-normal-state-map (kbd "C-t") 'projectile-run-shell)
+    (define-key evil-normal-state-map (kbd "p") 'evil-yank)
 
     ; Insert Mode
     (define-key evil-insert-state-map (kbd "C-y") 'yank)
