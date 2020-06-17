@@ -1,3 +1,4 @@
+; -------------------------- Keybindings --------------------------------
 (global-set-key [remap move-beginning-of-line] 'prelude-move-beginning-of-line)
 (global-set-key [escape] 'keyboard-escape-quit)
 (global-set-key (kbd "C-c e") 'eval-and-replace)
@@ -19,6 +20,13 @@
 (global-set-key (kbd "s-p") 'counsel-projectile-find-file)
 (global-set-key (kbd "s-F") 'counsel-ag-search-all-project)
 (global-set-key (kbd "s-C") 'copy-relative-file-path)
+
+; -------------------------- Hooks --------------------------------
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+(add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook)
+(add-hook 'ruby-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-rubocop)))
+(add-hook 'web-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-erblint)))
+(add-hook 'dired-after-readin-hook 'sof/dired-sort)
 
 (defun counsel-ag-search-all-project ()
   (interactive)
@@ -91,7 +99,8 @@
                                "python -m json.tool" (current-buffer) t)))
   (define-key json-mode-map (kbd "C-c C-b") 'beautify-json)
   )
-                                        ; Map escape to cancel (like C-g)...
+
+; Map escape to cancel (like C-g)...
 (define-key isearch-mode-map [escape] 'isearch-abort)   ;; isearch
 (define-key isearch-mode-map "\e" 'isearch-abort)   ;; \e seems to work better for terminals
 
@@ -99,7 +108,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\..*\\'" . javascript-mode))
 
 (column-number-mode)
-(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 (defun my-switch-project-hook ()
   "Perform some action after switching Projectile projects."
@@ -110,7 +118,6 @@
   (rvm-activate-corresponding-ruby)
   )
 
-(add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook)
 
 (evil-set-initial-state 'ivy-occur-grep-mode 'normal)
 ;; set default tab char's display width to 4 spaces
@@ -132,15 +139,6 @@
   (nlinum-relative-mode)
   (evil-insert-state)
 )
-
-(defun copy-line ()
-  (interactive)
-  (save-excursion
-    (back-to-indentation)
-    (kill-ring-save
-     (point)
-     (line-end-position)))
-  (message "line sent to clipboard"))
 
 (setq kill-buffer-query-functions nil)
 
@@ -201,8 +199,6 @@
   (rubocop-autocorrect-current-file)
   )
 
-(add-hook 'ruby-mode-hook
-          (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-rubocop)))
 
 (defun save-and-run-erblint ()
   "Saves buffer and runs erblint autocorrect"
@@ -214,8 +210,6 @@
   (web-mode-reload)
   )
 
-(add-hook 'web-mode-hook
-          (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-erblint)))
 
 
 (use-package rubocop
@@ -223,17 +217,6 @@
   )
 
 (transient-mark-mode 1)
-
-(defun select-current-line ()
-  "Select the current line"
-  (interactive)
-  (end-of-line) ; move to end of line
-  (set-mark (line-beginning-position)))
-
-(setq-default
- whitespace-line-column 80
- whitespace-style       '(face lines-tail))
-(whitespace-mode)
 
 (defun prelude-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
@@ -257,7 +240,6 @@ point reaches the beginning or end of the buffer, stop there."
     (back-to-indentation)
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
-
 
 ;;; dired START
 (require 'dired-x)
@@ -289,7 +271,6 @@ point reaches the beginning or end of the buffer, stop there."
        (dired-insert-set-properties (point-min) (point-max)))
   (set-buffer-modified-p nil))
 
-(add-hook 'dired-after-readin-hook 'sof/dired-sort)
 
 ;; Automatically create missing directories when creating new files
 (defun my-create-non-existent-directory ()
@@ -392,10 +373,6 @@ point reaches the beginning or end of the buffer, stop there."
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
-
-;; New undo alternatives
-
-;; Bookmark
 
 ;; Expand Region
 (use-package expand-region
