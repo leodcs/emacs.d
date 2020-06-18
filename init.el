@@ -1,5 +1,3 @@
-;; Must have configs
-
 (setq-default fill-column 80) ; toggle wrapping text at this column
 (setq gc-cons-threshold (* 50 1000 1000))
 (setq delete-old-versions -1 ) ; delete excess backups silently
@@ -23,6 +21,8 @@
 (save-place-mode 1)
 (delete-selection-mode 1)
 (setq recentf-max-saved-items 120)
+(global-set-key [escape] 'keyboard-escape-quit)
+(global-set-key (kbd "M-o") 'other-window)
 
 ;; UTF-8
 (setq locale-coding-system 'utf-8)
@@ -52,37 +52,45 @@
 
 ;; Define packages
 (require 'use-package)
-
-;; Always download if not available
 (setq use-package-always-ensure t)
 
-;; Emacs on Rails files
-(load "~/.emacs.d/lisp/util.el")
-(load "~/.emacs.d/lisp/gui.el")
-(load "~/.emacs.d/lisp/search.el")
+(load "~/.emacs.d/lisp/autocompletion.el")
+(load "~/.emacs.d/lisp/dired.el")
+(load "~/.emacs.d/lisp/editor.el")
+(load "~/.emacs.d/lisp/evil.el")
 (load "~/.emacs.d/lisp/git.el")
+(load "~/.emacs.d/lisp/gui.el")
+(load "~/.emacs.d/lisp/javascript.el")
+(load "~/.emacs.d/lisp/json.el")
+(load "~/.emacs.d/lisp/markdown.el")
+(load "~/.emacs.d/lisp/notes.el")
 (load "~/.emacs.d/lisp/project_management.el")
 (load "~/.emacs.d/lisp/ruby.el")
-(load "~/.emacs.d/lisp/javascript.el")
+(load "~/.emacs.d/lisp/search.el")
 (load "~/.emacs.d/lisp/web.el")
-(load "~/.emacs.d/lisp/evil-mode.el")
-(load "~/.emacs.d/lisp/editor.el")
+(load "~/.emacs.d/lisp/neotree.el")
+(load "~/.emacs.d/lisp/keybindings.el")
 
-;; User Files
-(load "~/.emacs.d/user_config/user.el")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(auto-dim-other-buffers golden-ratio zoom-frm json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-leader evil-multiedit evil-mc fill-column-indicator eglot lsp-mode dotenv-mode markdown-mode auto-answer evil-surround evil-commentary nlinum-relative linum-relative evil rubocop anzu flx goto-chg dot-mode helm helm-config rvm highlight-indent-guides which-key rbenv yasnippet-snippets yasnippet smartparens company ace-window flycheck-popup-tip flycheck-pos-tip flycheck expand-region zencoding-mode web-mode hungry-delete exec-path-from-shell rspec-mode robe projectile-rails counsel-projectile projectile git-gutter magit wgrep-ag wgrep ivy-hydra counsel dashboard neotree kaolin-themes doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
+   '(evil-org evil-collection evil-goggles general dracula-theme distinguished-theme dinstinguished-theme cyberpunk-theme browse-kill-ring deft evil-magit auto-dim-other-buffers golden-ratio zoom-frm json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-leader evil-multiedit evil-mc fill-column-indicator eglot lsp-mode dotenv-mode markdown-mode auto-answer evil-surround evil-commentary nlinum-relative linum-relative evil rubocop anzu flx goto-chg dot-mode helm helm-config rvm highlight-indent-guides which-key rbenv yasnippet-snippets yasnippet smartparens company ace-window flycheck-popup-tip flycheck-pos-tip flycheck expand-region zencoding-mode web-mode hungry-delete exec-path-from-shell rspec-mode robe projectile-rails counsel-projectile projectile git-gutter magit wgrep-ag wgrep ivy-hydra counsel dashboard neotree kaolin-themes doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-dim-other-buffers-face ((t (:background "gray22"))))
+ '(evil-goggles-change-face ((t (:inherit diff-removed))))
+ '(evil-goggles-delete-face ((t (:inherit diff-removed))))
+ '(evil-goggles-paste-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
+ '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed))))
  '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
 
 (setq gc-cons-threshold (* 2 1000 1000))

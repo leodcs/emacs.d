@@ -1,10 +1,8 @@
-(add-hook 'scss-mode-hook
-          '(lambda()
-             (setq tab-width 2)
-             (setq indent-tabs-mode nil)))
+(use-package web-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
-(use-package zencoding-mode
-  :config
-  (add-hook 'sgml-mode-hook 'zencoding-mode)
-  (define-key web-mode-map (kbd "C-c C-v") #'zencoding-expand-line)
-  )
+  (defun leo/web-mode-hook ()
+    "Hooks for Web mode."
+    (setq web-mode-markup-indent-offset 2))
+  (add-hook 'web-mode-hook  'leo/web-mode-hook))

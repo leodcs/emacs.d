@@ -1,3 +1,12 @@
+; -------------------------- Variables --------------------------------
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+
+; -------------------------- Packages --------------------------------
+(use-package ivy-hydra)
+(use-package wgrep)
+(use-package wgrep-ag)
+
 (use-package ivy
   :diminish (ivy-mode . "")
   :init (ivy-mode 1) ; globally at startup
@@ -6,8 +15,6 @@
   (setq ivy-height 20)
   (setq ivy-count-format "%d/%d "))
 (provide 'init-ivy)
-
-;; Override the basic Emacs commands
 
 (use-package counsel
   :bind* ; load when pressed
@@ -23,12 +30,3 @@
    ("<f2> i"  . counsel-info-lookup-symbol)
    ("<f2> u"  . counsel-unicode-char)
    ("C-c C-r" . ivy-resume)))     ; Resume last Ivy-based completion
-
-(use-package ivy-hydra)
-(use-package wgrep)
-(use-package wgrep-ag)
-
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-
-(global-set-key (kbd "C-c c") 'avy-goto-char-2)

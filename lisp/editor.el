@@ -1,56 +1,100 @@
-; -------------------------- Keybindings --------------------------------
-(global-set-key [remap move-beginning-of-line] 'prelude-move-beginning-of-line)
-(global-set-key [escape] 'keyboard-escape-quit)
-(global-set-key (kbd "C-c e") 'eval-and-replace)
-(global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "C-c C-y") 'copy-line)
-(global-set-key (kbd "C-,") 'ivy-switch-buffer)
-(global-set-key (kbd "C-(") 'rubocop-check-current-file)
-(global-set-key (kbd "C-)") 'rubocop-autocorrect-current-file)
-(global-set-key (kbd "C-q") (kbd "C-x 0"))
-(global-set-key (kbd "C-u") 'undo)
-(global-set-key (kbd "C-<return>") 'counsel-bookmark)
-(global-set-key (kbd "C-q") 'yas-expand)
-(global-set-key (kbd "s-k") 'kill-this-buffer)
-(global-set-key (kbd "s-e") 'neotree-toggle)
-(global-set-key (kbd "s-r") 'rename-buffer)
-(global-set-key (kbd "s-n") 'create-untitled-buffer)
-(global-set-key (kbd "s-p") 'counsel-projectile-find-file)
-(global-set-key (kbd "s-p") 'counsel-projectile-find-file)
-(global-set-key (kbd "s-F") 'counsel-ag-search-all-project)
-(global-set-key (kbd "s-C") 'copy-relative-file-path)
-(global-set-key (kbd "s-w") 'delete-window)
-(global-set-key (kbd "s-d") 'evil-mc-make-and-goto-next-match)
-(global-set-key (kbd "s-J") 'duplicate-line)
+; -------------------------- Modes --------------------------------
+(show-paren-mode 1) ;; Highlight matching parens
+(column-number-mode)
+(transient-mark-mode 1)
+(global-auto-revert-mode 1) ;; Always reload the file if it changed on disk
 
 ; -------------------------- Variables --------------------------------
 
-(setq-default tab-width 2)
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Monaco")
+  (set-face-attribute 'default nil :height 172)
+  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
+(modify-syntax-entry ?_ "w" (standard-syntax-table))
+(setq x-select-enable-clipboard t)
 (setq tab-width 2)
 (progn (setq-default indent-tabs-mode nil))
 (setq system-uses-terminfo nil)
-(global-auto-revert-mode 1)
-(show-paren-mode 1)
 (setq ivy-re-builders-alist '((ivy-switch-buffer . ivy--regex-plus)))
 (setq ivy-initial-inputs-alist nil)
 (setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
-(setq x-select-enable-clipboard t)
 (setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 (setq kill-buffer-query-functions nil)
-(evil-set-initial-state 'ivy-occur-grep-mode 'normal)
 (setq org-hide-emphasis-markers t)
-
+(setq-default line-spacing 1) ;; A nice line height
+(setq-default frame-title-format '((:eval (if (buffer-file-name)
+                                              (abbreviate-file-name (buffer-file-name)) "%f"))))
 
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-(add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook)
 (add-hook 'ruby-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-rubocop)))
-(add-hook 'web-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-erblint)))
+(add-hook 'web-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'leo/save-and-run-erblint)))
 (add-hook 'dired-after-readin-hook 'sof/dired-sort)
 
+; -------------------------- Packages --------------------------------
+
+(use-package helm
+  :init
+  (global-set-key (kbd "M-x") 'helm-M-x))
+
+(use-package drag-stuff
+  :init
+  (drag-stuff-global-mode)
+  (global-set-key (kbd "<s-up>") 'drag-stuff-up)
+  (global-set-key (kbd "<s-down>") 'drag-stuff-down))
+
+
+(use-package fill-column-indicator
+  :init
+  (progn
+    (setq fci-rule-width 1)
+    (setq fci-rule-color "#D0BF8F")
+    ;; manually register the minor mode since it does not define any
+    ;; lighter
+    (push '(fci-mode "") minor-mode-alist)
+    (setq whitespace-line-column 80)
+    (setq whitespace-style '(face lines-tail))
+    (custom-set-faces
+     '(whitespace-line ((t (:foreground "black" :background "red" :underline t))))
+     )
+
+    (add-hook 'ruby-mode-hook 'turn-on-fci-mode)
+    (add-hook 'ruby-mode-hook 'whitespace-mode)
+    (add-hook 'web-mode-hook 'turn-on-fci-mode)
+    (add-hook 'web-mode-hook 'whitespace-mode)))
+
+(use-package undo-tree)
+
+
+(use-package saveplace
+  :init (setq-default save-place t)
+  :config
+  (setq-default save-place t)
+  (setq save-place-file (expand-file-name ".places" user-emacs-directory)))
+
+(use-package anzu :config (global-anzu-mode t))
+
+;; Expand Region
+(use-package expand-region
+  :bind ("M-2" . 'er/expand-region))
+
+(use-package flycheck
+  :init (global-flycheck-mode)
+  :config
+  (flycheck-pos-tip-mode 0))
+
+(use-package dotenv-mode
+  :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
 
 ; -------------------------- Functions --------------------------------
+
+(defun org-toggle-emphasis-markers ()
+  (interactive)
+  (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
+    (message (or (and org-hide-emphasis-markers "Hiding emphasis markers")
+             "Showing emphasis markers"))
+)
 
 (defun counsel-ag-search-all-project ()
   (interactive)
@@ -72,65 +116,6 @@
              (current-buffer))
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
-
-
-(use-package auto-dim-other-buffers
-  :config
-  (auto-dim-other-buffers-mode)
-  )
-
-
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown")
-  )
-
-(use-package fill-column-indicator
-  :defer t
-  :init
-  (progn
-    (setq fci-rule-width 1)
-    (setq fci-rule-color "#D0BF8F")
-    ;; manually register the minor mode since it does not define any
-    ;; lighter
-    (push '(fci-mode "") minor-mode-alist)
-    (setq whitespace-line-column 80)
-    (setq whitespace-style '(face lines-tail))
-    (custom-set-faces
-     '(whitespace-line ((t (:foreground "black" :background "red" :underline t))))
-     )
-
-    (add-hook 'ruby-mode-hook 'turn-on-fci-mode)
-    (add-hook 'ruby-mode-hook 'whitespace-mode)
-    (add-hook 'web-mode-hook 'turn-on-fci-mode)
-    (add-hook 'web-mode-hook 'whitespace-mode)
-    )
-  )
-
-
-(use-package json-mode
-  :config
-  (defun beautify-json ()
-    (interactive)
-    (let ((b (if mark-active (min (point) (mark)) (point-min)))
-          (e (if mark-active (max (point) (mark)) (point-max))))
-      (shell-command-on-region b e
-                               "python -m json.tool" (current-buffer) t)))
-  (define-key json-mode-map (kbd "C-c C-b") 'beautify-json)
-  )
-
-; Map escape to cancel (like C-g)...
-(define-key isearch-mode-map [escape] 'isearch-abort)   ;; isearch
-(define-key isearch-mode-map "\e" 'isearch-abort)   ;; \e seems to work better for terminals
-
-
-(add-to-list 'auto-mode-alist '("\\.js\\..*\\'" . javascript-mode))
-
-(column-number-mode)
 
 (defun my-switch-project-hook ()
   "Perform some action after switching Projectile projects."
@@ -189,10 +174,6 @@
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
 
-(modify-syntax-entry ?_ "w" (standard-syntax-table))
-
-(use-package undo-tree)
-
 (defun save-and-run-rubocop ()
   "Saves buffer and runs rubocop autocorrect"
   (interactive)
@@ -203,115 +184,16 @@
   (rubocop-autocorrect-current-file)
   )
 
-
-(defun save-and-run-erblint ()
+(defun leo/save-and-run-erblint ()
   "Saves buffer and runs erblint autocorrect"
   (interactive)
   (save-buffer)
   (shell-command
    (format "erblint -a --config ~/projects/personal/dotfiles/erb-lint/erb-lint.yml %s"
            (shell-quote-argument (buffer-file-name))))
-  (web-mode-reload)
-  )
+  (web-mode-reload))
 
-
-
-(use-package rubocop
-  :config
-  )
-
-(transient-mark-mode 1)
-
-(defun prelude-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
-
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first.  If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
-
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
-
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
-
-;;; dired START
-(require 'dired-x)
-
-;; List directories first
-(defun sof/dired-sort ()
-  "Dired sort hook to list directories first."
-  (save-excursion
-    (let (buffer-read-only)
-      (forward-line 2) ;; beyond dir. header
-      (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max))))
-  (and (featurep 'xemacs)
-       (fboundp 'dired-insert-set-properties)
-       (dired-insert-set-properties (point-min) (point-max)))
-  (set-buffer-modified-p nil))
-
-
-;; Automatically create missing directories when creating new files
-(defun my-create-non-existent-directory ()
-  (let ((parent-directory (file-name-directory buffer-file-name)))
-    (when (and (not (file-exists-p parent-directory))
-               (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
-      (make-directory parent-directory t))))
-(add-to-list 'find-file-not-found-functions #'my-create-non-existent-directory)
-
-;; Use ls from emacs
-(when (eq system-type 'darwin)
-  (require 'ls-lisp)
-  (setq ls-lisp-use-insert-directory-program nil))
-
-;; Changing the way M-<and M-> work in dired
-;; Instead of taking me to the very beginning or very end, they now take me to the first or last file.
-(defun dired-back-to-top ()
-  (interactive)
-  (beginning-of-buffer)
-  (next-line 2))
-
-(define-key dired-mode-map
-  (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
-
-(defun dired-jump-to-bottom ()
-  (interactive)
-  (end-of-buffer)
-  (next-line -1))
-
-(define-key dired-mode-map
-  (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
-
-;; C-a is nicer in dired if it moves back to start of files
-(defun dired-back-to-start-of-files ()
-  (interactive)
-  (backward-char (- (current-column) 2)))
-
-(define-key dired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
-
-;;; dired END
-(use-package saveplace
-  :init (setq-default save-place t)
-  (setq save-place-file (expand-file-name ".places" user-emacs-directory)))
-
-(setq-default frame-title-format '((:eval (if (buffer-file-name)
-                                              (abbreviate-file-name (buffer-file-name)) "%f"))))
-(use-package anzu
-  :init (global-anzu-mode +1))
-
-
-
-(defun duplicate-line (arg)
+(defun leo/duplicate-line (arg)
   "Duplicate current line, leaving point in lower line."
   (interactive "*p")
 
@@ -346,68 +228,10 @@ point reaches the beginning or end of the buffer, stop there."
   ;; put the point in the lowest line and return
   (next-line arg))
 
-(global-auto-revert-mode 1) ;; Always reload the file if it changed on disk
-(setq-default line-spacing 1) ;; A nice line height
-(show-paren-mode 1) ;; Highlight matching parens
-
-;; Saves the cursor position between sessions
-(require 'saveplace)
-(setq-default save-place t)
-(setq save-place-file (expand-file-name ".places" user-emacs-directory))
-
-;; Expand Region
-(use-package expand-region
-  :bind ("M-2" . 'er/expand-region))
-
-(use-package flycheck
-  :init (global-flycheck-mode)
-  :config
-  (flycheck-pos-tip-mode 0)
-  )
-
-;; Company - Auto complation
-
-(use-package company
-  :init
-  (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0)
-  :config
-  (eval-after-load 'company
-    '(push 'company-robe company-backends))
-
-  (global-company-mode)
-  )
-
-(use-package yasnippet
-  :defer 5
-  :init
-  (yas-global-mode 1)
-  :config
-  (add-hook 'prog-mode-hook #'yas-minor-mode)
-  (eval-after-load 'rspec-mode
-    '(rspec-install-snippets))
-  )
-
-(use-package recentf
-  :defer 1)
-
-(use-package yasnippet-snippets
-  :after (yasnippet)
-  )
-(use-package yasnippet-classic-snippets
-  :config
-  (yas-reload-all)
-  :after yasnippet
-  )
-
-(use-package dotenv-mode
-  :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
-
-(use-package flx)
-
-(defun org-toggle-emphasis-markers ()
+(defun leo/indent-whole-buffer ()
+  "INDENT WHOLE BUFFER."
   (interactive)
-  (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
-    (message (or (and org-hide-emphasis-markers "Hiding emphasis markers")
-             "Showing emphasis markers"))
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max))
 )

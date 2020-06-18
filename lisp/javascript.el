@@ -1,5 +1,19 @@
+; -------------------------- Variables --------------------------------
+(setq js-indent-level 2)
+
+; -------------------------- Hooks --------------------------------
+
+(add-to-list 'auto-mode-alist '("\\.js\\..*\\'" . javascript-mode))
+
+; -------------------------- Packages --------------------------------
+
+(use-package browse-kill-ring
+  :config
+  (setq browse-kill-ring-highlight-current-entry t)
+  (setq browse-kill-ring-highlight-inserted-item "pulse")
+  (global-set-key (kbd "s-y") 'browse-kill-ring))
+
 (use-package js2-mode
-  :defer 3
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
