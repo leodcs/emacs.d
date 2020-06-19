@@ -1,11 +1,7 @@
 (use-package magit
-  :bind
-  ("C-x g" . magit-status)
-
   :config
   (use-package evil-magit)
   (use-package with-editor)
-
   (setq git-commit-summary-max-length 50)
 
   (add-hook 'with-editor-mode-hook 'evil-insert-state))

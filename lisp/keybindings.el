@@ -1,6 +1,6 @@
 (use-package general)
 
-;; Leader
+;; Leader Keybindings
 (defconst leo/leader "<SPC>")
 (general-define-key
  :prefix leo/leader
@@ -13,29 +13,32 @@
  "d" 'delete-other-windows
  "fm" 'projectile-rails-find-model)
 
+;; General use keys that shouldn't be overridden
 (general-define-key
  :keymaps 'override
  "C-c n" 'deft
  "C-c e" 'eval-and-replace
+ "s-r" 'rename-buffer
+ "s-n" 'leo/generate-new-untitled-buffer
+ "s-C" 'copy-relative-file-path
+ "s-w" 'delete-window
+ "s-d" 'evil-mc-make-and-goto-next-match
+ "s-J" 'leo/duplicate-line
+ "s-e" 'leo/neotree-toggle
+ "s-p" 'counsel-projectile-find-file
+ "s-F" 'counsel-ag-search-all-project
+ "s-k" 'kill-this-buffer
+ "C-c s d" 'magit-diff-buffer-file
+ "C-c g s" 'magit-status
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
  "C-q" 'yas-expand
  "C-(" 'rubocop-check-current-file
- "s-k" 'kill-this-buffer
- "s-e" 'leo/neotree-toggle
- "s-r" 'rename-buffer
- "s-n" 'create-untitled-buffer
- "s-p" 'counsel-projectile-find-file
- "s-p" 'counsel-projectile-find-file
- "s-F" 'counsel-ag-search-all-project
- "s-C" 'copy-relative-file-path
- "s-w" 'delete-window
- "s-d" 'evil-mc-make-and-goto-next-match
- "s-J" 'leo/duplicate-line
- "s-<return>" 'counsel-bookmark
+ "C-x C-f" 'counsel-find-file
  "s-E" 'eval-last-sexp)
 
+;; Neotree
 (general-define-key
  :states '(normal visual)
  :keymaps 'neotree-mode-map
@@ -53,7 +56,7 @@
  "<return>" 'leo/neotree-enter
  "d" 'neotree-delete-node)
 
-;; use E to go to eol
+;; use E to go to EOL
 (general-define-key
  :states '(motion)
  "E" '(lambda ()

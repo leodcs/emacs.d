@@ -20,7 +20,6 @@
 (setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
 (setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 (setq kill-buffer-query-functions nil)
-(setq org-hide-emphasis-markers t)
 (setq-default line-spacing 1) ;; A nice line height
 (setq-default frame-title-format '((:eval (if (buffer-file-name)
                                               (abbreviate-file-name (buffer-file-name)) "%f"))))
@@ -89,13 +88,6 @@
 
 ; -------------------------- Functions --------------------------------
 
-(defun org-toggle-emphasis-markers ()
-  (interactive)
-  (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
-    (message (or (and org-hide-emphasis-markers "Hiding emphasis markers")
-             "Showing emphasis markers"))
-)
-
 (defun counsel-ag-search-all-project ()
   (interactive)
   (if (eq evil-state 'visual)
@@ -126,13 +118,13 @@
   (rvm-activate-corresponding-ruby)
   )
 
-(defun create-untitled-buffer ()
+(defun leo/generate-new-untitled-buffer ()
   "Create a new buffer with name untitled."
   (interactive)
   (switch-to-buffer (generate-new-buffer "untitled"))
   (nlinum-relative-mode)
-  (evil-insert-state)
-)
+  (evil-mc-mode)
+  (evil-insert-state))
 
 (defun copy-relative-file-path ()
   "Copy the current buffer's relative file path to `kill-ring'."
