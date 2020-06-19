@@ -9,9 +9,8 @@
 (use-package deft
   :commands (deft)
   :config
-
-  (setq deft-directory "~/notes"
-        deft-recursive t
-        deft-use-filename-as-title t)
+  (setq deft-directory "~/notes")
+  (setq deft-recursive t)
+  (setq deft-use-filename-as-title t)
 
   (evil-set-initial-state 'deft-mode 'emacs))

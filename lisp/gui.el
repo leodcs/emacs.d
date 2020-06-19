@@ -1,9 +1,8 @@
 ;; Theme collections
 (use-package doom-themes)
 (use-package distinguished-theme)
-(use-package dracula-theme)
 
-(load-theme 'doom-molokai t) ;; Default
+;; (load-theme 'doom-molokai t) ;; Default
 ;; (load-theme 'doom-horizon t)
 ;; (load-theme 'doom-monokai-classic t)
 ;; (load-theme 'doom-monokai-pro t)
