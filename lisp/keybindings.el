@@ -3,15 +3,14 @@
 ;; Leader Keybindings
 (defconst leo/leader "<SPC>")
 (general-define-key
+ :keymaps 'override
  :prefix leo/leader
  :states '(normal visual)
- :keymaps 'override
  "<SPC>" 'ivy-switch-buffer
  "<down>" 'open-html-tag
  "<up>" 'close-html-tag
  "RET" 'evil-switch-to-windows-last-buffer
  "d" 'delete-other-windows
- "y" 'browse-kill-ring
  "fm" 'projectile-rails-find-model)
 
 ;; General use keys that shouldn't be overridden
@@ -31,6 +30,7 @@
  "s-k" 'kill-this-buffer
  "C-c s d" 'magit-diff-buffer-file
  "C-c g s" 'magit-status
+ "y" 'browse-kill-ring
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
@@ -41,8 +41,8 @@
 
 ;; Neotree
 (general-define-key
- :states '(normal visual)
  :keymaps 'neotree-mode-map
+ :states '(normal visual)
  "n" 'leo/neotree-select-next-sibling-node
  "p" 'leo/neotree-select-previous-sibling-node
  "P" 'neotree-select-up-node
@@ -56,6 +56,11 @@
  "<tab>" 'neotree-stretch-toggle
  "<return>" 'leo/neotree-enter
  "d" 'neotree-delete-node)
+
+;; Magit
+(general-define-key
+   :keymaps 'transient-base-map
+   "<escape>" 'transient-quit-all)
 
 ;; use E to go to EOL
 (general-define-key
