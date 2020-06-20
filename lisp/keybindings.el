@@ -15,25 +15,30 @@
 
 ;; General use keys that shouldn't be overridden
 (general-define-key
+ :prefix "C-C"
  :keymaps 'override
- "C-c n" 'deft
- "C-c e" 'eval-and-replace
+ "n" 'deft
+ "sd" 'magit-diff-buffer-file
+ "gs" 'magit-status
+ "y" 'browse-kill-ring
+ "C-r" 'leo/revert-buffer-no-confirm)
+
+(general-define-key
+ :keymaps 'override
  "s-r" 'rename-buffer
  "s-n" 'leo/generate-new-untitled-buffer
- "s-C" 'copy-relative-file-path
+ "s-C" 'leo/copy-relative-file-path
  "s-w" 'delete-window
  "s-d" 'evil-mc-make-and-goto-next-match
  "s-J" 'leo/duplicate-line
  "s-e" 'leo/neotree-toggle
  "s-p" 'counsel-projectile-find-file
- "s-F" 'counsel-ag-search-all-project
+ "s-F" 'leo/counsel-ag-search-all-project
  "s-k" 'kill-this-buffer
- "C-c s d" 'magit-diff-buffer-file
- "C-c g s" 'magit-status
- "y" 'browse-kill-ring
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
+ "C-c e" 'leo/eval-and-replace
  "C-q" 'yas-expand
  "C-(" 'rubocop-check-current-file
  "C-x C-f" 'counsel-find-file

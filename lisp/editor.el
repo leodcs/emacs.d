@@ -66,7 +66,6 @@
 
 (use-package undo-tree)
 
-
 (use-package saveplace
   :init (setq-default save-place t)
   :config
@@ -89,7 +88,11 @@
 
 ; -------------------------- Functions --------------------------------
 
-(defun counsel-ag-search-all-project ()
+(defun leo/revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))
+
+(defun leo/counsel-ag-search-all-project ()
   (interactive)
   (if (eq evil-state 'visual)
       (let ((search-string (buffer-substring
@@ -100,7 +103,7 @@
     (counsel-ag))
 )
 
-(defun eval-and-replace ()
+(defun leo/eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
   (backward-kill-sexp)
@@ -110,15 +113,6 @@
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
 
-(defun my-switch-project-hook ()
-  "Perform some action after switching Projectile projects."
-  ;; Do something interesting here...
-  ;;
-  ;; `projectile-current-project-files', and `projectile-current-project-dirs' can be used
-  ;; to get access to the new project's files, and directories.
-  (rvm-activate-corresponding-ruby)
-  )
-
 (defun leo/generate-new-untitled-buffer ()
   "Create a new buffer with name untitled."
   (interactive)
@@ -127,7 +121,7 @@
   (evil-mc-mode)
   (evil-insert-state))
 
-(defun copy-relative-file-path ()
+(defun leo/copy-relative-file-path ()
   "Copy the current buffer's relative file path to `kill-ring'."
   (interactive)
   (kill-new
@@ -135,7 +129,7 @@
   (evil-echo "File path copied: \"%s\"" (car kill-ring))
 )
 
-(defun copy-full-file-path (&optional @dir-path-only-p)
+(defun leo/copy-full-file-path (&optional @dir-path-only-p)
   "Copy the current buffer's file path or dired path to `kill-ring'.
    Result is full path.
    If `universal-argument' is called first, copy only the dir path.
@@ -167,7 +161,7 @@
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
 
-(defun save-and-run-rubocop ()
+(defun leo/save-and-run-rubocop ()
   "Saves buffer and runs rubocop autocorrect"
   (interactive)
   (save-buffer)
@@ -226,5 +220,4 @@
   (interactive)
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max))
-)
+  (untabify (point-min) (point-max)))

@@ -37,7 +37,7 @@
   (message "%s" (shell-command-to-string
                  (concat "bundle exec rubocop -a "
                          (shell-quote-argument (buffer-file-name)))))
-  (msc/revert-buffer-noconfirm)
+  (leo/revert-buffer-no-confirm)
 )
 
 (defun leo/copy-ruby-class-name ()
