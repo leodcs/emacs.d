@@ -6,6 +6,7 @@
 
 ; -------------------------- Variables --------------------------------
 
+(setq confirm-kill-emacs 'yes-or-no-p)
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Monaco")
   (set-face-attribute 'default nil :height 172)
