@@ -90,7 +90,9 @@
 
 (defun leo/revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
-  (interactive) (revert-buffer t t))
+  (interactive)
+  (revert-buffer t t)
+  (message "Buffer reloaded."))
 
 (defun leo/counsel-ag-search-all-project ()
   (interactive)
