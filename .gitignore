@@ -5,6 +5,7 @@ transient
 places
 .places
 backups
+vendor
 
 snippets/*
 !snippets/web-mode

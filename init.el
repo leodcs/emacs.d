@@ -54,6 +54,8 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(add-to-list 'load-path "~/.emacs.d/vendor/")
+
 (load "~/.emacs.d/lisp/autocompletion.el")
 (load "~/.emacs.d/lisp/dired.el")
 (load "~/.emacs.d/lisp/editor.el")

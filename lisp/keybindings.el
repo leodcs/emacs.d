@@ -44,6 +44,10 @@
  "C-x C-f" 'counsel-find-file
  "s-E" 'eval-last-sexp)
 
+(general-define-key
+ :keymaps 'web-mode-map
+ "s-x" 'leo/save-and-run-erblint-autocorrect)
+
 ;; Neotree
 (general-define-key
  :keymaps 'neotree-mode-map

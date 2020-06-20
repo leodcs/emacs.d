@@ -29,10 +29,10 @@
 
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'ruby-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-rubocop)))
-(add-hook 'web-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'leo/save-and-run-erblint)))
 (add-hook 'dired-after-readin-hook 'sof/dired-sort)
 
 ; -------------------------- Packages --------------------------------
+(require 'erblint)
 
 (use-package helm
   :init
@@ -162,25 +162,6 @@
        (progn
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
-
-(defun leo/save-and-run-rubocop ()
-  "Saves buffer and runs rubocop autocorrect"
-  (interactive)
-  (save-buffer)
-  ;; (call-process-shell-command
-  ;;  (format "rubocop -a --config ~/projects/personal/dotfiles/rubocop/rubocop.yml %s"
-  ;;          (shell-quote-argument (buffer-file-name))))
-  (rubocop-autocorrect-current-file)
-  )
-
-(defun leo/save-and-run-erblint ()
-  "Saves buffer and runs erblint autocorrect"
-  (interactive)
-  (save-buffer)
-  (shell-command
-   (format "erblint -a --config ~/projects/personal/dotfiles/erb-lint/erb-lint.yml %s"
-           (shell-quote-argument (buffer-file-name))))
-  (web-mode-reload))
 
 (defun leo/duplicate-line (arg)
   "Duplicate current line, leaving point in lower line."
