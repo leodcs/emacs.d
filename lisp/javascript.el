@@ -10,8 +10,7 @@
 (use-package browse-kill-ring
   :config
   (setq browse-kill-ring-highlight-current-entry t)
-  (setq browse-kill-ring-highlight-inserted-item "pulse")
-  (global-set-key (kbd "s-y") 'browse-kill-ring))
+  (setq browse-kill-ring-highlight-inserted-item "pulse"))
 
 (use-package js2-mode
   :config

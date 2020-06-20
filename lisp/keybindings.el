@@ -11,6 +11,7 @@
  "<up>" 'close-html-tag
  "RET" 'evil-switch-to-windows-last-buffer
  "d" 'delete-other-windows
+ "y" 'browse-kill-ring
  "fm" 'projectile-rails-find-model)
 
 ;; General use keys that shouldn't be overridden
