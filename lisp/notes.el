@@ -5,6 +5,8 @@
 (setq org-src-tab-acts-natively t)
 
 ; -------------------------- Packages --------------------------------
+(require 'livedown)
+
 (use-package org-bullets
   :init
   (add-hook 'org-mode-hook 'org-bullets-mode))

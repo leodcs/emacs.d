@@ -64,7 +64,6 @@
 (load "~/.emacs.d/lisp/gui.el")
 (load "~/.emacs.d/lisp/javascript.el")
 (load "~/.emacs.d/lisp/json.el")
-(load "~/.emacs.d/lisp/markdown.el")
 (load "~/.emacs.d/lisp/notes.el")
 (load "~/.emacs.d/lisp/project_management.el")
 (load "~/.emacs.d/lisp/ruby.el")
@@ -79,7 +78,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(evil-org evil-collection evil-goggles general dracula-theme distinguished-theme dinstinguished-theme cyberpunk-theme browse-kill-ring deft evil-magit auto-dim-other-buffers golden-ratio zoom-frm json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-leader evil-multiedit evil-mc fill-column-indicator eglot lsp-mode dotenv-mode markdown-mode auto-answer evil-surround evil-commentary nlinum-relative linum-relative evil rubocop anzu flx goto-chg dot-mode helm helm-config rvm highlight-indent-guides which-key rbenv yasnippet-snippets yasnippet smartparens company ace-window flycheck-popup-tip flycheck-pos-tip flycheck expand-region zencoding-mode web-mode hungry-delete exec-path-from-shell rspec-mode robe projectile-rails counsel-projectile projectile git-gutter magit wgrep-ag wgrep ivy-hydra counsel dashboard neotree kaolin-themes doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
+   '(package-lint evil-org evil-collection evil-goggles general dracula-theme distinguished-theme dinstinguished-theme cyberpunk-theme browse-kill-ring deft evil-magit auto-dim-other-buffers golden-ratio zoom-frm json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-leader evil-multiedit evil-mc fill-column-indicator eglot lsp-mode dotenv-mode markdown-mode auto-answer evil-surround evil-commentary nlinum-relative linum-relative evil rubocop anzu flx goto-chg dot-mode helm helm-config rvm highlight-indent-guides which-key rbenv yasnippet-snippets yasnippet smartparens company ace-window flycheck-popup-tip flycheck-pos-tip flycheck expand-region zencoding-mode web-mode hungry-delete exec-path-from-shell rspec-mode robe projectile-rails counsel-projectile projectile git-gutter magit wgrep-ag wgrep ivy-hydra counsel dashboard neotree kaolin-themes doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
