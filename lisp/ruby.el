@@ -60,16 +60,13 @@
       (message "Copied %s" name))))
 
 (defun leo/save-and-run-rubocop ()
-  "Saves buffer and runs rubocop autocorrect"
+  "Save buffer and run rubocop autocorrect."
   (interactive)
   (save-buffer)
-  ;; (call-process-shell-command
-  ;;  (format "rubocop -a --config ~/projects/personal/dotfiles/rubocop/rubocop.yml %s"
-  ;;          (shell-quote-argument (buffer-file-name))))
   (rubocop-autocorrect-current-file))
 
 (defun leo/save-and-run-erblint-autocorrect ()
-  "Saves buffer and runs erblint autocorrect"
+  "Save buffer and run erblint autocorrect."
   (interactive)
   (save-buffer)
   (erblint-autocorrect-current-file)

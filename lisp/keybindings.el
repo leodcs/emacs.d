@@ -41,9 +41,13 @@
 (general-define-key
  "C-c e" 'leo/eval-and-replace
  "C-q" 'yas-expand
- "C-(" 'rubocop-check-current-file
  "C-x C-f" 'counsel-find-file
  "s-E" 'eval-last-sexp)
+
+(general-define-key
+ :keymaps 'ruby-mode-map
+ :states '(normal insert visual)
+ "s-S" 'leo/save-and-run-rubocop)
 
 (general-define-key
  :keymaps 'web-mode-map
