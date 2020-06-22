@@ -25,6 +25,7 @@
 
 (general-define-key
  :keymaps 'override
+ "s-x" 'helm-M-x
  "s-r" 'rename-buffer
  "s-n" 'leo/generate-new-untitled-buffer
  "s-C" 'leo/copy-relative-file-path
@@ -46,7 +47,8 @@
 
 (general-define-key
  :keymaps 'web-mode-map
- "s-x" 'leo/save-and-run-erblint-autocorrect)
+ :states '(normal visual)
+ "s-S" 'leo/save-and-run-erblint-autocorrect)
 
 ;; Neotree
 (general-define-key
