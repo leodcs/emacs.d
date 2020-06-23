@@ -85,3 +85,9 @@
 (general-define-key
  :states '(normal visual)
  "=" 'leo/evil-indent)
+
+(general-define-key
+ :states '(normal visual)
+ :keywords 'ruby-mode-map
+ "M-]" 'robe-jump
+ "M-[" 'pop-tag-mark)

@@ -5,8 +5,10 @@
 
 ; -------------------------- Hooks --------------------------------
 
-(add-hook 'ruby-mode-hook 'evil-ruby-text-objects-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+(add-hook 'ruby-mode-hook 'evil-ruby-text-objects-mode)
+(advice-add 'inf-ruby-console-auto :before #'rvm-activate-corresponding-ruby)
 (add-to-list 'auto-mode-alist '("\\.arb\\'"          . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.axlsx\\'"          . ruby-mode))
 
@@ -28,6 +30,7 @@
   :init
   (rvm-use-default))
 
+(use-package robe)
 
 ; -------------------------- Functions --------------------------------
 
