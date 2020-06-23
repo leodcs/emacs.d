@@ -81,3 +81,7 @@
 (general-define-key
  :states '(motion)
  "E" 'evil-end-of-line)
+
+(general-define-key
+ :states '(normal visual)
+ "=" 'leo/evil-indent)

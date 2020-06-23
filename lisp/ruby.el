@@ -5,6 +5,7 @@
 
 ; -------------------------- Hooks --------------------------------
 
+(add-hook 'ruby-mode-hook 'evil-ruby-text-objects-mode)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 (add-to-list 'auto-mode-alist '("\\.arb\\'"          . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.axlsx\\'"          . ruby-mode))
