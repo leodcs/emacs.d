@@ -22,6 +22,7 @@
 (setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 (setq kill-buffer-query-functions nil)
 (setq-default line-spacing 1) ;; A nice line height
+(setq linum-relative-current-symbol "")
 (setq-default frame-title-format '((:eval (if (buffer-file-name)
                                               (abbreviate-file-name (buffer-file-name)) "%f"))))
 
@@ -33,6 +34,8 @@
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
 
 ; -------------------------- Packages --------------------------------
+(linum-relative-global-mode t)
+
 (require 'erblint)
 (require 'ansi-color)
 
@@ -53,7 +56,6 @@
   (drag-stuff-global-mode)
   (global-set-key (kbd "<s-up>") 'drag-stuff-up)
   (global-set-key (kbd "<s-down>") 'drag-stuff-down))
-
 
 (use-package fill-column-indicator
   :init
@@ -129,7 +131,7 @@
   "Create a new buffer with name untitled."
   (interactive)
   (switch-to-buffer (generate-new-buffer "untitled"))
-  (nlinum-relative-mode)
+  (linum-relative-mode)
   (evil-mc-mode)
   (evil-insert-state))
 

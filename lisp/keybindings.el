@@ -80,6 +80,4 @@
 ;; use E to go to EOL
 (general-define-key
  :states '(motion)
- "E" '(lambda ()
-        (interactive)
-        (evil-end-of-line)))
+ "E" 'evil-end-of-line)

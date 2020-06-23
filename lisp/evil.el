@@ -13,21 +13,12 @@
   (define-key evil-insert-state-map (kbd "<ESCAPE>") 'keyboard-quit)
 
   (global-display-line-numbers-mode 0)
-  (global-linum-mode 0)
 
   (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol)
     ;; make evil-search-word look for symbol rather than word boundaries
     (setq-default evil-symbol-word-search t))
 
-  (use-package nlinum-relative
-    :config
-    ;; something else you want
-    (nlinum-relative-setup-evil)
-    (global-nlinum-relative-mode)
-    (setq nlinum-relative-redisplay-delay 0)
-    (setq nlinum-relative-current-symbol "")
-    )
   (use-package evil-commentary
     :config
     (evil-commentary-mode)
