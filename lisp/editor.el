@@ -35,6 +35,7 @@
 
 ; -------------------------- Packages --------------------------------
 (linum-relative-global-mode t)
+(flyspell-mode)
 
 (require 'erblint)
 (require 'ansi-color)
