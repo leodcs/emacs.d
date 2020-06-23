@@ -38,7 +38,7 @@ Open Emacs and run:
 | `s-n` | Create an untitled buffer |
 | `s-r` | Rename current buffer |
 | `s-k` | Kill current buffer |
-| `C-n` | Multiple cursor on next occurrence |
+| `s-d` | Multiple cursor on next occurrence |
 | `M-o` | Switch windows |
 | `SPC-SPC` | Switch to buffer |
 | `SPC-RET` | Go back to previous buffer |
