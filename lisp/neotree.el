@@ -6,6 +6,7 @@
   (setq neo-smart-open t)
   (setq neo-confirm-create-file 'off-p)
   (setq neo-window-width 35)
+  (setq neo-default-system-application "open")
 
   (defun leo/neotree-toggle ()
     (interactive)
