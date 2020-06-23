@@ -7,6 +7,7 @@
   (setq neo-confirm-create-file 'off-p)
   (setq neo-window-width 35)
   (setq neo-default-system-application "open")
+  (setq neo-confirm-create-directory 'off-p)
 
   (defun leo/neotree-toggle ()
     (interactive)
