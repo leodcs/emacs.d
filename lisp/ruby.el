@@ -37,8 +37,13 @@
   (message "%s" (shell-command-to-string
                  (concat "bundle exec rubocop -a "
                          (shell-quote-argument (buffer-file-name)))))
-  (leo/revert-buffer-no-confirm)
-)
+  (leo/revert-buffer-no-confirm))
+
+(defun leo/ruby-symbol-at-point ()
+  (let ((l (point)))
+    (save-excursion
+      (forward-sexp 1)
+      (buffer-substring l (point)))))
 
 (defun leo/copy-ruby-class-name ()
   (interactive)
@@ -47,15 +52,15 @@
           (case-fold-search nil))
       (skip-chars-backward (rx (syntax symbol)))
       (when (looking-at-p "\\_<[A-Z]")
-        (setq name (endless/-ruby-symbol-at-point)))
+        (setq name (leo/ruby-symbol-at-point)))
       (while (ignore-errors (backward-up-list) t)
         (when (looking-at-p "class\\|module")
           (save-excursion
             (forward-word 1)
             (skip-chars-forward "\r\n[:blank:]")
             (setq name (if name
-                           (concat (endless/-ruby-symbol-at-point) "::" name)
-                         (endless/-ruby-symbol-at-point))))))
+                           (concat (leo/ruby-symbol-at-point) "::" name)
+                         (leo/ruby-symbol-at-point))))))
       (kill-new name)
       (message "Copied %s" name))))
 
