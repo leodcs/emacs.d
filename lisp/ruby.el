@@ -17,11 +17,13 @@
 (setq ruby-insert-encoding-magic-comment nil)
 (setq enh-ruby-add-encoding-comment-on-save nil)
 (defvar projectile-rails-vanilla-command "bin/rails")
+(setq erblint-project-root-function 'projectile-rails-root)
 
 ; -------------------------- Packages --------------------------------
 (use-package rubocop)
 (use-package yaml-mode)
 (use-package hungry-delete)
+(require 'erblint)
 
 (use-package exec-path-from-shell
   :config (exec-path-from-shell-initialize))
