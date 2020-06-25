@@ -21,6 +21,7 @@
  "sd" 'magit-diff-buffer-file
  "gs" 'magit-status
  "y" 'browse-kill-ring
+ "ff" 'find-file
  "C-r" 'leo/revert-buffer-no-confirm)
 
 (general-define-key
@@ -41,7 +42,6 @@
 (general-define-key
  "C-c e" 'leo/eval-and-replace
  "C-q" 'yas-expand
- "C-x C-f" 'counsel-find-file
  "s-E" 'eval-last-sexp)
 
 (general-define-key
