@@ -2,6 +2,6 @@
 # name: col
 # key: col
 # --
-<div class = "col col-lg-${4}">
+<div class="col col-md-${4}">
   $0
 </div>

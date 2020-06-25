@@ -2,6 +2,6 @@
 # name: row
 # key: row
 # --
-<div class = "row">
+<div class="row">
   $0
 </div>
