@@ -23,6 +23,8 @@
 (setq recentf-max-saved-items 120)
 (global-set-key [escape] 'keyboard-escape-quit)
 (global-set-key (kbd "M-o") 'other-window)
+(setq frame-resize-pixelwise t)
+(dotimes (n 3) (toggle-frame-maximized))
 
 ;; UTF-8
 (setq locale-coding-system 'utf-8)
