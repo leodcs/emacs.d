@@ -1,4 +1,3 @@
-(setq-default fill-column 80) ; toggle wrapping text at this column
 (setq gc-cons-threshold (* 50 1000 1000))
 (setq delete-old-versions -1 ) ; delete excess backups silently
 (setq version-control t )
