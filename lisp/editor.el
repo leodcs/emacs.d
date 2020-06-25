@@ -131,13 +131,15 @@
   (evil-mc-mode)
   (evil-insert-state))
 
+(defun leo/get-current-file-relative-path ()
+  (interactive)
+  (file-relative-name buffer-file-name (projectile-project-root)))
+
 (defun leo/copy-relative-file-path ()
   "Copy the current buffer's relative file path to `kill-ring'."
   (interactive)
-  (kill-new
-   (file-relative-name buffer-file-name (projectile-project-root)))
-  (evil-echo "File path copied: \"%s\"" (car kill-ring))
-)
+  (kill-new (leo/get-current-file-relative-path))
+  (evil-echo "File path copied: \"%s\"" (car kill-ring)))
 
 (defun leo/copy-full-file-path (&optional @dir-path-only-p)
   "Copy the current buffer's file path or dired path to `kill-ring'.

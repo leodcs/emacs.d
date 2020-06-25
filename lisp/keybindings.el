@@ -18,11 +18,16 @@
  :prefix "C-C"
  :keymaps 'override
  "n" 'deft
- "sd" 'magit-diff-buffer-file
- "gs" 'magit-status
  "y" 'browse-kill-ring
  "ff" 'find-file
  "C-r" 'leo/revert-buffer-no-confirm)
+
+(general-define-key
+ :prefix "C-C g"
+ :keymaps 'override
+ "d" 'magit-diff-buffer-file
+ "s" 'magit-status
+ "o" 'leo/magit-open-file-in-repo)
 
 (general-define-key
  :keymaps 'override
