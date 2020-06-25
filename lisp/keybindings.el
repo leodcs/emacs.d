@@ -89,4 +89,5 @@
 (general-define-key
  :states '(normal visual)
  :keywords 'ruby-mode-map
- "C-]" 'robe-jump)
+ "s-]" 'robe-jump
+ "s-[" 'pop-tag-mark)
