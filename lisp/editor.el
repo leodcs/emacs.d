@@ -30,17 +30,13 @@
 
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'ruby-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-rubocop)))
-(add-hook 'dired-after-readin-hook 'sof/dired-sort)
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
 
 ; -------------------------- Packages --------------------------------
 (linum-relative-global-mode t)
 (flyspell-mode)
 
-(require 'erblint)
 (require 'ansi-color)
-
-(use-package package-lint)
 
 (defun leo/fix-colors-on-compilation-mode()
   "Fixes the output colors on compilation mode buffers."

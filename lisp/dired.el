@@ -1,10 +1,23 @@
+(add-hook 'dired-after-readin-hook 'leo/dired-sort)
+
 (require 'dired-x)
 
-;; Use ls from emacs
-(when (eq system-type 'darwin)
-  (require 'ls-lisp)
-  (setq ls-lisp-use-insert-directory-program nil))
+;; Nice listing
+(setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
 
+;; Always copy/delete recursively
+(setq dired-recursive-copies (quote always))
+(setq dired-recursive-deletes (quote top))
+
+;; Auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+;; Hide some files
+(setq dired-omit-files "^\\..*$\\|^\\.\\.$")
+(setq dired-omit-mode t)
+
+;; List directories first
 (defun leo/dired-sort ()
   "Dired sort hook to list directories first."
   (save-excursion
@@ -16,6 +29,7 @@
        (dired-insert-set-properties (point-min) (point-max)))
   (set-buffer-modified-p nil))
 
+(add-hook 'dired-after-readin-hook 'leo/dired-sort)
 
 ;; Automatically create missing directories when creating new files
 (defun leo/create-non-existent-directory ()
@@ -24,6 +38,11 @@
                (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions #'leo/create-non-existent-directory)
+
+;; Use ls from emacs
+(when (eq system-type 'darwin)
+  (require 'ls-lisp)
+  (setq ls-lisp-use-insert-directory-program nil))
 
 ;; Changing the way M-<and M-> work in dired
 ;; Instead of taking me to the very beginning or very end, they now take me to the first or last file.
@@ -47,3 +66,5 @@
 (defun leo/dired-back-to-start-of-files ()
   (interactive)
   (backward-char (- (current-column) 2)))
+
+(define-key dired-mode-map (kbd "C-a") 'leo/dired-back-to-start-of-files)
