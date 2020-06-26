@@ -56,6 +56,7 @@
 (use-package fill-column-indicator
   :init
   (progn
+    (setq-default fill-column 80)
     (setq fci-rule-width 1)
     (setq fci-rule-color "#D0BF8F")
     ;; manually register the minor mode since it does not define any
