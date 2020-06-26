@@ -73,12 +73,14 @@
 (defun leo/save-and-run-rubocop ()
   "Save buffer and run rubocop autocorrect."
   (interactive)
+  (leo/indent-whole-buffer)
   (save-buffer)
   (rubocop-autocorrect-current-file))
 
 (defun leo/save-and-run-erblint-autocorrect ()
   "Save buffer and run erblint autocorrect."
   (interactive)
+  (leo/indent-whole-buffer)
   (save-buffer)
   (erblint-autocorrect-current-file)
   (web-mode-reload)
