@@ -17,7 +17,6 @@
 (general-define-key
  :prefix "C-C"
  :keymaps 'override
- "n" 'deft
  "y" 'browse-kill-ring
  "ff" 'find-file
  "C-r" 'leo/revert-buffer-no-confirm)
@@ -34,6 +33,7 @@
  "s-x" 'helm-M-x
  "s-r" 'rename-buffer
  "s-n" 'leo/generate-new-untitled-buffer
+ "s-N" 'deft
  "s-C" 'leo/copy-relative-file-path
  "s-w" 'delete-window
  "s-d" 'evil-mc-make-and-goto-next-match
