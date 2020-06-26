@@ -18,6 +18,8 @@
 (setq enh-ruby-add-encoding-comment-on-save nil)
 (defvar projectile-rails-vanilla-command "bin/rails")
 (setq erblint-project-root-function 'projectile-rails-root)
+(setq erblint-check-command "~/.rvm/gems/ruby-2.4.2/gems/erb_lint-0.0.30/exe/erblint")
+(setq erblint-autocorrect-command (concat erblint-check-command " -a"))
 
 ; -------------------------- Packages --------------------------------
 (use-package rubocop)
