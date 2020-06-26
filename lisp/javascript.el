@@ -30,13 +30,6 @@
   (add-hook 'js2-mode-hook (lambda ()
                            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
 
-(use-package company-tern
-  :config
-  (add-to-list 'company-backends 'company-tern)
-  (add-hook 'js2-mode-hook (lambda ()
-                           (tern-mode)
-                           (company-mode))))
-
 (use-package tide
   :defer 2
   :after (typescript-mode company flycheck)

@@ -73,7 +73,10 @@
     (add-hook 'web-mode-hook 'turn-on-fci-mode)
     (add-hook 'web-mode-hook 'whitespace-mode)))
 
-(use-package undo-tree)
+(use-package undo-tree
+  :config
+  (setq undo-tree-auto-save-history t)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))))
 
 (use-package saveplace
   :init (setq-default save-place t)

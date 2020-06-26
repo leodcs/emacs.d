@@ -6,6 +6,7 @@ places
 .places
 backups
 vendor
+undo
 
 snippets/*
 !snippets/web-mode
