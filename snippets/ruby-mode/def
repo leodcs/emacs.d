@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: def ... end
+# key: def
+# --
+def ${1:method}
+end
