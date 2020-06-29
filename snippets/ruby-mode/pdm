@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: def-private-method
+# key: pdm
+# --
+private
+
+def ${1:method}

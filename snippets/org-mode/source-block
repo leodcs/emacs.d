@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : source-block
+# key: sb
+# --
+#+BEGIN_SRC ${1:language}
+  $2
+#+END_SRC
