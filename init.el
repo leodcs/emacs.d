@@ -70,8 +70,8 @@
 (load "~/.emacs.d/lisp/ruby.el")
 (load "~/.emacs.d/lisp/search.el")
 (load "~/.emacs.d/lisp/web.el")
-(load "~/.emacs.d/lisp/neotree.el")
 (load "~/.emacs.d/lisp/keybindings.el")
+(load "~/.emacs.d/lisp/treemacs.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -79,7 +79,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-mc fill-column-indicator evil-surround evil-commentary linum-relative evil rubocop anzu helm rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard neotree doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
+   '(ivy-posframe erblint treemacs-icons-dired treemacs-magit treemacs-projectile treemacs ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-mc fill-column-indicator evil-surround evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
