@@ -2,7 +2,7 @@
 
 My Emacs configuration directory to use on Ruby on Rails and Javascript development.
 
-![demonstration.png](https://www.imagemhost.com.br/images/2020/06/16/demonstration.png)
+![demonstration.png](https://i.imgur.com/KLaF6ny.png)
 
 ## Requirements
 
