@@ -1,5 +1,26 @@
 (use-package general)
 
+(general-define-key
+ :keymaps 'override
+ "s-x" 'counsel-M-x
+ "s-r" 'leo/revert-buffer-no-confirm
+ "s-n" 'leo/generate-new-untitled-buffer
+ "s-N" 'deft
+ "s-C" 'leo/copy-relative-file-path
+ "s-w" 'delete-window
+ "s-d" 'evil-mc-make-and-goto-next-match
+ "s-J" 'leo/duplicate-line
+ "s-e" 'treemacs
+ "s-p" 'counsel-projectile-find-file
+ "s-F" 'leo/counsel-ag-search-all-project
+ "s-k" 'kill-this-buffer
+ "C-=" 'leo/indent-whole-buffer)
+
+(general-define-key
+ :states '(visual)
+ :keymaps 'override
+ "s-v" 'leo/evil-paste)
+
 ;; Leader Keybindings
 (defconst leo/leader "<SPC>")
 (general-define-key
@@ -27,23 +48,6 @@
  "d" 'magit-diff-buffer-file
  "s" 'magit-status
  "o" 'leo/magit-open-file-in-repo)
-
-(general-define-key
- :keymaps 'override
- "s-x" 'counsel-M-x
- "M-x" 'counsel-M-x
- "s-r" 'leo/revert-buffer-no-confirm
- "s-n" 'leo/generate-new-untitled-buffer
- "s-N" 'deft
- "s-C" 'leo/copy-relative-file-path
- "s-w" 'delete-window
- "s-d" 'evil-mc-make-and-goto-next-match
- "s-J" 'leo/duplicate-line
- "s-e" 'treemacs
- "s-p" 'counsel-projectile-find-file
- "s-F" 'leo/counsel-ag-search-all-project
- "s-k" 'kill-this-buffer
- "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
  "C-c e" 'leo/eval-and-replace

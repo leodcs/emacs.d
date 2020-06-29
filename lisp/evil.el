@@ -14,6 +14,11 @@
 
   (global-display-line-numbers-mode 0)
 
+  (defun leo/evil-paste ()
+    (interactive)
+    (evil-visual-paste 1)
+    (right-char))
+
   (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol)
     ;; make evil-search-word look for symbol rather than word boundaries
@@ -72,23 +77,6 @@
     (evil-next-line))
 
   ;; MACROS
-  ;;
-  ;; Evil-mode macros are not special, they are just ordinary Emacs macros and you save them the same way,
-  ;; but you'll need to do some special work to get them into the evil registers.
-
-  ;; Let's walk through an example:
-
-  ;; In a buffer, do qfifoobarESCq. This will save a macro into the f register that inserts foobar into the buffer.
-
-  ;; Now run M-x name-last-kbd-macro <RET> mymacro <RET>
-
-  ;; Go to your init.el file and do M-x insert-kbd-macro <RET> mymacro <RET>
-
-  ;; This will dump your macro out into an fset call.
-
-  ;; (fset 'mymacro [?i ?f ?o ?o ?b ?a ?r escape])
-  ;;
-  ;;
   (fset 'open-html-tag "ysit\C-j=it")
   (fset 'close-html-tag "JxJx"))
 

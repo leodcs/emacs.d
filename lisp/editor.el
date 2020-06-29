@@ -21,7 +21,7 @@
 (setq delete-by-moving-to-trash t)
 (setq confirm-kill-emacs 'yes-or-no-p)
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 (setq tab-width 2)
 (setq system-uses-terminfo nil)
 (setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
@@ -92,7 +92,7 @@ When using Homebrew, install it using \"brew install trash\"."
   "Revert buffer without confirmation."
   (interactive)
   (revert-buffer t t)
-  (message "Buffer reloaded."))
+  (message "Buffer reloaded"))
 
 (defun leo/counsel-ag-search-all-project ()
   (interactive)
