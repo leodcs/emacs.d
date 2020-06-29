@@ -18,8 +18,8 @@
  :prefix "C-C"
  :keymaps 'override
  "y" 'browse-kill-ring
- "ff" 'find-file
- "C-r" 'leo/revert-buffer-no-confirm)
+ "C-r" 'rename-buffer
+ "ff" 'find-file)
 
 (general-define-key
  :prefix "C-C g"
@@ -32,7 +32,7 @@
  :keymaps 'override
  "s-x" 'counsel-M-x
  "M-x" 'counsel-M-x
- "s-r" 'rename-buffer
+ "s-r" 'leo/revert-buffer-no-confirm
  "s-n" 'leo/generate-new-untitled-buffer
  "s-N" 'deft
  "s-C" 'leo/copy-relative-file-path
