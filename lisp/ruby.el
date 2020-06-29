@@ -17,15 +17,17 @@
 (setq ruby-insert-encoding-magic-comment nil)
 (setq enh-ruby-add-encoding-comment-on-save nil)
 (defvar projectile-rails-vanilla-command "bin/rails")
-(setq erblint-project-root-function 'projectile-rails-root)
-(setq erblint-check-command "~/.rvm/gems/ruby-2.4.2/gems/erb_lint-0.0.30/exe/erblint")
-(setq erblint-autocorrect-command (concat erblint-check-command " -a"))
 
 ; -------------------------- Packages --------------------------------
 (use-package rubocop)
 (use-package yaml-mode)
 (use-package hungry-delete)
-(require 'erblint)
+
+(use-package erblint
+  :config
+  (setq erblint-project-root-function 'projectile-rails-root)
+  (setq erblint-check-command "~/.rvm/gems/ruby-2.4.2/gems/erb_lint-0.0.30/exe/erblint")
+  (setq erblint-autocorrect-command (concat erblint-check-command " -a")))
 
 (use-package exec-path-from-shell
   :config (exec-path-from-shell-initialize))
@@ -85,5 +87,4 @@
   (leo/indent-whole-buffer)
   (save-buffer)
   (erblint-autocorrect-current-file)
-  (web-mode-reload)
-  (leo/revert-buffer-no-confirm))
+  (web-mode-reload))
