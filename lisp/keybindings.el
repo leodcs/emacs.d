@@ -30,7 +30,8 @@
 
 (general-define-key
  :keymaps 'override
- "s-x" 'helm-M-x
+ "s-x" 'counsel-M-x
+ "M-x" 'counsel-M-x
  "s-r" 'rename-buffer
  "s-n" 'leo/generate-new-untitled-buffer
  "s-N" 'deft

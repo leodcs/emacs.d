@@ -17,8 +17,6 @@
 (setq tab-width 2)
 (progn (setq-default indent-tabs-mode nil))
 (setq system-uses-terminfo nil)
-(setq ivy-re-builders-alist '((ivy-switch-buffer . ivy--regex-plus)))
-(setq ivy-initial-inputs-alist nil)
 (setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
 (setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 (setq kill-buffer-query-functions nil)
@@ -44,9 +42,6 @@
   (ansi-color-apply-on-region compilation-filter-start (point))
   (toggle-read-only))
 
-(use-package helm
-  :init
-  (global-set-key (kbd "M-x") 'helm-M-x))
 
 (use-package drag-stuff
   :init
