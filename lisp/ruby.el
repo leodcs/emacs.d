@@ -1,13 +1,7 @@
 ; -------------------------- Hooks --------------------------------
 
-(add-hook 'ruby-mode-hook 'robe-mode)
-(add-hook 'ruby-mode-hook 'whitespace-mode)
-(add-hook 'ruby-mode-hook 'display-fill-column-indicator-mode)
-(add-hook 'web-mode-hook 'display-fill-column-indicator-mode)
-(add-hook 'web-mode-hook 'whitespace-mode)
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
-(add-hook 'ruby-mode-hook 'evil-ruby-text-objects-mode)
-(advice-add 'inf-ruby-console-auto :before #'rvm-activate-corresponding-ruby)
+(add-hook 'ruby-mode-hook 'leo/ruby-mode-enter-hook)
+(add-hook 'web-mode-hook 'leo/web-mode-enter-hook)
 (add-to-list 'auto-mode-alist '("\\.arb\\'"          . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.axlsx\\'"          . ruby-mode))
 
@@ -38,6 +32,18 @@
 (use-package robe)
 
 ; -------------------------- Functions --------------------------------
+
+(defun leo/ruby-mode-enter-hook ()
+  (interactive)
+  (robe-mode)
+  (whitespace-mode)
+  (display-fill-column-indicator-mode)
+  (evil-ruby-text-objects-mode))
+
+(defun leo/web-mode-enter-hook ()
+  (interactive)
+  (whitespace-mode)
+  (display-fill-column-indicator-mode))
 
 (defun leo/rubocop-current ()
   "RUBOCOP ON CURRENT FILE."
