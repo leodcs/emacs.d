@@ -3,27 +3,31 @@
 (column-number-mode)
 (transient-mark-mode 1)
 (global-auto-revert-mode 1) ;; Always reload the file if it changed on disk
+(linum-relative-global-mode t)
 
 ; -------------------------- Variables --------------------------------
 
-(setq delete-by-moving-to-trash t)
-(setq confirm-kill-emacs 'yes-or-no-p)
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Monaco")
   (set-face-attribute 'default nil :height 172)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
+(progn (setq-default indent-tabs-mode nil))
+(setq-default line-spacing 1)
+(setq-default fill-column 80)
+(setq whitespace-line-column 80)
+(setq whitespace-style '(face lines-tail))
+(custom-set-faces '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
+(setq-default frame-title-format '((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%f"))))
+(setq delete-by-moving-to-trash t)
+(setq confirm-kill-emacs 'yes-or-no-p)
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 (setq x-select-enable-clipboard t)
 (setq tab-width 2)
-(progn (setq-default indent-tabs-mode nil))
 (setq system-uses-terminfo nil)
 (setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
 (setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 (setq kill-buffer-query-functions nil)
-(setq-default line-spacing 1) ;; A nice line height
 (setq linum-relative-current-symbol "")
-(setq-default frame-title-format '((:eval (if (buffer-file-name)
-                                              (abbreviate-file-name (buffer-file-name)) "%f"))))
 
 ; -------------------------- Hooks --------------------------------
 
@@ -32,7 +36,6 @@
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
 
 ; -------------------------- Packages --------------------------------
-(linum-relative-global-mode t)
 
 (require 'ansi-color)
 
@@ -48,26 +51,6 @@
   (drag-stuff-global-mode)
   (global-set-key (kbd "<s-up>") 'drag-stuff-up)
   (global-set-key (kbd "<s-down>") 'drag-stuff-down))
-
-(use-package fill-column-indicator
-  :init
-  (progn
-    (setq-default fill-column 80)
-    (setq fci-rule-width 1)
-    (setq fci-rule-color "#D0BF8F")
-    ;; manually register the minor mode since it does not define any
-    ;; lighter
-    (push '(fci-mode "") minor-mode-alist)
-    (setq whitespace-line-column 80)
-    (setq whitespace-style '(face lines-tail))
-    (custom-set-faces
-     '(whitespace-line ((t (:foreground "black" :background "red" :underline t))))
-     )
-
-    (add-hook 'ruby-mode-hook 'turn-on-fci-mode)
-    (add-hook 'ruby-mode-hook 'whitespace-mode)
-    (add-hook 'web-mode-hook 'turn-on-fci-mode)
-    (add-hook 'web-mode-hook 'whitespace-mode)))
 
 (use-package undo-tree
   :config
@@ -89,7 +72,9 @@
 (use-package flycheck
   :init (global-flycheck-mode)
   :config
-  (flycheck-pos-tip-mode 0))
+  (use-package flycheck-posframe
+    :config (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
+    (setq flycheck-posframe-warning-prefix "\u26a0 ")))
 
 (use-package dotenv-mode
   :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))

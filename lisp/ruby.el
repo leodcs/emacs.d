@@ -1,11 +1,10 @@
-; -------------------------- Keybindings --------------------------------
-
-(define-key ruby-mode-map (kbd "C-c w") #'leo/copy-ruby-class-name)
-(define-key ruby-mode-map (kbd "C-)") #'leo/rubocop-current)
-
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'ruby-mode-hook 'whitespace-mode)
+(add-hook 'ruby-mode-hook 'display-fill-column-indicator-mode)
+(add-hook 'web-mode-hook 'display-fill-column-indicator-mode)
+(add-hook 'web-mode-hook 'whitespace-mode)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 (add-hook 'ruby-mode-hook 'evil-ruby-text-objects-mode)
 (advice-add 'inf-ruby-console-auto :before #'rvm-activate-corresponding-ruby)

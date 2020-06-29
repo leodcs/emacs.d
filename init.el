@@ -78,8 +78,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
  '(package-selected-packages
-   '(ivy-posframe erblint treemacs-icons-dired treemacs-magit treemacs-projectile treemacs ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-mc fill-column-indicator evil-surround evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
+   '(flycheck-posframe ivy-posframe erblint treemacs-icons-dired treemacs-magit treemacs-projectile treemacs ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-mc evil-surround evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -93,6 +94,9 @@
  '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
  '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
  '(evil-goggles-yank-face ((t (:inherit diff-changed))))
+ '(fill-column-indicator ((t (:inherit shadow :inverse-video nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1.0 :width condensed))))
+ '(flycheck-posframe-warning-face ((t (:inherit flycheck-posframe-face :foreground "red2"))))
+ '(flycheck-warning ((t (:background "#2d2e2e" :underline (:color "red2" :style wave)))))
  '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
 
 (setq gc-cons-threshold (* 2 1000 1000))

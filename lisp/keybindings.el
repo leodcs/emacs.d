@@ -53,7 +53,10 @@
 (general-define-key
  :keymaps 'ruby-mode-map
  :states '(normal insert visual)
- "s-S" 'leo/save-and-run-rubocop)
+ "s-S" 'leo/save-and-run-rubocop
+ "s-]" 'robe-jump
+ "s-[" 'pop-tag-mark
+ "C-c w" 'leo/copy-ruby-class-name)
 
 (general-define-key
  :keymaps 'web-mode-map
@@ -73,9 +76,3 @@
 (general-define-key
  :states '(normal visual)
  "=" 'leo/evil-indent)
-
-(general-define-key
- :states '(normal visual)
- :keywords 'ruby-mode-map
- "s-]" 'robe-jump
- "s-[" 'pop-tag-mark)
