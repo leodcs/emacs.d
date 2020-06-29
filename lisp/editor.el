@@ -6,6 +6,7 @@
 
 ; -------------------------- Variables --------------------------------
 
+(setq delete-by-moving-to-trash t)
 (setq confirm-kill-emacs 'yes-or-no-p)
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Monaco")
@@ -99,6 +100,13 @@
   :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
 
 ; -------------------------- Functions --------------------------------
+
+(defun system-move-file-to-trash (file)
+  "Use \"trash\" to move FILE to the system trash.
+When using Homebrew, install it using \"brew install trash\"."
+  (call-process (executable-find "trash")
+		nil 0 nil
+		file))
 
 (defun leo/revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
