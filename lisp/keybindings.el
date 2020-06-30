@@ -17,6 +17,10 @@
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
+ :keymaps '(browse-kill-ring-mode-map)
+ "<escape>" 'browse-kill-ring-quit)
+
+(general-define-key
  :states '(visual)
  :keymaps 'override
  "s-v" 'leo/evil-paste)
