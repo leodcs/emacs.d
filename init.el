@@ -65,7 +65,7 @@
 (load "~/.emacs.d/lisp/gui.el")
 (load "~/.emacs.d/lisp/javascript.el")
 (load "~/.emacs.d/lisp/json.el")
-(load "~/.emacs.d/lisp/notes.el")
+(load "~/.emacs.d/lisp/org.el")
 (load "~/.emacs.d/lisp/project_management.el")
 (load "~/.emacs.d/lisp/ruby.el")
 (load "~/.emacs.d/lisp/search.el")
@@ -78,9 +78,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
  '(package-selected-packages
-   '(flycheck-posframe ivy-posframe erblint treemacs-icons-dired treemacs-magit treemacs-projectile treemacs ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-mc evil-surround evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
+   '(org-superstar flycheck-posframe ivy-posframe erblint treemacs-icons-dired treemacs-magit treemacs-projectile treemacs ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-mc evil-surround evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -97,6 +96,7 @@
  '(fill-column-indicator ((t (:inherit shadow :inverse-video nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1.0 :width condensed))))
  '(flycheck-posframe-warning-face ((t (:inherit flycheck-posframe-face :foreground "red2"))))
  '(flycheck-warning ((t (:background "#2d2e2e" :underline (:color "red2" :style wave)))))
+ '(org-ellipsis ((t (:foreground "LightGoldenrod"))))
  '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
 
 (setq gc-cons-threshold (* 2 1000 1000))

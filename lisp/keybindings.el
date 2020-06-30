@@ -80,3 +80,8 @@
 (general-define-key
  :states '(normal visual)
  "=" 'leo/evil-indent)
+
+(general-define-key
+ :states '(normal visual)
+ :keymaps 'org-mode-map
+ "s-t" 'leo/org-toggle-emphasis-markers)

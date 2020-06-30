@@ -2,8 +2,8 @@
 (use-package doom-themes)
 (use-package distinguished-theme)
 
-(load-theme 'doom-molokai t) ;; Default
-;; (load-theme 'distinguished t)
+;; (load-theme 'doom-molokai t) ;; Default
+(load-theme 'distinguished t)
 
 (use-package auto-dim-other-buffers
   :config

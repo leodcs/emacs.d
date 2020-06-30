@@ -31,8 +31,6 @@
 
 ; -------------------------- Hooks --------------------------------
 
-(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-(add-hook 'ruby-mode-hook (lambda () (local-set-key (kbd "C-x C-x") 'save-and-run-rubocop)))
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
 
 ; -------------------------- Packages --------------------------------

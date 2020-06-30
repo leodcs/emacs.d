@@ -12,6 +12,7 @@
   (setq ivy-count-format "%d/%d ")
   (setq ivy-re-builders-alist
         '((counsel-M-x . ivy--regex-fuzzy)
+          (ivy-switch-buffer . ivy--regex-fuzzy)
           (t      . ivy--regex-plus)))
   (setq ivy-initial-inputs-alist nil)
 
