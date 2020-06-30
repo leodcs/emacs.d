@@ -55,5 +55,6 @@
 
 (defun leo/org-mode-hook ()
   (interactive)
+  (visual-line-mode)
   (org-pretty-table-mode)
   (org-superstar-mode))
