@@ -14,20 +14,20 @@
 (progn (setq-default indent-tabs-mode nil))
 (setq-default line-spacing 1)
 (setq-default fill-column 80)
-(setq whitespace-line-column 80)
-(setq whitespace-style '(face lines-tail))
-(custom-set-faces '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
 (setq-default frame-title-format '((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%f"))))
-(setq delete-by-moving-to-trash t)
-(setq confirm-kill-emacs 'yes-or-no-p)
+(custom-set-faces '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
-(setq select-enable-clipboard t)
-(setq tab-width 2)
-(setq system-uses-terminfo nil)
-(setq find-ls-option '("-print0 | xargs -0 ls -alhd" . ""))
-(setq counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
-(setq kill-buffer-query-functions nil)
-(setq linum-relative-current-symbol "")
+(setq whitespace-line-column 80
+      whitespace-style '(face lines-tail)
+      delete-by-moving-to-trash t
+      confirm-kill-emacs 'yes-or-no-p
+      select-enable-clipboard t
+      tab-width 2
+      system-uses-terminfo nil
+      find-ls-option '("-print0 | xargs -0 ls -alhd" . "")
+      counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s"
+      kill-buffer-query-functions nil
+      linum-relative-current-symbol "")
 
 ; -------------------------- Hooks --------------------------------
 
