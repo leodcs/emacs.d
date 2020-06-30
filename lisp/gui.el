@@ -1,9 +1,10 @@
-;; Theme collections
+;; Favorites Themes => '(doom-molokai distinguished junio granger spolsky)
+(load-theme 'spolsky t)
+
+;; Themes
+(use-package sublime-themes)
 (use-package doom-themes)
 (use-package distinguished-theme)
-
-(load-theme 'doom-molokai t) ;; Default
-;; (load-theme 'distinguished t)
 
 (use-package auto-dim-other-buffers
   :config
