@@ -14,6 +14,8 @@
  "s-p" 'counsel-projectile-find-file
  "s-F" 'leo/counsel-ag-search-all-project
  "s-k" 'kill-this-buffer
+ "C-c sim" 'slack-im-select
+ "C-c sc" 'slack-channel-select
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key

@@ -25,7 +25,6 @@
       tab-width 2
       system-uses-terminfo nil
       find-ls-option '("-print0 | xargs -0 ls -alhd" . "")
-      counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s"
       kill-buffer-query-functions nil
       linum-relative-current-symbol "")
 
