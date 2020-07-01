@@ -36,7 +36,9 @@
 
 (require 'ansi-color)
 
-(use-package vterm)
+(use-package vterm
+  :config
+  (setq vterm-max-scrollback 100000))
 
 (use-package drag-stuff
   :init
