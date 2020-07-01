@@ -16,7 +16,7 @@
  "s-k" 'kill-this-buffer
  "C-c sim" 'slack-im-select
  "C-c sc" 'slack-channel-select
- "C-c su" 'slack-select-unread-rooms
+ "C-c su" 'slack-all-unreads
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
