@@ -27,7 +27,13 @@
       find-ls-option '("-print0 | xargs -0 ls -alhd" . "")
       kill-buffer-query-functions nil
       linum-relative-current-symbol "")
-
+(customize-set-variable
+           'display-buffer-alist
+           '(("*Help*" (leo/display-help-buffer))
+             ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))
+             (".*"
+              (display-buffer-reuse-window display-buffer-same-window)
+              (reusable-frames . visible))))
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
@@ -206,3 +212,6 @@ When using Homebrew, install it using \"brew install trash\"."
   (toggle-read-only)
   (ansi-color-apply-on-region compilation-filter-start (point))
   (toggle-read-only))
+
+(defun leo/display-help-buffer (buffer alist)
+  (select-window (display-buffer-at-bottom buffer alist)))
