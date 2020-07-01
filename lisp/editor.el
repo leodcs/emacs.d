@@ -36,12 +36,7 @@
 
 (require 'ansi-color)
 
-(defun leo/fix-colors-on-compilation-mode()
-  "Fixes the output colors on compilation mode buffers."
-  (toggle-read-only)
-  (ansi-color-apply-on-region compilation-filter-start (point))
-  (toggle-read-only))
-
+(use-package vterm)
 
 (use-package drag-stuff
   :init
@@ -203,3 +198,9 @@ When using Homebrew, install it using \"brew install trash\"."
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max)))
+
+(defun leo/fix-colors-on-compilation-mode()
+  "Fixes the output colors on compilation mode buffers."
+  (toggle-read-only)
+  (ansi-color-apply-on-region compilation-filter-start (point))
+  (toggle-read-only))
