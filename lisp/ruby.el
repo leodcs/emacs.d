@@ -7,8 +7,10 @@
 
 ; -------------------------- Variables --------------------------------
 
-(setq ruby-insert-encoding-magic-comment nil)
-(setq enh-ruby-add-encoding-comment-on-save nil)
+(setq ruby-insert-encoding-magic-comment nil
+      ruby-rubocop-config "~/projects/personal/dotfiles/rubocop/rubocop.yml"
+      enh-ruby-add-encoding-comment-on-save nil)
+
 (defvar projectile-rails-vanilla-command "bin/rails")
 
 ; -------------------------- Packages --------------------------------
