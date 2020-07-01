@@ -14,9 +14,7 @@
  "s-p" 'counsel-projectile-find-file
  "s-F" 'leo/counsel-ag-search-all-project
  "s-k" 'kill-this-buffer
- "C-c sim" 'slack-im-select
- "C-c sc" 'slack-channel-select
- "C-c su" 'slack-all-unreads
+ "s-t" 'leo/vterm-init
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
@@ -97,3 +95,23 @@
  :states '(insert)
  :keymaps 'vterm-mode-map
  "C-d" 'vterm-send-C-d)
+
+;; Slack
+(general-define-key
+ :prefix "C-c"
+ :states '(normal)
+ :keymaps 'override
+ "sS" 'slack-start
+ "sC" 'slack-ws-close
+ "sim" 'slack-im-select
+ "sc" 'slack-channel-select
+ "su" 'slack-all-unreads
+ "sma" 'slack-message-run-action
+ "sme" 'slack-message-edit
+ "smt" 'slack-thread-show-or-create)
+
+(general-define-key
+ :states '(insert)
+ :keymaps '(slack-mode-map slack-message-edit-buffer-mode-map)
+ "@" 'slack-message-embed-mention
+ "#" 'slack-message-embed-channel)

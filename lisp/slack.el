@@ -1,3 +1,5 @@
+(add-hook 'slack-message-buffer-mode-hook 'evil-insert-state)
+
 (use-package slack
   :commands (slack-start)
   :config
