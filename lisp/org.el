@@ -11,7 +11,7 @@
       org-src-fontify-natively t
       org-src-tab-acts-natively t
       org-html-postamble nil
-      org-superstar-headline-bullets-list '())
+      org-superstar-headline-bullets-list '("➣" "◉" "○" "➝" "»" "➥"))
 
 ; -------------------------- Packages --------------------------------
 (require 'org-pretty-table)
