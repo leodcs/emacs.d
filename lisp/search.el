@@ -1,7 +1,7 @@
 ; -------------------------- Variables --------------------------------
 (setq enable-recursive-minibuffers t
       ivy-use-virtual-buffers t
-      counsel-ag-base-command "ag --hidden -ignore .git --ignore vendor --vimgrep %s")
+      counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 
 ; -------------------------- Packages --------------------------------
 
