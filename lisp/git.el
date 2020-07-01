@@ -13,4 +13,10 @@
 
 (use-package git-link
   :config
-  (setq git-link-open-in-browser t))
+  (setq git-link-open-in-browser t)
+
+  (defun leo/git-open-branch-in-repo ()
+    (interactive)
+    (let* ((branch (magit-read-branch "Base branch"))
+           (git-link-default-branch branch))
+      (call-interactively 'git-link))))
