@@ -29,7 +29,8 @@
       linum-relative-current-symbol "")
 (customize-set-variable
            'display-buffer-alist
-           '(("*Help*" (leo/display-help-buffer))
+           '(("*Help*" (leo/display-buffer-at-bottom))
+             ("vterm" (leo/display-buffer-at-bottom))
              ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))
              (".*"
               (display-buffer-reuse-window display-buffer-same-window)
@@ -44,7 +45,12 @@
 
 (use-package vterm
   :config
-  (setq vterm-max-scrollback 100000))
+  (setq vterm-max-scrollback 100000)
+
+  (defun leo/vterm-init ()
+    (interactive)
+    (projectile-run-vterm)
+    (evil-insert-state)))
 
 (use-package drag-stuff
   :init
@@ -213,5 +219,5 @@ When using Homebrew, install it using \"brew install trash\"."
   (ansi-color-apply-on-region compilation-filter-start (point))
   (toggle-read-only))
 
-(defun leo/display-help-buffer (buffer alist)
+(defun leo/display-buffer-at-bottom (buffer alist)
   (select-window (display-buffer-at-bottom buffer alist)))
