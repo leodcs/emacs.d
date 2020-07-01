@@ -92,3 +92,8 @@
  :states '(normal visual)
  :keymaps 'org-mode-map
  "s-t" 'leo/org-toggle-emphasis-markers)
+
+(general-define-key
+ :states '(insert)
+ :keymaps 'vterm-mode-map
+ "C-d" 'vterm-send-C-d)
