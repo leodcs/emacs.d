@@ -54,7 +54,7 @@
  :keymaps 'override
  "d" 'magit-diff-buffer-file
  "s" 'magit-status
- "o" 'leo/magit-open-file-in-repo)
+ "o" 'git-link)
 
 (general-define-key
  "C-c e" 'leo/eval-and-replace
