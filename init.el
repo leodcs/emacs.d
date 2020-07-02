@@ -112,6 +112,7 @@
  '(isearch ((t (:background "DarkGoldenrod1" :foreground "Black"))))
  '(isearch-fail ((t (:background "firebrick1" :foreground "black"))))
  '(org-ellipsis ((t (:foreground "LightGoldenrod"))))
+ '(org-table ((t (:foreground "gray70"))))
  '(query-replace ((t (:inherit isearch))))
  '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
 
