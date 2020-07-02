@@ -101,11 +101,8 @@
  :prefix "C-c"
  :states '(normal)
  :keymaps 'override
- "sS" 'slack-start
- "sC" 'slack-ws-close
- "sim" 'slack-im-select
- "sc" 'slack-channel-select
- "su" 'slack-all-unreads
+ "sq" 'slack-ws-close
+ "ss" 'slack-select-rooms
  "sma" 'slack-message-run-action
  "sme" 'slack-message-edit
  "smt" 'slack-thread-show-or-create)
