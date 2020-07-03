@@ -1,9 +1,10 @@
 ; -------------------------- Modes --------------------------------
-(show-paren-mode 1) ;; Highlight matching parens
+(show-paren-mode t) ;; Highlight matching parens
 (column-number-mode)
-(transient-mark-mode 1)
-(global-auto-revert-mode 1) ;; Always reload the file if it changed on disk
+(transient-mark-mode t)
+(global-auto-revert-mode t) ;; Always reload the file if it changed on disk
 (linum-relative-global-mode t)
+(savehist-mode t)
 
 ; -------------------------- Variables --------------------------------
 
@@ -49,7 +50,7 @@
 
   (defun leo/vterm-init ()
     (interactive)
-    (projectile-run-vterm)
+    (projectile-run-vterm t)
     (evil-insert-state)))
 
 (use-package drag-stuff

@@ -89,12 +89,20 @@
 (general-define-key
  :states '(normal visual)
  :keymaps 'org-mode-map
- "s-t" 'leo/org-toggle-emphasis-markers)
+ "C-c tm" 'leo/org-toggle-emphasis-markers)
+
+(general-define-key
+ :states '(insert)
+ :keymaps 'org-mode-map
+ "M-<left>" 'left-word
+ "M-<right>" 'right-word)
 
 (general-define-key
  :states '(insert)
  :keymaps 'vterm-mode-map
- "C-d" 'vterm-send-C-d)
+ "C-d" 'vterm-send-C-d
+ "C-c" 'vterm-send-C-c
+ "C-u" 'vterm-send-C-u)
 
 ;; Slack
 (general-define-key
@@ -103,6 +111,7 @@
  :keymaps 'override
  "sq" 'slack-ws-close
  "ss" 'slack-select-rooms
+ "su" 'slack-select-unread-rooms
  "sma" 'slack-message-run-action
  "sme" 'slack-message-edit
  "smt" 'slack-thread-show-or-create)
