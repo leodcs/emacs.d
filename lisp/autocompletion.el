@@ -20,5 +20,4 @@
   (setq company-idle-delay 0)
   :config
   (global-company-mode)
-
   (eval-after-load 'company '(push 'company-robe company-backends)))

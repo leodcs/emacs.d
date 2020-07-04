@@ -1,4 +1,4 @@
-(add-hook 'slack-message-buffer-mode-hook 'evil-insert-state)
+(add-hook 'slack-message-buffer-mode-hook 'leo/slack-message-mode-enter)
 
 (use-package slack
   :commands (slack-start)
@@ -16,6 +16,9 @@
   :init
   (setq alert-default-style 'osx-notifier))
 
-(use-package emojify
-  :config
-  (global-emojify-mode))
+(use-package emojify)
+
+(defun leo/slack-message-mode-enter ()
+  (interactive)
+  (evil-insert-state)
+  (emojify-mode))

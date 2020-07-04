@@ -31,7 +31,6 @@
 (customize-set-variable
            'display-buffer-alist
            '(("*Help*" (leo/display-buffer-at-bottom))
-             ("vterm" (leo/display-buffer-at-bottom))
              ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))
              (".*"
               (display-buffer-reuse-window display-buffer-same-window)
@@ -43,15 +42,6 @@
 ; -------------------------- Packages --------------------------------
 
 (require 'ansi-color)
-
-(use-package vterm
-  :config
-  (setq vterm-max-scrollback 100000)
-
-  (defun leo/vterm-init ()
-    (interactive)
-    (projectile-run-vterm t)
-    (evil-insert-state)))
 
 (use-package drag-stuff
   :init

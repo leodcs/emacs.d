@@ -14,7 +14,10 @@
  "s-p" 'counsel-projectile-find-file
  "s-F" 'leo/counsel-ag-search-all-project
  "s-k" 'kill-this-buffer
- "s-t" 'leo/vterm-init
+ "s-t" 'leo/projectile-run-vterm
+ "C-c vt" 'leo/run-vterm-console
+ "C-x C-r" 'rename-buffer
+ "C-x C-b" 'ivy-switch-buffer
  "C-=" 'leo/indent-whole-buffer)
 
 (general-define-key
@@ -44,7 +47,6 @@
  :prefix "C-C"
  :keymaps 'override
  "y" 'browse-kill-ring
- "C-r" 'rename-buffer
  "ff" 'find-file)
 
 (general-define-key
@@ -109,7 +111,8 @@
  :prefix "C-c"
  :states '(normal)
  :keymaps 'override
- "sq" 'slack-ws-close
+ "sQ" 'slack-ws-close
+ "sS" 'slack-start
  "ss" 'slack-select-rooms
  "su" 'slack-select-unread-rooms
  "sma" 'slack-message-run-action

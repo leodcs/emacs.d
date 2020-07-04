@@ -78,6 +78,7 @@
 (load "~/.emacs.d/lisp/keybindings.el")
 (load "~/.emacs.d/lisp/treemacs.el")
 (load "~/.emacs.d/lisp/slack.el")
+(load "~/.emacs.d/lisp/vterm.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

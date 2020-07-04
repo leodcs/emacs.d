@@ -1,6 +1,6 @@
 ; -------------------------- Hooks --------------------------------
 
-(add-hook 'org-mode-hook 'leo/org-mode-hook)
+(add-hook 'org-mode-hook 'leo/org-mode-enter)
 
 ; -------------------------- Variables --------------------------------
 
@@ -25,14 +25,14 @@
 (use-package deft
   :commands (deft)
   :config
-  (setq deft-directory "~/Dropbox/Notes")
-  (setq deft-recursive t)
-  (setq deft-auto-save-interval 0)
-  (setq deft-default-extension "org")
-  (setq deft-extensions '("txt" "md" "org"))
-  (setq deft-use-filename-as-title t)
-  (setq deft-use-filter-string-for-filename t)
-  (setq deft-text-mode 'org-mode)
+  (setq deft-directory "~/Dropbox/Notes"
+        deft-recursive t
+        deft-auto-save-interval 0
+        deft-default-extension "org"
+        deft-extensions '("txt" "md" "org")
+        deft-use-filename-as-title t
+        deft-use-filter-string-for-filename t
+        deft-text-mode 'org-mode)
   (evil-set-initial-state 'deft-mode 'emacs))
 
 (use-package evil-org
@@ -53,7 +53,7 @@
     (message (or (and org-hide-emphasis-markers "Hiding emphasis markers")
              "Showing emphasis markers")))
 
-(defun leo/org-mode-hook ()
+(defun leo/org-mode-enter ()
   (interactive)
   (visual-line-mode)
   (org-pretty-table-mode)

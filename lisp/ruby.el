@@ -1,7 +1,7 @@
 ; -------------------------- Hooks --------------------------------
 
-(add-hook 'ruby-mode-hook 'leo/ruby-mode-enter-hook)
-(add-hook 'web-mode-hook 'leo/web-mode-enter-hook)
+(add-hook 'ruby-mode-hook 'leo/ruby-mode-enter)
+(add-hook 'web-mode-hook 'leo/web-mode-enter)
 (add-to-list 'auto-mode-alist '("\\.arb\\'"          . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.axlsx\\'"          . ruby-mode))
 
@@ -35,14 +35,14 @@
 
 ; -------------------------- Functions --------------------------------
 
-(defun leo/ruby-mode-enter-hook ()
+(defun leo/ruby-mode-enter ()
   (interactive)
   (robe-mode)
   (whitespace-mode)
   (display-fill-column-indicator-mode)
   (evil-ruby-text-objects-mode))
 
-(defun leo/web-mode-enter-hook ()
+(defun leo/web-mode-enter ()
   (interactive)
   (whitespace-mode)
   (display-fill-column-indicator-mode))

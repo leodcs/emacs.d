@@ -13,6 +13,7 @@ request
 
 projectile-bookmarks.eld
 projectile.cache
+history
 history.el
 recentf
 user_config/user.el
