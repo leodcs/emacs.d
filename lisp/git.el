@@ -20,3 +20,7 @@
     (let* ((branch (magit-read-branch "Base branch"))
            (git-link-default-branch branch))
       (call-interactively 'git-link))))
+
+(defun leo/get-current-branch ()
+  (interactive)
+  (message (magit-get-current-branch)))
