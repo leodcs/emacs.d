@@ -99,6 +99,13 @@
  "M-<left>" 'left-word
  "M-<right>" 'right-word)
 
+ (general-define-key
+  :keymaps 'org-mode-map
+ "s-<up>" 'org-up-element
+ "s-<down>" 'org-down-element
+ "s-<left>" 'org-metaleft
+ "s-<right>" 'org-metaright)
+
 (general-define-key
  :states '(insert)
  :keymaps 'vterm-mode-map
