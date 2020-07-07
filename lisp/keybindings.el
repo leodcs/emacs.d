@@ -2,6 +2,7 @@
 
 (general-define-key
  :keymaps 'override
+ "s-<return>" 'ivy-switch-buffer
  "s-x" 'counsel-M-x
  "s-r" 'leo/revert-buffer-no-confirm
  "s-n" 'leo/generate-new-untitled-buffer
@@ -15,6 +16,7 @@
  "s-F" 'leo/counsel-ag-search-all-project
  "s-k" 'kill-this-buffer
  "s-t" 'leo/projectile-run-vterm
+ "C-c fp" 'leo/copy-full-file-path
  "C-c vt" 'leo/run-vterm-console
  "C-x C-r" 'rename-buffer
  "C-x C-b" 'ivy-switch-buffer
@@ -35,7 +37,6 @@
  :keymaps 'override
  :prefix leo/leader
  :states '(normal visual)
- "<SPC>" 'ivy-switch-buffer
  "<down>" 'open-html-tag
  "<up>" 'close-html-tag
  "RET" 'evil-switch-to-windows-last-buffer
@@ -101,10 +102,20 @@
 
  (general-define-key
   :keymaps 'org-mode-map
- "s-<up>" 'org-up-element
- "s-<down>" 'org-down-element
+ "M-<up>" 'org-up-element
+ "M-<down>" 'org-down-element
+ "M-<left>" 'org-shifttab
+ "M-<right>" 'org-shifttab
+ "s-<up>" 'org-metaup
+ "s-<down>" 'org-metadown
  "s-<left>" 'org-metaleft
  "s-<right>" 'org-metaright)
+
+ (general-define-key
+  :keymaps 'org-mode-map
+  :states '(insert)
+  "<return>" 'org-insert-heading-respect-content
+  "C-<return>" 'org-return)
 
 (general-define-key
  :states '(insert)
