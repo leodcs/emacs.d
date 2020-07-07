@@ -97,6 +97,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
  '(auto-dim-other-buffers-face ((t (:background "gray22"))))
+ '(company-preview ((t (:background "blue4" :foreground "gray30"))))
+ '(company-preview-common ((t (:inherit company-preview :foreground "gray30"))))
  '(cursor ((t (:background "SpringGreen3"))))
  '(evil-goggles-change-face ((t (:inherit diff-removed))))
  '(evil-goggles-delete-face ((t (:inherit diff-removed))))
