@@ -157,10 +157,10 @@ When using Homebrew, install it using \"brew install trash\"."
     (kill-new
      (if @dir-path-only-p
          (progn
-           (message "Directory path copied: 「%s」" (file-name-directory $fpath))
+           (message "Directory path copied: \"%s\"" (file-name-directory $fpath))
            (file-name-directory $fpath))
        (progn
-         (message "File path copied: 「%s」" $fpath)
+         (message "File path copied: \"%s\"" $fpath)
          $fpath )))))
 
 (defun leo/duplicate-line (arg)
