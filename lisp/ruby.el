@@ -8,7 +8,8 @@
 ; -------------------------- Variables --------------------------------
 
 (setq ruby-insert-encoding-magic-comment nil
-      ruby-rubocop-config "~/projects/personal/dotfiles/rubocop/rubocop.yml"
+      flycheck-rubocoprc "~/projects/personal/dotfiles/rubocop/rubocop.yml"
+      rubocop-autocorrect-command "rubocop -a --format emacs --config /Users/dcsleo/projects/personal/dotfiles/rubocop/rubocop.yml"
       enh-ruby-add-encoding-comment-on-save nil)
 
 (defvar projectile-rails-vanilla-command "bin/rails")
@@ -20,9 +21,9 @@
 
 (use-package erblint
   :config
-  (setq erblint-project-root-function 'projectile-rails-root)
-  (setq erblint-check-command "~/.rvm/gems/ruby-2.4.2/gems/erb_lint-0.0.30/exe/erblint")
-  (setq erblint-autocorrect-command (concat erblint-check-command " -a")))
+  (setq erblint-project-root-function 'projectile-rails-root
+        erblint-check-command "/Users/dcsleo/.rvm/gems/ruby-2.4.2/bin/erblint"
+        erblint-autocorrect-command (concat erblint-check-command " -a")))
 
 (use-package exec-path-from-shell
   :config (exec-path-from-shell-initialize))
