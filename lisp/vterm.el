@@ -8,7 +8,7 @@
   (split-window-horizontally)
   (other-window 1)
   (vterm)
-  (turn-off-evil-mode))
+  (evil-insert-state))
 
 (defun leo/projectile-run-vterm ()
   "Opens one single instance of vterm inside current projectile project."
@@ -17,4 +17,4 @@
   (other-window 1)
   (evil-window-move-very-bottom)
   (projectile-run-vterm)
-  (turn-off-evil-mode))
+  (evil-insert-state))
