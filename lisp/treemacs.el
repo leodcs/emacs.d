@@ -3,6 +3,7 @@
 (add-hook 'lisp-mode-hook 'leo/close-treemacs)
 (add-hook 'prog-mode-hook 'leo/close-treemacs)
 (add-hook 'org-mode-hook 'leo/close-treemacs)
+(add-hook 'web-mode-hook 'leo/close-treemacs)
 
 (defun leo/close-treemacs ()
   (interactive)
