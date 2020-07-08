@@ -31,7 +31,7 @@
 (customize-set-variable
            'display-buffer-alist
            '(("*Help*" (leo/display-buffer-at-bottom))
-             ("rubocop" (leo/display-buffer-at-bottom))
+             ("RuboCop" (leo/display-buffer-at-bottom))
              ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))
              (".*"
               (display-buffer-reuse-window display-buffer-same-window)
