@@ -219,3 +219,11 @@ When using Homebrew, install it using \"brew install trash\"."
   (interactive)
   (mapcar 'kill-buffer (buffer-list))
   (delete-other-windows))
+
+(defun leo/set-current-trello-card-url ()
+  (interactive)
+  (setq current-trello-card-url (read-string "URL: ")))
+
+(defun leo/open-current-trello-card ()
+  (interactive)
+  (browse-url current-trello-card-url))
