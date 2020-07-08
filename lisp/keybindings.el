@@ -123,7 +123,9 @@
  "C-d" 'vterm-send-C-d
  "C-c" 'vterm-send-C-c
  "C-r" 'vterm-send-C-r
- "C-u" 'vterm-send-C-u)
+ "C-u" 'vterm-send-C-u
+ "M-<left>" 'vterm-send-M-b
+ "M-<right>" 'vterm-send-M-f)
 
 ;; Slack
 (general-define-key
