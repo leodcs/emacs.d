@@ -122,6 +122,7 @@
  :keymaps 'vterm-mode-map
  "C-d" 'vterm-send-C-d
  "C-c" 'vterm-send-C-c
+ "C-r" 'vterm-send-C-r
  "C-u" 'vterm-send-C-u)
 
 ;; Slack
