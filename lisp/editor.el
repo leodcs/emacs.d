@@ -213,3 +213,9 @@ When using Homebrew, install it using \"brew install trash\"."
 
 (defun leo/display-buffer-at-bottom (buffer alist)
   (select-window (display-buffer-at-bottom buffer alist)))
+
+
+(defun leo/nuke-all-buffers ()
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows))
