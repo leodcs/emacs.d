@@ -139,6 +139,6 @@
 
 (general-define-key
  :states '(insert)
- :keymaps '(slack-mode-map slack-message-edit-buffer-mode-map)
+ :keymaps '(slack-mode-map slack-message-edit-buffer-mode-map slack-thread-message-buffer-mode-map)
  "@" 'slack-message-embed-mention
  "#" 'slack-message-embed-channel)

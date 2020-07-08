@@ -1,9 +1,11 @@
 (add-hook 'slack-message-buffer-mode-hook 'leo/slack-message-mode-enter)
+(add-hook 'slack-thread-message-buffer-mode-hook 'leo/slack-message-mode-enter)
 
 (use-package slack
   :commands (slack-start)
   :config
-  (setq slack-prefer-current-team t)
+  (setq slack-prefer-current-team t
+        slack-thread-also-send-to-room nil)
 
   (slack-register-team
    :name "interage"
