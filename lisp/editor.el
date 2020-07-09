@@ -28,6 +28,7 @@
       find-ls-option '("-print0 | xargs -0 ls -alhd" . "")
       kill-buffer-query-functions nil
       linum-relative-current-symbol "")
+
 (customize-set-variable
            'display-buffer-alist
            '(("*Help*" (leo/display-buffer-at-bottom))
@@ -36,6 +37,7 @@
              (".*"
               (display-buffer-reuse-window display-buffer-same-window)
               (reusable-frames . visible))))
+
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
@@ -43,6 +45,10 @@
 ; -------------------------- Packages --------------------------------
 
 (require 'ansi-color)
+
+(use-package winum
+  :config
+  (winum-mode))
 
 (use-package drag-stuff
   :init
