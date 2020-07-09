@@ -31,18 +31,6 @@
  :keymaps 'override
  "s-v" 'leo/evil-paste)
 
-;; Leader Keybindings
-(defconst leo/leader "<SPC>")
-(general-define-key
- :keymaps 'override
- :prefix leo/leader
- :states '(normal visual)
- "<down>" 'open-html-tag
- "<up>" 'close-html-tag
- "RET" 'evil-switch-to-windows-last-buffer
- "d" 'delete-other-windows
- "fm" 'projectile-rails-find-model)
-
 ;; General use keys that shouldn't be overridden
 (general-define-key
  :prefix "C-C"
@@ -127,21 +115,15 @@
  "M-<left>" 'vterm-send-M-b
  "M-<right>" 'vterm-send-M-f)
 
-;; Slack
+;; Window numbers
 (general-define-key
- :prefix "C-c"
- :states '(normal)
- :keymaps 'override
- "sQ" 'slack-ws-close
- "sS" 'slack-start
- "ss" 'slack-select-rooms
- "su" 'slack-select-unread-rooms
- "sma" 'slack-message-run-action
- "sme" 'slack-message-edit
- "smt" 'slack-thread-show-or-create)
-
-(general-define-key
- :states '(insert)
- :keymaps '(slack-mode-map slack-message-edit-buffer-mode-map slack-thread-message-buffer-mode-map)
- "@" 'slack-message-embed-mention
- "#" 'slack-message-embed-channel)
+ :states '(normal insert visual)
+ :keymaps '(override)
+ "s-1" 'winum-select-window-1
+ "s-2" 'winum-select-window-2
+ "s-3" 'winum-select-window-3
+ "s-4" 'winum-select-window-4
+ "s-5" 'winum-select-window-5
+ "s-6" 'winum-select-window-6
+ "s-7" 'winum-select-window-7
+ "s-8" 'winum-select-window-8)
