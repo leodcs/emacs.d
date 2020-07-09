@@ -21,3 +21,7 @@
   :config
   (global-company-mode)
   (eval-after-load 'company '(push 'company-robe company-backends)))
+
+(use-package company-tabnine
+  :config
+  (add-to-list 'company-backends #'company-tabnine))
