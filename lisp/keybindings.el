@@ -9,14 +9,17 @@
  "s-N" 'deft
  "s-C" 'leo/copy-relative-file-path
  "s-w" 'delete-window
+ "s-W" 'delete-other-windows
  "s-d" 'evil-mc-make-and-goto-next-match
  "s-J" 'leo/duplicate-line
  "s-e" 'treemacs
+ "s-o" 'evil-switch-to-windows-last-buffer
  "s-p" 'counsel-projectile-find-file
  "s-F" 'leo/counsel-ag-search-all-project
  "s-k" 'kill-this-buffer
  "s-t" 'leo/projectile-run-vterm
  "C-c fp" 'leo/copy-full-file-path
+ "C-c rm" 'projectile-rails-find-model
  "C-c vt" 'leo/run-vterm-console
  "C-x C-r" 'rename-buffer
  "C-x C-b" 'ivy-switch-buffer
@@ -43,6 +46,7 @@
  :keymaps 'override
  "d" 'magit-diff-buffer-file
  "s" 'magit-status
+ "l" 'magit-log-buffer-file
  "o" 'leo/git-open-branch-in-repo)
 
 (general-define-key
@@ -60,7 +64,9 @@
 
 (general-define-key
  :keymaps 'web-mode-map
- :states '(normal visual)
+ :states '(normal insert visual)
+ "C-c j" 'leo/open-html-tag
+ "C-c k" 'leo/close-html-tag
  "s-S" 'leo/save-and-run-erblint-autocorrect)
 
 ;; Magit
@@ -103,6 +109,8 @@
   :keymaps 'org-mode-map
   :states '(insert)
   "<return>" 'org-insert-heading-respect-content
+  "S-<tab>" 'org-metaleft
+  "<tab>" 'org-metaright
   "C-<return>" 'org-return)
 
 (general-define-key
