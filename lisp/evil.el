@@ -74,11 +74,7 @@
     "Move down after indenting"
     (interactive)
     (indent-according-to-mode)
-    (evil-next-line))
-
-  ;; MACROS
-  (fset 'open-html-tag "ysit\C-j=it")
-  (fset 'close-html-tag "JxJx"))
+    (evil-next-line)))
 
 (use-package evil-org
   :after '(org evil)

@@ -14,6 +14,11 @@
 
 (defvar projectile-rails-vanilla-command "bin/rails")
 
+; -------------------------- Macros --------------------------------
+
+(fset 'open-html-tag-macro "ysit\C-j=it")
+(fset 'close-html-tag-macro "JxJx")
+
 ; -------------------------- Packages --------------------------------
 (use-package rubocop)
 (use-package yaml-mode)
@@ -96,3 +101,11 @@
   (save-buffer)
   (erblint-autocorrect-current-file)
   (web-mode-reload))
+
+(defun leo/open-html-tag ()
+  (interactive)
+  (execute-kbd-macro 'open-html-tag-macro))
+
+(defun leo/close-html-tag ()
+  (interactive)
+  (execute-kbd-macro 'close-html-tag-macro))
