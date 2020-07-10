@@ -84,7 +84,7 @@
 
 (use-package evil-mc
   :config
-  (global-evil-mc-mode  1)
+  (global-evil-mc-mode 1)
   (setq evil-mc-undo-cursors-on-keyboard-quit t)
   (evil-define-key 'visual evil-mc-key-map
     "A" #'evil-mc-make-cursor-in-visual-selection-end

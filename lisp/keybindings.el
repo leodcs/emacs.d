@@ -10,7 +10,7 @@
  "s-C" 'leo/copy-relative-file-path
  "s-w" 'delete-window
  "s-W" 'delete-other-windows
- "s-d" 'evil-mc-make-and-goto-next-match
+ "s-d" 'leo/multiple-cursor-on-next-match
  "s-J" 'leo/duplicate-line
  "s-e" 'treemacs
  "s-o" 'evil-switch-to-windows-last-buffer
