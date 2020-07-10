@@ -224,7 +224,8 @@ When using Homebrew, install it using \"brew install trash\"."
 (defun leo/nuke-all-buffers ()
   (interactive)
   (mapcar 'kill-buffer (buffer-list))
-  (delete-other-windows))
+  (delete-other-windows)
+  (message "Boom!"))
 
 (defun leo/set-current-trello-card-url ()
   (interactive)
