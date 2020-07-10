@@ -120,6 +120,9 @@
  "C-c" 'vterm-send-C-c
  "C-r" 'vterm-send-C-r
  "C-u" 'vterm-send-C-u
+ "C-a" 'vterm-send-C-a
+ "C-e" 'vterm-send-C-e
+ "C-k" 'vterm-send-C-k
  "M-<left>" 'vterm-send-M-b
  "M-<right>" 'vterm-send-M-f)
 
