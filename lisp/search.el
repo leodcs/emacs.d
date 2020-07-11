@@ -1,6 +1,5 @@
 ; -------------------------- Variables --------------------------------
 (setq enable-recursive-minibuffers t
-      ivy-use-virtual-buffers t
       counsel-ag-base-command "ag --hidden --ignore .git --ignore vendor --vimgrep %s")
 
 ; -------------------------- Packages --------------------------------
@@ -8,7 +7,7 @@
 (use-package ivy
   :init (ivy-mode 1) ; globally at startup
   :config
-  (setq ivy-use-virtual-buffers t
+  (setq ivy-use-virtual-buffers nil
         ivy-height 20
         ivy-count-format "%d/%d "
         ivy-initial-inputs-alist nil)
