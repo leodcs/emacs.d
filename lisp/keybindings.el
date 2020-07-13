@@ -47,6 +47,7 @@
  "d" 'magit-diff-buffer-file
  "s" 'magit-status
  "l" 'magit-log-buffer-file
+ "h" 'git-timemachine
  "o" 'leo/git-open-branch-in-repo)
 
 (general-define-key
@@ -138,3 +139,9 @@
  "s-6" 'winum-select-window-6
  "s-7" 'winum-select-window-7
  "s-8" 'winum-select-window-8)
+
+(general-define-key
+ :states '(normal insert visual)
+ :keymaps '(override git-timemachine-mode-map)
+ "C-n" 'git-timemachine-show-next-revision
+ "C-p" 'git-timemachine-show-previous-revision)
