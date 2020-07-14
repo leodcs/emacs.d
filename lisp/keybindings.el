@@ -15,6 +15,7 @@
    "s-e" 'leo/neotree-toggle
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
+   "s-f" 'evil-search-forward
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/projectile-run-vterm
