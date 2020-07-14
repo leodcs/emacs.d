@@ -83,6 +83,7 @@
   (add-hook 'evil-org-mode-hook (lambda () (evil-org-set-key-theme))))
 
 (use-package evil-mc
+  :after evil
   :config
   (global-evil-mc-mode 1)
   (setq evil-mc-undo-cursors-on-keyboard-quit t)
@@ -94,13 +95,6 @@
 
 (use-package evil-string-inflection
   :after evil)
-
-(use-package evil-goggles
-  :after evil
-  :config
-  (evil-goggles-mode)
-  (setq evil-goggles-duration 0.100)
-  (evil-goggles-use-diff-faces))
 
 (use-package evil-commentary
   :after evil

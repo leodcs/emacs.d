@@ -33,7 +33,7 @@ Open Emacs and run:
 | Keybinding | Action |
 | ---------- | ------ |
 | `s-p` | Search files in project |
-| `s-e` | Toggle treemacs plugin |
+| `s-e` | Toggle neotree plugin |
 | `s-F` | Search text in project (auto includes selected text in visual mode) |
 | `s-n` | Create an untitled buffer |
 | `s-r` | Rename current buffer |

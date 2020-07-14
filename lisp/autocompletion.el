@@ -16,11 +16,17 @@
 
 (use-package company
   :init
-  (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0)
+  (setq company-dabbrev-downcase 0
+        company-show-numbers t
+        company-idle-delay 0)
   :config
   (global-company-mode)
-  (eval-after-load 'company '(push 'company-robe company-backends)))
+  (with-eval-after-load 'company
+    '(push 'company-robe company-backends)
+    (define-key company-active-map (kbd "C-n") 'company-select-next)
+    (define-key company-active-map (kbd "C-p") 'company-select-previous)
+    (define-key company-active-map (kbd "C-<return>") 'newline)
+    (define-key company-active-map (kbd "<tab>") 'yas-expand)))
 
 (use-package company-tabnine
   :config
