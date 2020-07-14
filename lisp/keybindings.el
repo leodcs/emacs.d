@@ -142,6 +142,6 @@
 
 (general-define-key
  :states '(normal insert visual)
- :keymaps '(override git-timemachine-mode-map)
+ :keymaps '(git-timemachine-mode-map)
  "C-n" 'git-timemachine-show-next-revision
  "C-p" 'git-timemachine-show-previous-revision)
