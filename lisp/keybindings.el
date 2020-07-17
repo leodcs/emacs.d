@@ -19,9 +19,11 @@
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/projectile-run-vterm
+   "C-s" 'evil-search-next
    "C-c fp" 'leo/copy-full-file-path
    "C-c rm" 'projectile-rails-find-model
    "C-c vt" 'leo/run-vterm-console
+   "C-c nuke" 'leo/nuke-all-buffers
    "C-x C-r" 'rename-buffer
    "C-x C-b" 'ivy-switch-buffer
    "C-=" 'leo/indent-whole-buffer)
@@ -34,6 +36,10 @@
    :states '(visual)
    :keymaps 'override
    "s-v" 'leo/evil-paste)
+
+  (general-define-key
+   :keymaps 'isearch-mode-map
+   "s-v" 'isearch-yank-kill)
 
   ;; General use keys that shouldn't be overridden
   (general-define-key
@@ -119,7 +125,7 @@
    :states '(insert)
    :keymaps 'vterm-mode-map
    "C-d" 'vterm-send-C-d
-   "C-c" 'vterm-send-C-c
+   "C-z" 'vterm-send-C-z
    "C-r" 'vterm-send-C-r
    "C-u" 'vterm-send-C-u
    "C-a" 'vterm-send-C-a
@@ -153,6 +159,7 @@
    :states '(normal visual)
    "n" 'leo/neotree-select-next-sibling-node
    "p" 'leo/neotree-select-previous-sibling-node
+   "A" 'neotree-stretch-toggle
    "P" 'neotree-select-up-node
    "H" 'neotree-hidden-file-toggle
    "y" 'neotree-copy-node
