@@ -223,6 +223,7 @@ When using Homebrew, install it using \"brew install trash\"."
 (defun leo/nuke-all-buffers ()
   (interactive)
   (mapcar 'kill-buffer (buffer-list))
+  (setq recentf-list '())
   (delete-other-windows)
   (message "Boom!"))
 

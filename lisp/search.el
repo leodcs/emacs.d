@@ -7,7 +7,7 @@
 (use-package ivy
   :init (ivy-mode 1) ; globally at startup
   :config
-  (setq ivy-use-virtual-buffers nil
+  (setq ivy-use-virtual-buffers t
         ivy-height 20
         ivy-count-format "%d/%d "
         ivy-initial-inputs-alist nil)
