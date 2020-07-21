@@ -1,5 +1,5 @@
 ;; Favorites Themes => '(doom-molokai distinguished junio granger spolsky)
-(load-theme 'spolsky t)
+(load-theme 'distinguished t)
 
 ;; Themes
 (use-package sublime-themes)
