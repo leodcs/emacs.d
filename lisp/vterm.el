@@ -1,3 +1,5 @@
+(add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
+
 (use-package vterm
   :config
   (setq vterm-max-scrollback 100000))
@@ -18,3 +20,7 @@
   (evil-window-move-very-bottom)
   (projectile-run-vterm)
   (evil-insert-state))
+
+(defun leo/vterm-mode-enter ()
+  (interactive)
+  (rvm-activate-corresponding-ruby))
