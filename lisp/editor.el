@@ -33,7 +33,8 @@
            'display-buffer-alist
            '(("*Help*" (leo/display-buffer-at-bottom))
              ("RuboCop" (leo/display-buffer-at-bottom))
-             ("magit" (display-buffer-reuse-window display-buffer-same-window))
+             ("magit: " (display-buffer-reuse-window display-buffer-same-window))
+             ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))
              (".*"
               (display-buffer-reuse-window display-buffer-same-window)
               (reusable-frames . visible))))
