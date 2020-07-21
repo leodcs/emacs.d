@@ -15,6 +15,7 @@
    "s-e" 'leo/neotree-toggle
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
+   "s-P" 'counsel-projectile-switch-project
    "s-f" 'swiper-isearch
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
@@ -22,7 +23,6 @@
    "M-E" 'eval-buffer
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
-   "C-c pp" 'counsel-projectile-switch-project
    "C-c vt" 'leo/run-vterm-console
    "C-c nuke" 'leo/nuke-all-buffers
    "C-c rm" 'projectile-rails-find-model
