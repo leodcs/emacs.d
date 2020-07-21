@@ -244,3 +244,13 @@ When using Homebrew, install it using \"brew install trash\"."
 (defun leo/send-C-u ()
   (interactive)
   (delete-region (line-beginning-position) (line-end-position)))
+
+(defun leo/file-to-list (filePath)
+  "Return the filePath as a list of strings"
+  (interactive)
+  (split-string
+   (with-temp-buffer
+     (insert-file-contents filePath)
+     (buffer-substring-no-properties
+      (point-min)
+      (point-max))) "\n" t))
