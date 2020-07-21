@@ -223,10 +223,11 @@ When using Homebrew, install it using \"brew install trash\"."
 
 (defun leo/nuke-all-buffers ()
   (interactive)
-  (mapcar 'kill-buffer (buffer-list))
-  (delete-other-windows)
-  (setq recentf-list nil)
-  (message "Boom!"))
+  (let (dashboard (get-buffer "*dashboard*"))
+    (delete-other-windows)
+    (mapc 'kill-buffer (delq (get-buffer "*dashboard*") (buffer-list)))
+    (setq recentf-list dashboard)
+    (message "Boom!")))
 
 (defun leo/set-current-trello-card-url ()
   (interactive)

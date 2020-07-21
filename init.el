@@ -42,8 +42,8 @@
 (require 'package)
 (setq package-enable-at-startup nil) ; dont do it immediately
 (setq package-archives '(("org"       . "http://orgmode.org/elpa/")
-             ("gnu"       . "http://elpa.gnu.org/packages/")
-             ("melpa"     . "https://melpa.org/packages/")))
+                         ("gnu"       . "http://elpa.gnu.org/packages/")
+                         ("melpa"     . "https://melpa.org/packages/")))
 (package-initialize)
 
 ;; Bootstrap use-package
@@ -91,7 +91,7 @@
  '(global-company-mode t)
  '(global-flycheck-mode t)
  '(package-selected-packages
-   '(emacs-nav sr-speedbar project-explorer dired-sidebar git-timemachine winum company-tabnine git-link vterm sublime-themes soothe-theme spacemacs-theme org-superstar flycheck-posframe ivy-posframe erblint neotree ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-surround evil-mc evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
+   '(dashboard-hackernews emacs-nav sr-speedbar project-explorer dired-sidebar git-timemachine winum company-tabnine git-link vterm sublime-themes soothe-theme spacemacs-theme org-superstar flycheck-posframe ivy-posframe erblint neotree ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-surround evil-mc evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck expand-region web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
