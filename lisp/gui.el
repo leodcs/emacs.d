@@ -27,6 +27,7 @@
   :config
   (use-package dashboard-hackernews)
   (dashboard-setup-startup-hook)
+  (add-hook 'dashboard-mode-hook 'visual-line-mode)
   (setq dashboard-set-heading-icons t
         dashboard-set-file-icons t
         dashboard-center-content t
