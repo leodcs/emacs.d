@@ -15,17 +15,21 @@
    "s-e" 'leo/neotree-toggle
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
-   "s-f" 'evil-search-forward
+   "s-f" 'swiper-isearch
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/projectile-run-vterm
+   "M-E" 'eval-buffer
    "C-s" 'evil-search-next
-   "C-c fp" 'leo/copy-full-file-path
-   "C-c rm" 'projectile-rails-find-model
-   "C-c vt" 'leo/run-vterm-console
-   "C-c nuke" 'leo/nuke-all-buffers
+   "C-x pp" 'counsel-projectile-switch-project
+   "C-x vt" 'leo/run-vterm-console
+   "C-x nuke" 'leo/nuke-all-buffers
+   "C-x rm" 'projectile-rails-find-model
+   "C-x tt" 'leo/set-current-trello-card-url
+   "C-x tg" 'leo/open-current-trello-card
    "C-x C-r" 'rename-buffer
    "C-x C-b" 'ivy-switch-buffer
+   "C-x cp" 'leo/copy-full-file-path
    "C-=" 'leo/indent-whole-buffer)
 
   (general-define-key
@@ -49,12 +53,13 @@
    "ff" 'find-file)
 
   (general-define-key
-   :prefix "C-C g"
+   :prefix "C-c g"
    :keymaps 'override
    "d" 'magit-diff-buffer-file
    "s" 'magit-status
    "l" 'magit-log-buffer-file
    "t" 'git-timemachine
+   "b" 'magit-blame-addition
    "o" 'leo/git-open-branch-in-repo)
 
   (general-define-key
@@ -124,6 +129,7 @@
   (general-define-key
    :states '(insert)
    :keymaps 'vterm-mode-map
+   "C-c" 'vterm-send-C-c
    "C-d" 'vterm-send-C-d
    "C-z" 'vterm-send-C-z
    "C-r" 'vterm-send-C-r
@@ -150,8 +156,20 @@
   (general-define-key
    :states '(normal insert visual)
    :keymaps '(git-timemachine-mode-map)
-   "C-n" 'git-timemachine-show-next-revision
-   "C-p" 'git-timemachine-show-previous-revision)
+   "n" 'git-timemachine-show-next-revision
+   "p" 'git-timemachine-show-previous-revision
+   "<escape>" 'kill-this-buffer)
+
+  (general-define-key
+   :states 'normal
+   :keymaps 'evil-mc-key-map
+   "<escape>" 'evil-mc-undo-all-cursors)
+
+  (general-define-key
+   :states 'visual
+   :keymaps 'evil-mc-key-map
+   "A" #'evil-mc-make-cursor-in-visual-selection-end
+   "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
   ;; Neotree
   (general-define-key

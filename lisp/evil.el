@@ -86,12 +86,7 @@
   :after evil
   :config
   (global-evil-mc-mode 1)
-  (setq evil-mc-undo-cursors-on-keyboard-quit t)
-  (evil-define-key 'visual evil-mc-key-map
-    "A" #'evil-mc-make-cursor-in-visual-selection-end
-    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
-  (progn
-    (evil-define-key 'normal evil-mc-key-map (kbd "<escape>") 'evil-mc-undo-all-cursors)))
+  (setq evil-mc-undo-cursors-on-keyboard-quit t))
 
 (use-package evil-string-inflection
   :after evil)
