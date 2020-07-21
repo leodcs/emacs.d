@@ -1,10 +1,13 @@
+(add-hook 'after-save-hook 'magit-after-save-refresh-status t)
+(add-hook 'with-editor-mode-hook 'leo/with-editor-mode-enter)
+
 (use-package magit
   :config
   (use-package evil-magit)
   (use-package with-editor)
-  (setq git-commit-summary-max-length 50)
-  (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
-  (add-hook 'with-editor-mode-hook 'evil-insert-state))
+  (setq git-commit-summary-max-length 50
+        magit-blame-time-format "%d/%m/%Y %H:%M")
+  (evil-define-key 'normal magit-blame-mode-map (kbd "<escape>") 'magit-blame-quit))
 
 (use-package diff-hl
   :config
@@ -48,3 +51,9 @@
   (unless (featurep 'git-timemachine)
     (require 'git-timemachine))
   (git-timemachine--start #'leo/git-timemachine-show-selected-revision))
+
+(defun leo/with-editor-mode-enter ()
+  (interactive)
+  (evil-insert-state)
+  (setq-local fill-column 50)
+  (display-fill-column-indicator-mode))
