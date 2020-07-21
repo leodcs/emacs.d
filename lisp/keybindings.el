@@ -22,15 +22,15 @@
    "M-E" 'eval-buffer
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
-   "C-x pp" 'counsel-projectile-switch-project
-   "C-x vt" 'leo/run-vterm-console
-   "C-x nuke" 'leo/nuke-all-buffers
-   "C-x rm" 'projectile-rails-find-model
-   "C-x tt" 'leo/set-current-trello-card-url
-   "C-x tg" 'leo/open-current-trello-card
+   "C-c pp" 'counsel-projectile-switch-project
+   "C-c vt" 'leo/run-vterm-console
+   "C-c nuke" 'leo/nuke-all-buffers
+   "C-c rm" 'projectile-rails-find-model
+   "C-c tt" 'leo/set-current-trello-card-url
+   "C-c tg" 'leo/open-current-trello-card
+   "C-c C-b" 'ivy-switch-buffer
+   "C-c cp" 'leo/copy-full-file-path
    "C-x C-r" 'rename-buffer
-   "C-x C-b" 'ivy-switch-buffer
-   "C-x cp" 'leo/copy-full-file-path
    "C-=" 'leo/indent-whole-buffer)
 
   (general-define-key
@@ -79,8 +79,8 @@
   (general-define-key
    :keymaps 'web-mode-map
    :states '(normal insert visual)
-   "C-x j" 'leo/open-html-tag
-   "C-x k" 'leo/close-html-tag
+   "C-c j" 'leo/open-html-tag
+   "C-c k" 'leo/close-html-tag
    "s-S" 'leo/save-and-run-erblint-autocorrect)
 
   ;; Magit
