@@ -239,3 +239,7 @@ When using Homebrew, install it using \"brew install trash\"."
   (interactive)
   (if (eq evil-state 'visual) () (evil-visual-state))
   (evil-mc-make-and-goto-next-match))
+
+(defun leo/send-C-u ()
+  (interactive)
+  (delete-region (line-beginning-position) (line-end-position)))

@@ -20,6 +20,7 @@
    "s-k" 'kill-this-buffer
    "s-t" 'leo/projectile-run-vterm
    "M-E" 'eval-buffer
+   "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
    "C-x pp" 'counsel-projectile-switch-project
    "C-x vt" 'leo/run-vterm-console
@@ -78,8 +79,8 @@
   (general-define-key
    :keymaps 'web-mode-map
    :states '(normal insert visual)
-   "C-c j" 'leo/open-html-tag
-   "C-c k" 'leo/close-html-tag
+   "C-x j" 'leo/open-html-tag
+   "C-x k" 'leo/close-html-tag
    "s-S" 'leo/save-and-run-erblint-autocorrect)
 
   ;; Magit
