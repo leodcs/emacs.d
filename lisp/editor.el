@@ -29,16 +29,6 @@
       kill-buffer-query-functions nil
       linum-relative-current-symbol "")
 
-(customize-set-variable
-           'display-buffer-alist
-           '(("*Help*" (leo/display-buffer-at-bottom))
-             ("RuboCop" (leo/display-buffer-at-bottom))
-             ("magit: " (display-buffer-reuse-window display-buffer-same-window))
-             ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))
-             (".*"
-              (display-buffer-reuse-window display-buffer-same-window)
-              (reusable-frames . visible))))
-
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)

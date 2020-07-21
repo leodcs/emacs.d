@@ -86,7 +86,18 @@
  ;; If there is more than one, they won't work right.
  '(company-dabbrev-downcase 0)
  '(company-idle-delay 0)
- '(display-buffer-alist nil)
+ '(display-buffer-alist
+   '(("*Help*"
+      (leo/display-buffer-at-bottom))
+     ("RuboCop"
+      (leo/display-buffer-at-bottom))
+     ("magit: "
+      (display-buffer-reuse-window display-buffer-same-window))
+     ("magit"
+      (display-buffer-reuse-window display-buffer-pop-up-window))
+     (".*"
+      (display-buffer-reuse-window display-buffer-same-window)
+      (reusable-frames . visible))))
  '(flycheck-posframe-warning-prefix "⚠ ")
  '(global-company-mode t)
  '(global-flycheck-mode t)
