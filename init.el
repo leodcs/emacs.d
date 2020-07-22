@@ -1,29 +1,28 @@
-(setq gc-cons-threshold (* 50 1000 1000))
-(setq delete-old-versions -1 ) ; delete excess backups silently
-(setq version-control t )
-(setq vc-make-backup-files t )
-(setq vc-follow-symlinks t )
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")) )
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) )
-(setq inhibit-startup-screen t )
-(setq ring-bell-function 'ignore ) ; silent bell on mistakes
-(setq coding-system-for-read 'utf-8 )
-(setq coding-system-for-write 'utf-8)
-(setq sentence-end-double-space nil)
+(setq gc-cons-threshold (* 50 1000 1000)
+      delete-old-versions -1  ; delete excess backups silently
+      version-control t
+      vc-make-backup-files t
+      vc-follow-symlinks t
+      backup-directory-alist `(("." . "~/.emacs.d/backups"))
+      auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))
+      inhibit-startup-screen t
+      ring-bell-function 'ignore  ; silent bell on mistakes
+      coding-system-for-read 'utf-8
+      coding-system-for-write 'utf-8
+      sentence-end-double-space nil
+      recentf-max-saved-items 120
+      frame-resize-pixelwise t)
+(defalias 'yes-or-no-p 'y-or-n-p)
 (global-display-line-numbers-mode t )
 (menu-bar-mode -1) ; no need for the menu bars - we've got key combos for that!
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
-(defalias 'yes-or-no-p 'y-or-n-p)
 (winner-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (save-place-mode 1)
 (delete-selection-mode 1)
-(setq recentf-max-saved-items 120)
 (global-set-key [escape] 'keyboard-escape-quit)
 (global-set-key (kbd "M-o") 'other-window)
-(setq frame-resize-pixelwise t)
-(dotimes (n 3) (toggle-frame-maximized))
 
 ;; UTF-8
 (setq locale-coding-system 'utf-8)
