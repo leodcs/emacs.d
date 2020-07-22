@@ -12,7 +12,8 @@
   (defun leo/neotree-toggle ()
     (interactive)
     (neotree-toggle)
-    (evil-forward-WORD-begin))
+    (evil-forward-WORD-begin)
+    (evil-scroll-line-to-center (line-number-at-pos)))
 
   (defun leo/neo-open-file-hide (full-path &optional arg)
     "Open a file node and hides tree."
