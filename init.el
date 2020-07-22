@@ -86,10 +86,14 @@
  '(company-dabbrev-downcase 0)
  '(company-idle-delay 0)
  '(display-buffer-alist
-   '(("*Help*" (leo/display-buffer-at-bottom))
-     ("RuboCop" (leo/display-buffer-at-bottom))
-     ("magit: " (display-buffer-reuse-window display-buffer-same-window))
-     ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))))
+   '(("*Help*"
+      (leo/display-buffer-at-bottom))
+     ("RuboCop"
+      (leo/display-buffer-at-bottom))
+     ("magit: "
+      (display-buffer-reuse-window display-buffer-same-window))
+     ("magit"
+      (display-buffer-reuse-window display-buffer-pop-up-window))))
  '(flycheck-posframe-warning-prefix "⚠ ")
  '(global-company-mode t)
  '(global-flycheck-mode t)
@@ -101,7 +105,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
- '(auto-dim-other-buffers-face ((t (:background "gray22"))))
+ '(auto-dim-other-buffers-face ((t (:background "gray20" :foreground "gray30" :slant italic))))
  '(company-preview ((t (:background "blue4" :foreground "gray30"))))
  '(company-preview-common ((t nil)))
  '(company-tooltip-mouse ((t (:background "orange1"))))

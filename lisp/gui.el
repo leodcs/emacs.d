@@ -40,10 +40,9 @@
                           (projects . 5)
                           (hackernews . 6))
         dashboard-footer-icon (all-the-icons-faicon "book"
-                                                     :height 1.1
-                                                     :v-adjust -0.05
-                                                     :face 'font-lock-keyword-face)))
-
+                                                    :height 1.1
+                                                    :v-adjust -0.05
+                                                    :face 'font-lock-keyword-face)))
 ;; Cool Icons
 (use-package all-the-icons)
 (use-package all-the-icons-ivy
