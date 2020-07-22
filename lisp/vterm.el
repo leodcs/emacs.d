@@ -7,8 +7,6 @@
 (defun leo/run-vterm-console ()
   "Opens a new instance of vterm everytime it is called."
   (interactive)
-  (split-window-horizontally)
-  (other-window 1)
   (vterm)
   (evil-insert-state))
 

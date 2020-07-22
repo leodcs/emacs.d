@@ -10,7 +10,8 @@
    "s-C" 'leo/copy-relative-file-path
    "s-w" 'delete-window
    "s-W" 'delete-other-windows
-   "s-d" 'leo/multiple-cursor-on-next-match
+   "s-d" 'leo/split-window-vertically
+   "s-D" 'leo/split-window-horizontally
    "s-J" 'leo/duplicate-line
    "s-e" 'leo/neotree-toggle
    "s-o" 'evil-switch-to-windows-last-buffer
@@ -20,17 +21,18 @@
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/projectile-run-vterm
+   "s-." 'leo/multiple-cursor-on-next-match
    "M-E" 'eval-buffer
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
-   "C-c vt" 'leo/run-vterm-console
+   "C-c t" 'leo/run-vterm-console
    "C-c nuke" 'leo/nuke-all-buffers
    "C-c rm" 'projectile-rails-find-model
-   "C-c tt" 'leo/set-current-trello-card-url
-   "C-c tg" 'leo/open-current-trello-card
    "C-c C-b" 'ivy-switch-buffer
    "C-c cp" 'leo/copy-full-file-path
    "C-x C-r" 'rename-buffer
+   "C-x tt" 'leo/set-current-trello-card-url
+   "C-x tg" 'leo/open-current-trello-card
    "C-=" 'leo/indent-whole-buffer)
 
   (general-define-key

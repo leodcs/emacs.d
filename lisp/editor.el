@@ -210,3 +210,13 @@ When using Homebrew, install it using \"brew install trash\"."
      (buffer-substring-no-properties
       (point-min)
       (point-max))) "\n" t))
+
+(defun leo/split-window-vertically ()
+  (interactive)
+  (evil-window-vsplit)
+  (other-window 1))
+
+(defun leo/split-window-horizontally ()
+  (interactive)
+  (evil-window-split)
+  (other-window 1))
