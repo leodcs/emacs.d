@@ -86,17 +86,10 @@
  '(company-dabbrev-downcase 0)
  '(company-idle-delay 0)
  '(display-buffer-alist
-   '(("*Help*"
-      (leo/display-buffer-at-bottom))
-     ("RuboCop"
-      (leo/display-buffer-at-bottom))
-     ("magit: "
-      (display-buffer-reuse-window display-buffer-same-window))
-     ("magit"
-      (display-buffer-reuse-window display-buffer-pop-up-window))
-     (".*"
-      (display-buffer-reuse-window display-buffer-same-window)
-      (reusable-frames . visible))))
+   '(("*Help*" (leo/display-buffer-at-bottom))
+     ("RuboCop" (leo/display-buffer-at-bottom))
+     ("magit: " (display-buffer-reuse-window display-buffer-same-window))
+     ("magit" (display-buffer-reuse-window display-buffer-pop-up-window))))
  '(flycheck-posframe-warning-prefix "⚠ ")
  '(global-company-mode t)
  '(global-flycheck-mode t)
