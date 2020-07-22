@@ -21,7 +21,8 @@
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/projectile-run-vterm
-   "s-." 'leo/multiple-cursor-on-next-match
+   "s->" 'leo/multiple-cursor-on-next-match
+   "s-<" 'evil-mc-undo-last-added-cursor
    "M-E" 'eval-buffer
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
@@ -89,11 +90,6 @@
   (general-define-key
    :keymaps 'transient-base-map
    "<escape>" 'transient-quit-all)
-
-  ;; use E to go to EOL
-  (general-define-key
-   :states '(motion)
-   "E" 'evil-end-of-line)
 
   (general-define-key
    :states '(normal visual)

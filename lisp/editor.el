@@ -16,8 +16,6 @@
 (setq-default line-spacing 1)
 (setq-default fill-column 80)
 (setq-default frame-title-format '((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%f"))))
-(custom-set-faces '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
-(modify-syntax-entry ?_ "w" (standard-syntax-table))
 (setq whitespace-line-column 80
       whitespace-style '(face lines-tail)
       delete-by-moving-to-trash t
