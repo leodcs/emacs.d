@@ -100,11 +100,3 @@
   :after evil
   :config
   (global-evil-surround-mode 1))
-
-;; make evil-search-word look for symbol rather than word boundaries
-(with-eval-after-load 'evil
-  (defalias 'forward-evil-word 'forward-evil-symbol)
-  (setq-default evil-symbol-word-search t)
-  (add-hook 'after-change-major-mode-hook
-            (lambda ()
-              (modify-syntax-entry ?- " "))))
