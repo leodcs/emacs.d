@@ -134,6 +134,7 @@
   (general-define-key
    :states '(insert)
    :keymaps 'vterm-mode-map
+   "<escape>" 'vterm--self-insert
    "C-c" 'vterm-send-C-c
    "C-d" 'vterm-send-C-d
    "C-z" 'vterm-send-C-z
