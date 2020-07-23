@@ -221,13 +221,14 @@ When using Homebrew, install it using \"brew install trash\"."
   (other-window 1))
 
 (defun leo/export-buffer-contents ()
-  "Print file in the current buffer as pdf"
+  "Print file in the current buffer as pdf. Requires `ps2pdf'."
   (interactive)
   (let* ((folder "~/.emacs.d/exports/")
-         (timestamp (format-time-string "%H-%M-%S_%d%m%Y" (current-time)))
-         (ps-file (concat folder timestamp))
+         (current-mode (replace-regexp-in-string "-mode" "" (symbol-name major-mode)))
+         (timestamp (format-time-string "%Y%m%d@%H%M%S" (current-time)))
+         (default-filename (concat folder current-mode "_" timestamp))
+         (ps-file (read-string "Filepath (without extension): " default-filename))
          (pdf-file (concat (file-name-sans-extension ps-file) ".pdf")))
-    (print ps-file)
     (ps-print-buffer ps-file)
     (print pdf-file)
     (shell-command (concat "ps2pdf " ps-file " " pdf-file))

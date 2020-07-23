@@ -36,6 +36,7 @@
    "C-x C-r" 'rename-buffer
    "C-x tt" 'leo/set-current-trello-card-url
    "C-x tg" 'leo/open-current-trello-card
+   "C-x C-e" 'leo/export-buffer-contents
    "C-=" 'leo/indent-whole-buffer)
 
   (general-define-key
