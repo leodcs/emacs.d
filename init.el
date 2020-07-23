@@ -11,7 +11,8 @@
       coding-system-for-write 'utf-8
       sentence-end-double-space nil
       recentf-max-saved-items 120
-      frame-resize-pixelwise t)
+      frame-resize-pixelwise t
+      linum-relative-current-symbol "")
 (defalias 'yes-or-no-p 'y-or-n-p)
 (global-display-line-numbers-mode t )
 (menu-bar-mode -1) ; no need for the menu bars - we've got key combos for that!
@@ -21,6 +22,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (save-place-mode 1)
 (delete-selection-mode 1)
+(linum-relative-global-mode t)
 (global-set-key [escape] 'keyboard-escape-quit)
 (global-set-key (kbd "M-o") 'other-window)
 

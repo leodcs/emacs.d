@@ -3,7 +3,6 @@
 (column-number-mode)
 (transient-mark-mode t)
 (global-auto-revert-mode t) ;; Always reload the file if it changed on disk
-(linum-relative-global-mode t)
 (savehist-mode t)
 
 ; -------------------------- Variables --------------------------------
@@ -25,8 +24,7 @@
       tab-width 2
       system-uses-terminfo nil
       find-ls-option '("-print0 | xargs -0 ls -alhd" . "")
-      kill-buffer-query-functions nil
-      linum-relative-current-symbol "")
+      kill-buffer-query-functions nil)
 
 ; -------------------------- Hooks --------------------------------
 
