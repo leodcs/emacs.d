@@ -28,7 +28,7 @@
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
    "C-c t" 'leo/run-vterm-console
-   "C-c nuke" 'leo/nuke-all-buffers
+   "C-c nk" 'leo/nuke-all-buffers
    "C-c rm" 'projectile-rails-find-model
    "C-c C-b" 'ivy-switch-buffer
    "C-c cp" 'leo/copy-full-file-path
