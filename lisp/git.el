@@ -57,3 +57,19 @@
   (evil-insert-state)
   (setq-local fill-column 50)
   (display-fill-column-indicator-mode))
+
+(defun parse-git-url (url)
+  "Convert a git remote location as a HTTP URL"
+  (if (string-match "^http" url)
+      url
+    (replace-regexp-in-string "\\(.*\\)@\\(.*\\):\\(.*\\)\\(\\.git?\\)"
+                              "https://\\2/\\3"
+                              url)))
+
+(defun leo/open-git-repository-in-browser ()
+  "Open remote repo URL in browser"
+  (interactive)
+  (let ((url (magit-get "remote" "origin" "url")))
+    (progn
+      (browse-url (parse-git-url url))
+      (message "opening repo %s" url))))
