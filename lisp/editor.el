@@ -233,3 +233,28 @@ When using Homebrew, install it using \"brew install trash\"."
     (shell-command (concat "ps2pdf " ps-file " " pdf-file))
     (delete-file ps-file)
     (message "Wrote %s" pdf-file)))
+
+(defvar current-date-format "%d/%m/%Y"
+  "Format of date to insert with `insert-current-date' func
+See help of `format-time-string' for possible replacements")
+
+(defvar current-time-format "%H:%M:%S"
+  "Format of date to insert with `insert-current-time' func.
+Note the weekly scope of the command's precision.")
+
+(defun leo/insert-current-timestamp ()
+  "insert the current date and time into current buffer."
+  (interactive)
+  (let* ((date (format-time-string current-date-format (current-time)))
+         (time (format-time-string current-time-format (current-time))))
+  (insert (concat date " " time))))
+
+(defun leo/insert-current-date ()
+  "insert the current date into the current buffer."
+  (interactive)
+  (insert (format-time-string current-date-format (current-time))))
+
+(defun leo/insert-current-time ()
+  "insert the current time into the current buffer."
+  (interactive)
+  (insert (format-time-string current-time-format (current-time))))
