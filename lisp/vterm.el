@@ -2,8 +2,7 @@
 
 (use-package vterm
   :config
-  (setq vterm-max-scrollback 100000
-        vterm-buffer-name-string "[vterm] %s"))
+  (setq vterm-max-scrollback 100000))
 
 (defun leo/run-vterm-console ()
   "Opens a new instance of vterm everytime it is called."
