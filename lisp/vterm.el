@@ -21,4 +21,5 @@
 
 (defun leo/vterm-mode-enter ()
   (interactive)
+  (setq-local evil-move-cursor-back nil)
   (rvm-activate-corresponding-ruby))
