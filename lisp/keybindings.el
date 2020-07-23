@@ -22,7 +22,7 @@
    "s-k" 'kill-this-buffer
    "s-t" 'leo/projectile-run-vterm
    "s->" 'leo/multiple-cursor-on-next-match
-   "M->" 'evil-mc-skip-and-goto-next-match
+   "C->" 'evil-mc-skip-and-goto-next-match
    "s-<" 'evil-mc-undo-last-added-cursor
    "M-E" 'eval-buffer
    "C-u" 'leo/send-C-u
