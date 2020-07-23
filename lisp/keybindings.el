@@ -65,7 +65,7 @@
    "l" 'magit-log-buffer-file
    "t" 'git-timemachine
    "b" 'magit-blame-addition
-   "f" 'leo/git-open-branch-in-repo
+   "o" 'leo/git-open-buffer-file-in-repo
    "r" 'leo/open-git-repository-in-browser)
 
   (general-define-key

@@ -18,7 +18,7 @@
   :config
   (setq git-link-open-in-browser t)
 
-  (defun leo/git-open-branch-in-repo ()
+  (defun leo/git-open-buffer-file-in-repo ()
     (interactive)
     (let* ((branch (magit-read-branch "Base branch"))
            (git-link-default-branch branch))
