@@ -93,6 +93,9 @@
   (general-define-key
    :keymaps 'transient-base-map
    "<escape>" 'transient-quit-all)
+  (general-define-key
+   :keymaps 'magit-mode-map
+   "s-r" 'magit-refresh-all)
 
   (general-define-key
    :states '(normal visual)
