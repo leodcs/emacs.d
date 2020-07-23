@@ -20,7 +20,8 @@
    "s-f" 'swiper-isearch
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
-   "s-t" 'leo/projectile-run-vterm
+   "s-t" 'leo/run-vterm-console
+   "s-j" 'leo/projectile-run-vterm
    "s->" 'leo/multiple-cursor-on-next-match
    "s-<" 'evil-mc-undo-last-added-cursor
    "s-g" 'magit-status
@@ -28,7 +29,6 @@
    "M-E" 'eval-buffer
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
-   "C-c t" 'leo/run-vterm-console
    "C-c nk" 'leo/nuke-all-buffers
    "C-c rm" 'projectile-rails-find-model
    "C-c C-b" 'ivy-switch-buffer
