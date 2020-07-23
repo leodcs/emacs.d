@@ -66,7 +66,7 @@
    "t" 'git-timemachine
    "b" 'magit-blame-addition
    "f" 'leo/git-open-branch-in-repo
-   "o" 'leo/open-git-repository-in-browser)
+   "r" 'leo/open-git-repository-in-browser)
 
   (general-define-key
    "C-c e" 'leo/eval-and-replace

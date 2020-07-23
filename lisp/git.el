@@ -69,7 +69,7 @@
 (defun leo/open-git-repository-in-browser ()
   "Open remote repo URL in browser"
   (interactive)
-  (let ((url (magit-get "remote" "origin" "url")))
+  (let ((url (parse-git-url (magit-get "remote" "origin" "url"))))
     (progn
-      (browse-url (parse-git-url url))
-      (message "opening repo %s" url))))
+      (browse-url url)
+      (message "Browsing repo: %s" url))))
