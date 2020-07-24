@@ -58,7 +58,7 @@
    :prefix "C-C"
    :keymaps 'override
    "y" 'browse-kill-ring
-   "ff" 'find-file)
+   "C-f" 'find-file)
 
   (general-define-key
    :prefix "C-c g"
