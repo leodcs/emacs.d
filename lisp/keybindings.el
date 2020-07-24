@@ -22,11 +22,12 @@
    "s-k" 'kill-this-buffer
    "s-t" 'leo/run-vterm-console
    "s-j" 'leo/projectile-run-vterm
-   "s->" 'leo/multiple-cursor-on-next-match
-   "s-<" 'evil-mc-undo-last-added-cursor
+   "s->" 'mc/mark-next-like-this
+   "s-<" 'mc/mark-previous-like-this
+   "M-m" 'mc/sort-regions
    "s-g" 'magit-status
    "C->" 'evil-mc-skip-and-goto-next-match
-   "M-E" 'eval-buffer
+   "M-E" 'leo/eval-buffer
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
    "C-c nk" 'leo/nuke-all-buffers
@@ -174,9 +175,8 @@
 
   (general-define-key
    :states 'visual
-   :keymaps 'evil-mc-key-map
-   "A" #'evil-mc-make-cursor-in-visual-selection-end
-   "I" #'evil-mc-make-cursor-in-visual-selection-beg)
+   "A" 'mc/edit-ends-of-lines
+   "I" 'mc/edit-beginnings-of-lines)
 
   ;; Neotree
   (general-define-key
@@ -195,4 +195,9 @@
    "o" 'leo/reveal-neotree-file-in-system-application
    "<tab>" 'leo/neotree-enter
    "<return>" 'leo/neotree-enter
-   "d" 'neotree-delete-node))
+   "d" 'neotree-delete-node)
+
+  (general-define-key
+   :keymaps 'mc/keymap
+   "<return>" nil
+   "<escape>" 'mc/keyboard-quit))

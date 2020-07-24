@@ -189,11 +189,6 @@ When using Homebrew, install it using \"brew install trash\"."
   (interactive)
   (browse-url current-trello-card-url))
 
-(defun leo/multiple-cursor-on-next-match ()
-  (interactive)
-  (if (eq evil-state 'visual) () (evil-visual-state))
-  (evil-mc-make-and-goto-next-match))
-
 (defun leo/send-C-u ()
   (interactive)
   (delete-region (line-beginning-position) (line-end-position)))
@@ -257,3 +252,8 @@ Note the weekly scope of the command's precision.")
   "insert the current time into the current buffer."
   (interactive)
   (insert (format-time-string current-time-format (current-time))))
+
+(defun leo/eval-buffer ()
+  (interactive)
+  (eval-buffer)
+  (message "buffer evaluated"))
