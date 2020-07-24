@@ -38,16 +38,14 @@ Open Emacs and run:
 | `s-n` | Create an untitled buffer |
 | `s-r` | Rename current buffer |
 | `s-k` | Kill current buffer |
-| `s-d` | Multiple cursor on next occurrence |
+| `s->` | Multiple cursor on next occurrence |
 | `M-o` | Switch windows |
-| `SPC-SPC` | Switch to buffer |
-| `SPC-RET` | Go back to previous buffer |
-| `s-S-<up>` | Move text up |
-| `s-S-<down>` | Move text down |
-| `SPC-d` | Delete other windows |
-| `C-(` | Rubocop on current buffer file |
-| `C-)` | Rubocop autocorrect on current buffer file |
-
+| `s-RET` | Switch to buffer |
+| `s-<up>` | Move text up |
+| `s-<down>` | Move text down |
+| `s-w` | Close current window |
+| `s-W` | Delete other windows |
+| `s-S` | Rubocop autocorrect on current buffer file |
 
 ## Search and replace
 
