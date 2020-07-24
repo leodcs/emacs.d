@@ -1,8 +1,9 @@
 (add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
 
 (use-package vterm
+  :load-path  "~/.emacs.d/vendor/emacs-libvterm/"
   :config
-  (setq vterm-max-scrollback 100000))
+  (setq vterm-max-scrollback 20000000))
 
 (defun leo/run-vterm-console ()
   "Opens a new instance of vterm everytime it is called."
