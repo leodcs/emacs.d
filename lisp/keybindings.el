@@ -37,7 +37,6 @@
    "C-x C-r" 'rename-buffer
    "C-x tt" 'leo/set-current-trello-card-url
    "C-x tg" 'leo/open-current-trello-card
-   "C-x C-e" 'leo/export-buffer-contents
    "C-=" 'leo/indent-whole-buffer)
 
   (general-define-key
@@ -151,6 +150,7 @@
   (general-define-key
    :states '(normal insert visual emacs)
    :keymaps 'vterm-mode-map
+   "s-s" 'leo/export-buffer-contents
    "s-f" 'swiper-isearch)
 
   (general-define-key
@@ -161,6 +161,7 @@
    "M-<left>" 'vterm-send-M-b
    "M-<right>" 'vterm-send-M-f
    "b" 'vterm-send-M-b
+   "e" 'vterm-send-M-f
    "w" 'vterm-send-M-f)
 
   ;; Window numbers
