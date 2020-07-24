@@ -65,7 +65,7 @@
    :keymaps 'override
    "d" 'magit-diff-buffer-file
    "s" 'magit-status
-   "l" 'magit-log-buffer-file
+   "l" 'magit-log
    "t" 'git-timemachine
    "b" 'magit-blame-addition
    "o" 'leo/git-open-buffer-file-in-repo
