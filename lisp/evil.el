@@ -13,6 +13,10 @@
   (define-key evil-insert-state-map (kbd "<ESCAPE>") 'keyboard-quit)
 
   (global-display-line-numbers-mode 0)
+  (setq evil-insert-state-cursor '(bar "#00FF00")
+        evil-visual-state-cursor '(box "#FF00FF")
+        evil-normal-state-cursor '(box "#E2E8EF")
+        evil-emacs-state-cursor '(bar "#FF2500"))
 
   (defun leo/evil-paste ()
     (interactive)
