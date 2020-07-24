@@ -17,7 +17,7 @@
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
    "s-P" 'counsel-projectile-switch-project
-   "s-f" 'swiper-isearch
+   "s-f" 'evil-search-forward
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/run-vterm-console
@@ -205,4 +205,9 @@
   (general-define-key
    :states '(emacs)
    :keymaps 'override
-   "C-g" 'evil-normal-state))
+   "C-g" 'evil-normal-state)
+
+  (general-define-key
+   :states '(normal insert visual emacs)
+   :keymaps 'vterm-mode-map
+   "s-f" 'swiper-isearch))
