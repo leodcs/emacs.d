@@ -148,6 +148,21 @@
    "M-<left>" 'vterm-send-M-b
    "M-<right>" 'vterm-send-M-f)
 
+  (general-define-key
+   :states '(normal insert visual emacs)
+   :keymaps 'vterm-mode-map
+   "s-f" 'swiper-isearch)
+
+  (general-define-key
+   :states '(normal visual)
+   :keymaps 'vterm-mode-map
+   "A" 'leo/vterm-evil-append-line
+   "I" 'leo/vterm-evil-insert-line
+   "M-<left>" 'vterm-send-M-b
+   "M-<right>" 'vterm-send-M-f
+   "b" 'vterm-send-M-b
+   "w" 'vterm-send-M-f)
+
   ;; Window numbers
   (general-define-key
    :states '(normal insert visual)
@@ -205,9 +220,4 @@
   (general-define-key
    :states '(emacs)
    :keymaps 'override
-   "C-g" 'evil-normal-state)
-
-  (general-define-key
-   :states '(normal insert visual emacs)
-   :keymaps 'vterm-mode-map
-   "s-f" 'swiper-isearch))
+   "C-g" 'evil-normal-state))

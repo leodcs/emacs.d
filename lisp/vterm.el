@@ -24,3 +24,13 @@
   (interactive)
   (setq-local evil-move-cursor-back nil)
   (rvm-activate-corresponding-ruby))
+
+(defun leo/vterm-evil-append-line ()
+  (interactive)
+  (execute-kbd-macro (kbd "<end>"))
+  (evil-insert-state))
+
+(defun leo/vterm-evil-insert-line ()
+  (interactive)
+  (execute-kbd-macro (kbd "<home>"))
+  (evil-insert-state))
