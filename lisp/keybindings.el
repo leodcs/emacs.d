@@ -200,4 +200,9 @@
   (general-define-key
    :keymaps 'mc/keymap
    "<return>" nil
-   "<escape>" 'mc/keyboard-quit))
+   "<escape>" 'mc/keyboard-quit)
+
+  (general-define-key
+   :states '(emacs)
+   :keymaps 'override
+   "C-g" 'evil-normal-state))
