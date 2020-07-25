@@ -14,7 +14,6 @@
       org-superstar-headline-bullets-list '("➣" "◉" "○" "➝" "»" "➥"))
 
 ; -------------------------- Packages --------------------------------
-(require 'livedown)
 (require 'ox-md)
 (require 'ox-beamer)
 
@@ -56,3 +55,8 @@
   (interactive)
   (visual-line-mode)
   (org-superstar-mode))
+
+(defun leo/preview-markdown ()
+  (interactive)
+  (require 'livedown)
+  (livedown-preview))
