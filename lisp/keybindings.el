@@ -162,10 +162,9 @@
    "<tab>" 'org-metaright
    "C-<return>" 'org-return)
 
-  (general-define-key
-   :states '(insert)
-   :keymaps 'vterm-mode-map
+  (general-imap 'vterm-mode-map
    "<escape>" 'vterm--self-insert
+   "<return>" 'vterm-send-return
    "C-c" 'vterm-send-C-c
    "C-d" 'vterm-send-C-d
    "C-z" 'vterm-send-C-z
@@ -178,21 +177,34 @@
    "M-<right>" 'vterm-send-M-f)
 
   (general-define-key
-   :states '(normal insert visual emacs)
    :keymaps 'vterm-mode-map
-   "s-s" 'leo/export-buffer-contents
-   "s-f" 'swiper-isearch)
+   :states '(normal insert emacs)
+   "s-r" 'leo/vterm-send-C-l)
 
   (general-define-key
-   :states '(normal visual)
    :keymaps 'vterm-mode-map
+   :states '(normal insert visual emacs)
+   "s-s" 'leo/export-buffer-contents
+   "s-f" 'evil-search-forward)
+
+  (general-define-key
+   :keymaps 'vterm-mode-map
+   :states '(normal visual)
    "A" 'leo/vterm-evil-append-line
    "I" 'leo/vterm-evil-insert-line
    "M-<left>" 'vterm-send-M-b
    "M-<right>" 'vterm-send-M-f
    "b" 'vterm-send-M-b
    "e" 'vterm-send-M-f
-   "w" 'vterm-send-M-f)
+   "w" 'vterm-send-M-f
+   "\\" 'vterm-copy-mode)
+
+  (general-nvmap vterm-copy-mode-map
+    "b" 'evil-backward-word-begin
+    "e" 'evil-forward-word-end
+    "w" 'evil-forward-word-begin
+    "\\" 'vterm-copy-mode
+    "s-c" 'leo/vterm-copy-mode-done)
 
   ;; Window numbers
   (general-define-key

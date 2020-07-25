@@ -8,6 +8,7 @@
   (defun leo/run-vterm-console ()
     "Opens a new instance of vterm everytime it is called."
     (interactive)
+    (setq-local default-directory (projectile-project-root))
     (vterm)
     (evil-insert-state))
 
@@ -33,4 +34,19 @@
   (defun leo/vterm-evil-insert-line ()
     (interactive)
     (execute-kbd-macro (kbd "<home>"))
+    (evil-insert-state))
+
+  (defun leo/vterm-mode-enter ()
+    (interactive)
+    (setq-local evil-move-cursor-back nil)
+    (rvm-activate-corresponding-ruby))
+
+  (defun leo/vterm-send-C-l ()
+    (interactive)
+    (vterm-send-C-l)
+    (evil-insert-state))
+
+  (defun leo/vterm-copy-mode-done ()
+    (interactive)
+    (call-interactively #'vterm-copy-mode-done)
     (evil-insert-state)))
