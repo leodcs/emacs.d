@@ -3,12 +3,13 @@
   (general-define-key
    :keymaps 'override
    "s-<return>" 'ivy-switch-buffer
+   "s->" 'evil-mc-make-and-goto-next-match
+   "s-<" 'evil-mc-undo-last-added-cursor
    "s-x" 'counsel-M-x
    "s-r" 'leo/revert-buffer-no-confirm
    "s-n" 'leo/generate-new-untitled-buffer
    "s-N" 'deft
    "s-d" 'evil-multiedit-match-and-next
-   "s-<" 'evil-multiedit-restore
    "s-C" 'leo/copy-relative-file-path
    "s-w" 'delete-window
    "s-W" 'delete-other-windows
@@ -22,10 +23,11 @@
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/run-vterm-console
-   "s-D" 'leo/projectile-run-vterm
+   "s-j" 'leo/projectile-run-vterm
    "s-g" 'magit-status
    "M-2" 'er/expand-region
    "M-E" 'leo/eval-buffer
+   "C->" 'evil-mc-skip-and-goto-next-match
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
    "C-c nk" 'leo/nuke-all-buffers
@@ -36,6 +38,11 @@
    "C-x tt" 'leo/set-current-trello-card-url
    "C-x tg" 'leo/open-current-trello-card
    "C-=" 'leo/indent-whole-buffer)
+
+  (general-define-key
+   :states '(normal insert visual emacs)
+   "C-e" 'move-end-of-line
+   "C-a" 'leo/move-beginning-of-line-or-indentation)
 
   (general-define-key
    :keymaps 'override
@@ -218,4 +225,8 @@
   (general-define-key
    :states '(insert emacs)
    :keymaps 'override
-   "C-g" 'evil-normal-state))
+   "C-g" 'evil-normal-state)
+
+  (general-define-key
+   :states '(emacs)
+   "s-d" 'mc/mark-next-like-this))
