@@ -9,7 +9,7 @@
    "s-r" 'leo/revert-buffer-no-confirm
    "s-n" 'leo/generate-new-untitled-buffer
    "s-N" 'deft
-   "s-d" 'evil-multiedit-match-and-next
+   "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
    "s-C" 'leo/copy-relative-file-path
    "s-w" 'delete-window
    "s-W" 'delete-other-windows
@@ -25,7 +25,7 @@
    "s-t" 'leo/run-vterm-console
    "s-j" 'leo/projectile-run-vterm
    "s-g" 'magit-status
-   "M-2" 'er/expand-region
+   "M-2" 'leo/expand-region
    "M-E" 'leo/eval-buffer
    "C->" 'evil-mc-skip-and-goto-next-match
    "C-u" 'leo/send-C-u
