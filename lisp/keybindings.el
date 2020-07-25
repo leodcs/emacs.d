@@ -217,10 +217,12 @@
    "A" #'evil-mc-make-cursor-in-visual-selection-end
    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
+  ;; Help
   (general-nvmap
     emacs-lisp-mode-map
     "Kf" 'describe-function
-    "Kv" 'describe-variable)
+    "Kv" 'describe-variable
+    "Kk" 'describe-key)
 
   ;; Neotree
   (general-define-key
