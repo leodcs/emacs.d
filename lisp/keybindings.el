@@ -41,8 +41,6 @@
    "C-x tg" 'leo/open-current-trello-card
    "C-=" 'leo/indent-whole-buffer)
 
-  (general-iemap "C-g" 'evil-normal-state)
-
   (general-define-key
    :states '(normal insert visual emacs)
    "C-e" 'move-end-of-line
@@ -50,16 +48,23 @@
    "s-<right>" 'move-end-of-line
    "s-<left>" 'move-beginning-of-line)
 
-  (general-define-key
-   :states '(emacs)
-   "M-1" 'mc/insert-numbers
-   "M-A" 'mc/mark-all-like-this
-   "M-a" 'mc/edit-beginnings-of-lines
-   "M-e" 'mc/edit-lines
-   "M-l" 'mc/insert-letters
-   "M-s" 'mc/sort-regions
-   "s-D" 'mc/skip-to-next-like-this
-   "s-d" 'mc/mark-next-like-this)
+  (general-iemap
+    "C-g" 'evil-normal-state
+    "<return>" 'newline)
+
+  (general-emap
+    "s-a" 'mc/edit-beginnings-of-lines
+    "s-e" 'mc/edit-ends-of-lines
+    "s-d" 'mc/mark-next-like-this)
+
+  ;; multiple-cursors-mode
+  (general-emap 'mc/keymap
+    "M-1" 'mc/insert-numbers
+    "M-A" 'mc/mark-all-dwim
+    "M-h" 'mc-hide-unmatched-lines-mode
+    "M-l" 'mc/insert-letters
+    "M-s" 'mc/sort-regions
+    "s-D" 'mc/skip-to-next-like-this)
 
   (general-define-key
    :keymaps '(browse-kill-ring-mode-map)
