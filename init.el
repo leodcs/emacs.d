@@ -130,6 +130,7 @@
  '(flycheck-warning ((t (:background "#2d2e2e" :underline (:color "red2" :style wave)))))
  '(isearch ((t (:background "DarkGoldenrod1" :foreground "Black"))))
  '(isearch-fail ((t (:background "firebrick1" :foreground "black"))))
+ '(mc/cursor-bar-face ((t (:background "#FF2500" :height 0.1))))
  '(org-ellipsis ((t (:foreground "LightGoldenrod"))))
  '(org-table ((t (:foreground "gray70"))))
  '(query-replace ((t (:inherit isearch))))

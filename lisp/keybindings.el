@@ -1,5 +1,7 @@
 (use-package general
   :config
+  (general-evil-setup)
+
   (general-define-key
    :keymaps 'override
    "s-<return>" 'ivy-switch-buffer
@@ -40,19 +42,26 @@
    "C-=" 'leo/indent-whole-buffer)
 
   (general-define-key
+   :states '(insert emacs)
+   :keymaps 'override
+   "C-g" 'evil-normal-state)
+
+  (general-define-key
    :states '(normal insert visual emacs)
    "C-e" 'move-end-of-line
-   "C-a" 'leo/move-beginning-of-line-or-indentation)
+   "C-a" 'leo/move-beginning-of-line-or-indentation
+   "s-<right>" 'move-end-of-line
+   "s-<left>" 'move-beginning-of-line)
 
   (general-define-key
-   :keymaps 'override
-   :states '(visual)
-   "R" 'evil-multiedit-match-all)
-
-  (general-define-key
-   :keymaps '(evil-multiedit-state-map evil-multiedit-insert-state-map)
-   "C-n" 'evil-multiedit-next
-   "C-p" 'evil-multiedit-prev)
+   :states '(emacs)
+   "M-1" 'mc/insert-numbers
+   "M-a" 'mc/mark-all-like-this
+   "M-b" 'mc/edit-beginnings-of-lines
+   "M-e" 'mc/edit-ends-of-lines
+   "M-s" 'mc/sort-regions
+   "s-D" 'mc/skip-to-next-like-this
+   "s-d" 'mc/mark-next-like-this)
 
   (general-define-key
    :keymaps '(browse-kill-ring-mode-map)
@@ -181,7 +190,7 @@
 
   ;; Window numbers
   (general-define-key
-   :states '(normal insert visual)
+   :states '(normal insert visual emacs)
    :keymaps '(override)
    "s-1" 'winum-select-window-1
    "s-2" 'winum-select-window-2
@@ -205,6 +214,11 @@
    "A" #'evil-mc-make-cursor-in-visual-selection-end
    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
+  (general-nvmap
+   emacs-lisp-mode-map
+   "Kf" 'describe-function
+   "Kv" 'describe-variable)
+
   ;; Neotree
   (general-define-key
    :keymaps 'neotree-mode-map
@@ -220,13 +234,4 @@
    "o" 'leo/reveal-neotree-file-in-system-application
    "<tab>" 'leo/neotree-enter
    "<return>" 'leo/neotree-enter
-   "d" 'neotree-delete-node)
-
-  (general-define-key
-   :states '(insert emacs)
-   :keymaps 'override
-   "C-g" 'evil-normal-state)
-
-  (general-define-key
-   :states '(emacs)
-   "s-d" 'mc/mark-next-like-this))
+   "d" 'neotree-delete-node))
