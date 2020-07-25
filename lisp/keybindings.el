@@ -188,8 +188,8 @@
   (general-define-key
    :states '(normal insert visual)
    :keymaps '(git-timemachine-mode-map)
-   "s-<down>" 'git-timemachine-show-next-revision
-   "s-<up>" 'git-timemachine-show-previous-revision
+   "C-j" 'git-timemachine-show-next-revision
+   "C-k" 'git-timemachine-show-previous-revision
    "C-g" 'git-timemachine-quit)
 
   (general-define-key
