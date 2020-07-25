@@ -41,24 +41,22 @@
    "C-x tg" 'leo/open-current-trello-card
    "C-=" 'leo/indent-whole-buffer)
 
-  (general-define-key
-   :states '(insert emacs)
-   :keymaps 'override
-   "C-g" 'evil-normal-state)
+  (general-iemap "C-g" 'evil-normal-state)
 
   (general-define-key
    :states '(normal insert visual emacs)
    "C-e" 'move-end-of-line
-   "C-a" 'leo/move-beginning-of-line-or-indentation
+   "C-a" 'move-beginning-of-line
    "s-<right>" 'move-end-of-line
    "s-<left>" 'move-beginning-of-line)
 
   (general-define-key
    :states '(emacs)
    "M-1" 'mc/insert-numbers
-   "M-a" 'mc/mark-all-like-this
-   "M-b" 'mc/edit-beginnings-of-lines
-   "M-e" 'mc/edit-ends-of-lines
+   "M-A" 'mc/mark-all-like-this
+   "M-a" 'mc/edit-beginnings-of-lines
+   "M-e" 'mc/edit-lines
+   "M-l" 'mc/insert-letters
    "M-s" 'mc/sort-regions
    "s-D" 'mc/skip-to-next-like-this
    "s-d" 'mc/mark-next-like-this)
@@ -215,9 +213,9 @@
    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
   (general-nvmap
-   emacs-lisp-mode-map
-   "Kf" 'describe-function
-   "Kv" 'describe-variable)
+    emacs-lisp-mode-map
+    "Kf" 'describe-function
+    "Kv" 'describe-variable)
 
   ;; Neotree
   (general-define-key
