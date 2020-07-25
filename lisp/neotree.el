@@ -35,16 +35,6 @@
     (interactive "P")
     (neo-buffer--execute arg 'leo/neo-open-file-hide 'neo-open-dir))
 
-  (defun leo/neotree-select-next-sibling-node ()
-    (interactive)
-    (neotree-select-next-sibling-node)
-    (evil-forward-WORD-begin))
-
-  (defun leo/neotree-select-previous-sibling-node ()
-    (interactive)
-    (neotree-select-previous-sibling-node)
-    (evil-forward-WORD-begin))
-
   (defun leo/neotree-search-inside-current-node-directory ()
     "Calls counsel-ag passing the directory at point as parameter"
     (interactive)
