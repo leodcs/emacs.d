@@ -69,6 +69,14 @@
 
 ; -------------------------- Functions --------------------------------
 
+(defun leo/move-beginning-of-line-or-indentation ()
+  "Toggle between the beginning of the line and the beginning of the code."
+  (interactive)
+  (let ((pt (point)))
+    (beginning-of-line-text)
+    (when (eq pt (point))
+      (beginning-of-line))))
+
 (defun system-move-file-to-trash (file)
   "Use \"trash\" to move FILE to the system trash.
 When using Homebrew, install it using \"brew install trash\"."
