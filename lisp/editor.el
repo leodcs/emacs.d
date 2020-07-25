@@ -210,12 +210,14 @@ When using Homebrew, install it using \"brew install trash\"."
 (defun leo/split-window-vertically ()
   (interactive)
   (evil-window-vsplit)
-  (other-window 1))
+  (other-window 1)
+  (counsel-projectile-find-file))
 
 (defun leo/split-window-horizontally ()
   (interactive)
   (evil-window-split)
-  (other-window 1))
+  (other-window 1)
+  (counsel-projectile-find-file))
 
 (defun leo/export-buffer-contents ()
   "Print file in the current buffer as pdf. Requires `ps2pdf'."
