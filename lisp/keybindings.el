@@ -7,12 +7,13 @@
    "s-r" 'leo/revert-buffer-no-confirm
    "s-n" 'leo/generate-new-untitled-buffer
    "s-N" 'deft
+   "s-d" 'evil-multiedit-match-and-next
+   "s-<" 'evil-multiedit-restore
    "s-C" 'leo/copy-relative-file-path
    "s-w" 'delete-window
    "s-W" 'delete-other-windows
-   "s-d" 'leo/split-window-vertically
-   "s-D" 'leo/split-window-horizontally
-   "s-J" 'leo/duplicate-line
+   "s-L" 'leo/split-window-vertically
+   "s-J" 'leo/split-window-horizontally
    "s-e" 'leo/neotree-toggle
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
@@ -21,12 +22,9 @@
    "s-F" 'leo/counsel-ag-search-all-project
    "s-k" 'kill-this-buffer
    "s-t" 'leo/run-vterm-console
-   "s-j" 'leo/projectile-run-vterm
-   "s->" 'mc/mark-next-like-this
-   "s-<" 'mc/mark-previous-like-this
-   "M-m" 'mc/sort-regions
+   "s-D" 'leo/projectile-run-vterm
    "s-g" 'magit-status
-   "C->" 'evil-mc-skip-and-goto-next-match
+   "M-2" 'er/expand-region
    "M-E" 'leo/eval-buffer
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
@@ -38,6 +36,16 @@
    "C-x tt" 'leo/set-current-trello-card-url
    "C-x tg" 'leo/open-current-trello-card
    "C-=" 'leo/indent-whole-buffer)
+
+  (general-define-key
+   :keymaps 'override
+   :states '(visual)
+   "R" 'evil-multiedit-match-all)
+
+  (general-define-key
+   :keymaps '(evil-multiedit-state-map evil-multiedit-insert-state-map)
+   "C-n" 'evil-multiedit-next
+   "C-p" 'evil-multiedit-prev)
 
   (general-define-key
    :keymaps '(browse-kill-ring-mode-map)
@@ -180,26 +188,20 @@
   (general-define-key
    :states '(normal insert visual)
    :keymaps '(git-timemachine-mode-map)
-   "n" 'git-timemachine-show-next-revision
-   "p" 'git-timemachine-show-previous-revision
-   "<escape>" 'kill-this-buffer)
-
-  (general-define-key
-   :states 'normal
-   :keymaps 'evil-mc-key-map
-   "<escape>" 'evil-mc-undo-all-cursors)
+   "s-<down>" 'git-timemachine-show-next-revision
+   "s-<up>" 'git-timemachine-show-previous-revision
+   "C-g" 'git-timemachine-quit)
 
   (general-define-key
    :states 'visual
-   "A" 'mc/edit-ends-of-lines
-   "I" 'mc/edit-beginnings-of-lines)
+   :keymaps 'evil-mc-key-map
+   "A" #'evil-mc-make-cursor-in-visual-selection-end
+   "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
   ;; Neotree
   (general-define-key
    :keymaps 'neotree-mode-map
    :states '(normal visual)
-   "n" 'leo/neotree-select-next-sibling-node
-   "p" 'leo/neotree-select-previous-sibling-node
    "A" 'neotree-stretch-toggle
    "P" 'neotree-select-up-node
    "H" 'neotree-hidden-file-toggle
@@ -214,11 +216,6 @@
    "d" 'neotree-delete-node)
 
   (general-define-key
-   :keymaps 'mc/keymap
-   "<return>" nil
-   "<escape>" 'mc/keyboard-quit)
-
-  (general-define-key
-   :states '(emacs)
+   :states '(insert emacs)
    :keymaps 'override
    "C-g" 'evil-normal-state))

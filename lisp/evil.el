@@ -86,12 +86,6 @@
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook (lambda () (evil-org-set-key-theme))))
 
-(use-package evil-mc
-  :after evil
-  :config
-  (global-evil-mc-mode 1)
-  (setq evil-mc-undo-cursors-on-keyboard-quit t))
-
 (use-package evil-string-inflection
   :after evil)
 

@@ -57,10 +57,6 @@
 
 (use-package anzu :config (global-anzu-mode t))
 
-;; Expand Region
-(use-package expand-region
-  :bind ("M-2" . 'er/expand-region))
-
 (use-package flycheck
   :init (global-flycheck-mode)
   :config
