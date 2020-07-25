@@ -7,7 +7,6 @@
    "s-<return>" 'ivy-switch-buffer
    "s->" 'evil-mc-make-and-goto-next-match
    "s-<" 'evil-mc-undo-last-added-cursor
-   "s-x" 'counsel-M-x
    "s-r" 'leo/revert-buffer-no-confirm
    "s-n" 'leo/generate-new-untitled-buffer
    "s-N" 'deft
@@ -29,6 +28,7 @@
    "s-g" 'magit-status
    "M-2" 'leo/expand-region
    "M-E" 'leo/eval-buffer
+   "M-x" 'counsel-M-x
    "C->" 'evil-mc-skip-and-goto-next-match
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
