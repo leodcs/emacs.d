@@ -13,7 +13,6 @@
         mc/insert-numbers-default 1
         evil-mc-undo-cursors-on-keyboard-quit t)
 
-
   (defun leo/multiple-cursors-expand-or-mark-next-word ()
     (interactive)
     (if (not (region-active-p))

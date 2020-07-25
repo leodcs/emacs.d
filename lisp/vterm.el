@@ -5,6 +5,14 @@
 
   (add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
 
+  (push (list "find-file-below"
+              (lambda (path)
+                (if-let* ((buf (find-file-noselect path))
+                          (window (display-buffer-below-selected buf nil)))
+                    (select-window window)
+                  (message "Failed to open file: %s" path))))
+        vterm-eval-cmds)
+
   (defun leo/run-vterm-console ()
     "Opens a new instance of vterm everytime it is called."
     (interactive)

@@ -5,8 +5,6 @@
   (general-define-key
    :keymaps 'override
    "s-<return>" 'ivy-switch-buffer
-   "s->" 'evil-mc-make-and-goto-next-match
-   "s-<" 'evil-mc-undo-last-added-cursor
    "s-r" 'leo/revert-buffer-no-confirm
    "s-n" 'leo/generate-new-untitled-buffer
    "s-N" 'deft
@@ -29,7 +27,6 @@
    "M-2" 'leo/expand-region
    "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
-   "C->" 'evil-mc-skip-and-goto-next-match
    "C-u" 'leo/send-C-u
    "C-s" 'evil-search-next
    "C-c nk" 'leo/nuke-all-buffers
@@ -49,8 +46,7 @@
    "s-<left>" 'move-beginning-of-line)
 
   (general-iemap
-    "C-g" 'evil-normal-state
-    "<return>" 'newline)
+    "C-g" 'evil-normal-state)
 
   (general-emap
     "M-a" 'mc/edit-beginnings-of-lines
@@ -60,6 +56,7 @@
 
   ;; multiple-cursors-mode
   (general-emap 'mc/keymap
+    "<return>" 'newline
     "s-f" 'phi-search
     "s-F" 'phi-search-backward
     "M-1" 'mc/insert-numbers
@@ -68,10 +65,6 @@
     "M-l" 'mc/insert-letters
     "M-s" 'mc/sort-regions
     "s-D" 'mc/skip-to-next-like-this)
-
-  (general-define-key
-   :keymaps '(browse-kill-ring-mode-map)
-   "<escape>" 'browse-kill-ring-quit)
 
   (general-define-key
    :states '(visual)
@@ -163,43 +156,42 @@
    "C-<return>" 'org-return)
 
   (general-imap 'vterm-mode-map
-   "<escape>" 'vterm--self-insert
-   "<return>" 'vterm-send-return
-   "C-c" 'vterm-send-C-c
-   "C-d" 'vterm-send-C-d
-   "C-z" 'vterm-send-C-z
-   "C-r" 'vterm-send-C-r
-   "C-u" 'vterm-send-C-u
-   "C-a" 'vterm-send-C-a
-   "C-e" 'vterm-send-C-e
-   "C-k" 'vterm-send-C-k
-   "M-<left>" 'vterm-send-M-b
-   "M-<right>" 'vterm-send-M-f)
-
-  (general-define-key
-   :keymaps 'vterm-mode-map
-   :states '(normal insert emacs)
-   "s-r" 'leo/vterm-send-C-l)
+    "<escape>" 'vterm--self-insert
+    "<return>" 'vterm-send-return
+    "C-c" 'vterm-send-C-c
+    "C-d" 'vterm-send-C-d
+    "C-z" 'vterm-send-C-z
+    "C-r" 'vterm-send-C-r
+    "C-u" 'vterm-send-C-u
+    "C-a" 'vterm-send-C-a
+    "C-e" 'vterm-send-C-e
+    "C-k" 'vterm-send-C-k
+    "M-<left>" 'vterm-send-M-b
+    "M-<right>" 'vterm-send-M-f)
 
   (general-define-key
    :keymaps 'vterm-mode-map
    :states '(normal insert visual emacs)
-   "s-s" 'leo/export-buffer-contents
-   "s-f" 'evil-search-forward)
+   "s-r" 'leo/vterm-send-C-l
+   "s-s" 'leo/export-buffer-contents)
 
   (general-define-key
    :keymaps 'vterm-mode-map
-   :states '(normal visual)
-   "A" 'leo/vterm-evil-append-line
-   "I" 'leo/vterm-evil-insert-line
-   "M-<left>" 'vterm-send-M-b
-   "M-<right>" 'vterm-send-M-f
-   "b" 'vterm-send-M-b
-   "e" 'vterm-send-M-f
-   "w" 'vterm-send-M-f
-   "\\" 'vterm-copy-mode)
+   :states '(normal insert visual)
+   "C-k" 'vterm-previous-prompt
+   "C-j" 'vterm-next-prompt)
 
-  (general-nvmap vterm-copy-mode-map
+  (general-nvmap 'vterm-mode-map
+    "A" 'leo/vterm-evil-append-line
+    "I" 'leo/vterm-evil-insert-line
+    "M-<left>" 'vterm-send-M-b
+    "M-<right>" 'vterm-send-M-f
+    "b" 'vterm-send-M-b
+    "e" 'vterm-send-M-f
+    "w" 'vterm-send-M-f
+    "\\" 'vterm-copy-mode)
+
+  (general-nvmap 'vterm-copy-mode-map
     "b" 'evil-backward-word-begin
     "e" 'evil-forward-word-end
     "w" 'evil-forward-word-begin
@@ -226,18 +218,18 @@
    "C-k" 'git-timemachine-show-previous-revision
    "C-g" 'git-timemachine-quit)
 
-  (general-define-key
-   :states 'visual
-   :keymaps 'evil-mc-key-map
-   "A" #'evil-mc-make-cursor-in-visual-selection-end
-   "I" #'evil-mc-make-cursor-in-visual-selection-beg)
+  (general-vmap 'evil-mc-key-map
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
   ;; Help
-  (general-nvmap
-    emacs-lisp-mode-map
+  (general-nvmap 'emacs-lisp-mode-map
     "Kf" 'describe-function
     "Kv" 'describe-variable
     "Kk" 'describe-key)
+
+  (general-nvmap 'browse-kill-ring-mode-map
+    "<escape>" 'browse-kill-ring-quit)
 
   ;; Neotree
   (general-define-key
