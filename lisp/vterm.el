@@ -33,7 +33,8 @@
 
   (defun leo/vterm-mode-enter ()
     (interactive)
-    (setq-local evil-move-cursor-back nil)
+    (setq-local evil-move-cursor-back nil
+                evil-insert-state-cursor '(box "#00FF00"))
     (rvm-activate-corresponding-ruby))
 
   (defun leo/vterm-evil-append-line ()
@@ -51,9 +52,9 @@
     (setq-local evil-move-cursor-back nil)
     (rvm-activate-corresponding-ruby))
 
-  (defun leo/vterm-send-C-l ()
+  (defun leo/vterm-clear ()
     (interactive)
-    (vterm-send-C-l)
+    (vterm-clear)
     (evil-insert-state))
 
   (defun leo/vterm-copy-mode-done ()

@@ -167,16 +167,18 @@
     "C-z" 'vterm-send-C-z
     "C-r" 'vterm-send-C-r
     "C-u" 'vterm-send-C-u
-    "C-a" 'vterm-send-C-a
-    "C-e" 'vterm-send-C-e
     "C-k" 'vterm-send-C-k
+    "M-p" 'vterm-send-up
+    "M-n" 'vterm-send-down
     "M-<left>" 'vterm-send-M-b
     "M-<right>" 'vterm-send-M-f)
 
   (general-define-key
    :keymaps 'vterm-mode-map
    :states '(normal insert visual emacs)
-   "s-r" 'leo/vterm-send-C-l
+   "C-a" 'vterm-send-C-a
+   "C-e" 'vterm-send-C-e
+   "s-r" 'leo/vterm-clear
    "s-s" 'leo/export-buffer-contents)
 
   (general-define-key
@@ -186,7 +188,7 @@
    "C-j" 'vterm-next-prompt)
 
   (general-nvmap 'vterm-mode-map
-    "<return>" 'leo/vterm-send-C-l
+    "<return>" 'evil-insert-resume
     "A" 'leo/vterm-evil-append-line
     "I" 'leo/vterm-evil-insert-line
     "M-<left>" 'vterm-send-M-b
