@@ -69,6 +69,13 @@
 
 ; -------------------------- Functions --------------------------------
 
+(defun leo/ie-keyboard-quit ()
+  "Bind C-g to first deactivate-mark an only then goto normal state."
+  (interactive)
+  (if (region-active-p)
+      (deactivate-mark)
+    (evil-normal-state)))
+
 (defun leo/move-beginning-of-line-or-indentation ()
   "Toggle between the beginning of the line and the beginning of the code."
   (interactive)

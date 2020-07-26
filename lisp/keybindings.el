@@ -5,25 +5,27 @@
   (general-define-key
    :keymaps 'override
    "s-<return>" 'ivy-switch-buffer
-   "s-r" 'leo/revert-buffer-no-confirm
-   "s-n" 'leo/generate-new-untitled-buffer
-   "s-N" 'deft
-   "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
    "s-C" 'leo/copy-relative-file-path
-   "s-w" 'delete-window
-   "s-W" 'delete-other-windows
-   "s-L" 'leo/split-window-vertically
+   "s-F" 'leo/counsel-ag-search-all-project
    "s-J" 'leo/split-window-horizontally
+   "s-L" 'leo/split-window-vertically
+   "s-N" 'deft
+   "s-P" 'counsel-projectile-switch-project
+   "s-W" 'delete-other-windows
+   "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
    "s-e" 'leo/neotree-toggle
+   "s-f" 'evil-search-forward
+   "s-g" 'magit-status
+   "s-j" 'leo/projectile-run-vterm
+   "s-k" 'kill-this-buffer
+   "s-n" 'leo/generate-new-untitled-buffer
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
-   "s-P" 'counsel-projectile-switch-project
-   "s-f" 'evil-search-forward
-   "s-F" 'leo/counsel-ag-search-all-project
-   "s-k" 'kill-this-buffer
+   "s-r" 'leo/revert-buffer-no-confirm
    "s-t" 'leo/run-vterm-console
-   "s-j" 'leo/projectile-run-vterm
-   "s-g" 'magit-status
+   "s-w" 'delete-window
+   "M-t" 'multi-vterm
+   "M-T" 'multi-vterm-next
    "M-2" 'leo/expand-region
    "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
@@ -46,7 +48,7 @@
    "s-<left>" 'move-beginning-of-line)
 
   (general-iemap
-    "C-g" 'evil-normal-state)
+    "C-g" 'leo/ie-keyboard-quit)
 
   (general-emap
     "M-a" 'mc/edit-beginnings-of-lines
@@ -117,6 +119,7 @@
   (general-define-key
    :keymaps 'transient-base-map
    "<escape>" 'transient-quit-all)
+
   (general-define-key
    :keymaps 'magit-mode-map
    "s-r" 'magit-refresh-all)
@@ -155,6 +158,7 @@
    "<tab>" 'org-metaright
    "C-<return>" 'org-return)
 
+  ;; vterm
   (general-imap 'vterm-mode-map
     "<escape>" 'vterm--self-insert
     "<return>" 'vterm-send-return
@@ -182,19 +186,14 @@
    "C-j" 'vterm-next-prompt)
 
   (general-nvmap 'vterm-mode-map
+    "<return>" 'leo/vterm-send-C-l
     "A" 'leo/vterm-evil-append-line
     "I" 'leo/vterm-evil-insert-line
     "M-<left>" 'vterm-send-M-b
     "M-<right>" 'vterm-send-M-f
-    "b" 'vterm-send-M-b
-    "e" 'vterm-send-M-f
-    "w" 'vterm-send-M-f
     "\\" 'vterm-copy-mode)
 
   (general-nvmap 'vterm-copy-mode-map
-    "b" 'evil-backward-word-begin
-    "e" 'evil-forward-word-end
-    "w" 'evil-forward-word-begin
     "\\" 'vterm-copy-mode
     "s-c" 'leo/vterm-copy-mode-done)
 
@@ -223,7 +222,7 @@
     "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 
   ;; Help
-  (general-nvmap 'emacs-lisp-mode-map
+  (general-nvmap
     "Kf" 'describe-function
     "Kv" 'describe-variable
     "Kk" 'describe-key)

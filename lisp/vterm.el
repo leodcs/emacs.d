@@ -1,23 +1,25 @@
 (use-package vterm
   :load-path  "~/.emacs.d/vendor/emacs-libvterm/"
   :config
+  (use-package multi-vterm)
+
   (setq vterm-max-scrollback 20000000)
 
   (add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
 
-  (push (list "find-file-below"
-              (lambda (path)
-                (if-let* ((buf (find-file-noselect path))
-                          (window (display-buffer-below-selected buf nil)))
-                    (select-window window)
-                  (message "Failed to open file: %s" path))))
-        vterm-eval-cmds)
+  (defun leo/find-file ()
+    (list "find-file"
+          (lambda (path)
+            (if-let* ((buf (find-file-noselect path))
+                      (window (display-buffer-below-selected buf nil)))
+                (select-window window)
+              (message "Failed to open file: %s" path)))))
+  (push (leo/find-file) vterm-eval-cmds)
 
   (defun leo/run-vterm-console ()
-    "Opens a new instance of vterm everytime it is called."
+    "Opens a instance of vterm on projectile root."
     (interactive)
-    (setq-local default-directory (projectile-project-root))
-    (vterm)
+    (multi-vterm-projectile)
     (evil-insert-state))
 
   (defun leo/projectile-run-vterm ()
