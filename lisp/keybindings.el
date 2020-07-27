@@ -225,6 +225,7 @@
 
   ;; Help
   (general-nvmap
+    "C-h C-m" 'discover-my-major
     "Kf" 'describe-function
     "Kv" 'describe-variable
     "Kk" 'describe-key)

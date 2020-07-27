@@ -34,6 +34,11 @@
 
 (require 'ansi-color)
 
+(use-package discover-my-major
+  :quelpa (discover-my-major
+           :fetcher git
+           :url "https://framagit.org/steckerhalter/discover-my-major.git"))
+
 (use-package winum
   :config
   (winum-mode))
