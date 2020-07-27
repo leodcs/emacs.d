@@ -1,5 +1,7 @@
 (use-package vterm
-  :load-path  "~/.emacs.d/vendor/emacs-libvterm/"
+  :quelpa (vterm
+           :fetcher github
+           :repo "leodcs/emacs-libvterm")
   :config
   (use-package multi-vterm)
 
