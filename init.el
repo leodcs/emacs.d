@@ -12,6 +12,7 @@
       sentence-end-double-space nil
       recentf-max-saved-items 120
       frame-resize-pixelwise t
+      frame-resize-pixelwise t
       linum-relative-current-symbol "")
 (defalias 'yes-or-no-p 'y-or-n-p)
 (global-display-line-numbers-mode t )
@@ -25,6 +26,7 @@
 (linum-relative-global-mode t)
 (global-set-key [escape] 'keyboard-escape-quit)
 (global-set-key (kbd "M-o") 'other-window)
+(dotimes (n 3) (toggle-frame-maximized))
 
 ;; UTF-8
 (setq locale-coding-system 'utf-8)
