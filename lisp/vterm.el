@@ -21,8 +21,7 @@
   (defun leo/run-vterm-console ()
     "Opens a instance of vterm on projectile root."
     (interactive)
-    (multi-vterm-projectile)
-    (evil-insert-state))
+    (multi-vterm-projectile))
 
   (defun leo/projectile-run-vterm ()
     "Opens one single instance of vterm inside current projectile project."
