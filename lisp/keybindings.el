@@ -54,6 +54,7 @@
   (general-emap
     "M-a" 'mc/edit-beginnings-of-lines
     "M-e" 'mc/edit-ends-of-lines
+    "M-r" 'mc/mark-all-dwim
     "s-<mouse-1>" 'mc/add-cursor-on-click
     "s-d" 'mc/mark-next-like-this)
 
@@ -63,7 +64,6 @@
     "s-f" 'phi-search
     "s-F" 'phi-search-backward
     "M-1" 'mc/insert-numbers
-    "M-A" 'mc/mark-all-dwim
     "M-h" 'mc-hide-unmatched-lines-mode
     "M-l" 'mc/insert-letters
     "M-s" 'mc/sort-regions
@@ -144,12 +144,10 @@
    :keymaps 'org-mode-map
    "M-<up>" 'org-up-element
    "M-<down>" 'org-down-element
-   "M-<left>" 'org-shifttab
-   "M-<right>" 'org-shifttab
    "s-<up>" 'org-metaup
    "s-<down>" 'org-metadown
-   "s-<left>" 'org-metaleft
-   "s-<right>" 'org-metaright)
+   "C-x <left>" 'org-metaleft
+   "C-x <right>" 'org-metaright)
 
   (general-define-key
    :keymaps 'org-mode-map
@@ -226,7 +224,7 @@
 
   ;; Help
   (general-nvmap
-    "C-h C-m" 'discover-my-major
+    "C-h C-h" 'discover-my-major
     "Kf" 'describe-function
     "Kv" 'describe-variable
     "Kk" 'describe-key)
