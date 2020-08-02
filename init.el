@@ -1,5 +1,6 @@
-(setq gc-cons-threshold (* 50 1000 1000)
-      delete-old-versions -1  ; delete excess backups silently
+(setq-default gc-cons-threshold 200000000)
+
+(setq delete-old-versions -1  ; delete excess backups silently
       version-control t
       vc-make-backup-files t
       vc-follow-symlinks t
@@ -47,16 +48,12 @@
                          ("melpa"     . "https://melpa.org/packages/")))
 (package-initialize)
 
-;; Bootstrap use-package
+;; Use use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents) ; update archives
   (package-install 'use-package)) ; grab the newest use-package
-
-;; Define packages
 (require 'use-package)
 (setq use-package-always-ensure t)
-(use-package quelpa-use-package
-  :ensure nil)
 
 ;; Set PATH
 (use-package exec-path-from-shell
@@ -106,7 +103,7 @@
  '(global-flycheck-mode t)
  '(ivy-ignore-buffers '("\\` " "\\`\\*tramp/" "*vterm"))
  '(package-selected-packages
-   '(discover-my-major makey multi-vterm phi-search dashboard-hackernews emacs-nav sr-speedbar project-explorer dired-sidebar git-timemachine winum company-tabnine git-link vterm sublime-themes soothe-theme spacemacs-theme org-superstar flycheck-posframe ivy-posframe erblint neotree ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-surround evil-mc evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package))
+   '(esup discover-my-major makey multi-vterm phi-search dashboard-hackernews emacs-nav sr-speedbar project-explorer dired-sidebar git-timemachine winum company-tabnine git-link vterm sublime-themes soothe-theme spacemacs-theme org-superstar flycheck-posframe ivy-posframe erblint neotree ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-surround evil-mc evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package))
  '(safe-local-variable-values
    '((projectile-project-run-cmd . "mkdir -p build; cd build; cmake ..; make run")
      (projectile-project-compilation-cmd . "mkdir -p build; cd build; cmake ..; make"))))
@@ -141,6 +138,5 @@
  '(query-replace ((t (:inherit isearch))))
  '(whitespace-line ((t (:foreground "black" :background "red" :underline t)))))
 
-(setq gc-cons-threshold (* 2 1000 1000))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

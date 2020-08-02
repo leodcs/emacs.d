@@ -10,8 +10,6 @@
   :after yasnippet)
 
 (use-package yasnippet-classic-snippets
-  :config
-  (yas-reload-all)
   :after yasnippet)
 
 (use-package company

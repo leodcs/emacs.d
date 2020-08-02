@@ -14,11 +14,10 @@
       org-superstar-headline-bullets-list '("➣" "◉" "○" "➝" "»" "➥"))
 
 ; -------------------------- Packages --------------------------------
-(require 'ox-md)
-(require 'ox-beamer)
-
-(use-package ox-twbs)
-(use-package org-superstar)
+;; (require 'ox-md)
+;; (require 'ox-beamer)
+;; (use-package ox-twbs)
+;; (use-package org-superstar)
 
 (use-package deft
   :commands (deft)

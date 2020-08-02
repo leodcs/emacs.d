@@ -1,9 +1,8 @@
-;; Favorites Themes => '(doom-molokai distinguished junio granger spolsky)
-(load-theme 'distinguished t)
 
 ;; Themes
+;; List of favorites => '(doom-molokai distinguished junio granger spolsky)
 (use-package sublime-themes)
-(use-package doom-themes)
+(use-package doom-themes :config (load-theme 'doom-molokai t))
 (use-package distinguished-theme)
 
 (use-package auto-dim-other-buffers
@@ -28,6 +27,8 @@
   (use-package dashboard-hackernews)
   (dashboard-setup-startup-hook)
   (add-hook 'dashboard-mode-hook 'visual-line-mode)
+  (add-hook 'dashboard-mode-hook 'redisplay)
+
   (setq dashboard-set-heading-icons t
         dashboard-set-file-icons t
         dashboard-center-content t

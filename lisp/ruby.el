@@ -30,12 +30,7 @@
         erblint-check-command "/Users/dcsleo/.rvm/gems/ruby-2.4.2/bin/erblint"
         erblint-autocorrect-command (concat erblint-check-command " -a")))
 
-(use-package exec-path-from-shell
-  :config (exec-path-from-shell-initialize))
-
-(use-package rvm
-  :init
-  (rvm-use-default))
+(use-package rvm)
 
 (use-package robe)
 
