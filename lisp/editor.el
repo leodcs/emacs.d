@@ -74,6 +74,11 @@
 
 ; -------------------------- Functions --------------------------------
 
+(defun leo/delete-window ()
+  (interactive)
+  (delete-window)
+  (evil-scroll-line-to-center (line-number-at-pos)))
+
 (defun leo/ie-keyboard-quit ()
   "Bind C-g to first deactivate-mark an only then goto normal state."
   (interactive)
