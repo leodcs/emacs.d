@@ -200,7 +200,7 @@
 
   ;; Window numbers
   (general-define-key
-   :states '(normal insert visual emacs)
+   :states general-describe-evil-states
    :keymaps '(override)
    "s-1" 'winum-select-window-1
    "s-2" 'winum-select-window-2
