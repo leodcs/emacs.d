@@ -232,6 +232,9 @@
   (general-nvmap 'browse-kill-ring-mode-map
     "<escape>" 'browse-kill-ring-quit)
 
+  (general-nmap 'ivy-occur-grep-mode-map
+    "C-c C-c" 'wgrep-finish-edit)
+
   ;; Neotree
   (general-define-key
    :keymaps 'neotree-mode-map

@@ -2,7 +2,6 @@
   :config
   (evil-mode t)
 
-  (evil-set-initial-state 'ivy-occur-grep-mode 'normal)
   (add-hook 'after-save-hook 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-normal-state-map (kbd "C-t") 'projectile-run-shell)
