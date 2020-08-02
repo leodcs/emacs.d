@@ -38,4 +38,5 @@
   (defun leo/neotree-search-inside-current-node-directory ()
     "Calls counsel-ag passing the directory at point as parameter"
     (interactive)
+    (pulse-momentary-highlight-one-line (point))
     (counsel-ag nil (neo-buffer--get-filename-current-line))))
