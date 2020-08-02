@@ -13,17 +13,18 @@
    "s-P" 'counsel-projectile-switch-project
    "s-W" 'delete-other-windows
    "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
+   "s-D" 'leo/duplicate-line
    "s-e" 'leo/neotree-toggle
    "s-f" 'evil-search-forward
    "s-g" 'magit-status
-   "s-j" 'leo/projectile-run-vterm
+   "s-t" 'leo/projectile-run-vterm
    "s-k" 'kill-this-buffer
    "s-n" 'leo/generate-new-untitled-buffer
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
-   "s-t" 'leo/run-vterm-console
-   "s-w" 'delete-window
+   "s-j" 'leo/run-vterm-console
+   "s-w" 'leo/delete-window
    "M-t" 'multi-vterm
    "M-T" 'multi-vterm-next
    "M-2" 'leo/expand-region
