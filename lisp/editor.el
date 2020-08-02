@@ -34,8 +34,14 @@
 
 (require 'ansi-color)
 
+(use-package linum-relative
+  :config
+  (setq linum-relative-current-symbol "")
+  (linum-relative-global-mode t))
+
 (use-package discover-my-major
   :quelpa (discover-my-major
+           :ensure nil
            :fetcher git
            :url "https://framagit.org/steckerhalter/discover-my-major.git"))
 
