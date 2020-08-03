@@ -11,7 +11,7 @@
    "s-L" 'leo/split-window-vertically
    "s-N" 'deft
    "s-P" 'counsel-projectile-switch-project
-   "s-W" 'delete-other-windows
+   "s-M" 'leo/single-window-toggle
    "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
    "s-D" 'leo/duplicate-line
    "s-e" 'leo/neotree-toggle

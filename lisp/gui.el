@@ -57,3 +57,15 @@
 
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode))
+
+(defvar leo/window-configuration nil)
+(define-minor-mode leo/single-window-toggle
+  "Toggle between multiple windows and single window.
+This is the equivalent of maximising a window."
+  :lighter " [M]"
+  :global nil
+  (if (one-window-p)
+      (when leo/window-configuration
+        (set-window-configuration leo/window-configuration))
+    (setq leo/window-configuration (current-window-configuration))
+    (delete-other-windows)))
