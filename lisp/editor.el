@@ -34,6 +34,22 @@
 
 (require 'ansi-color)
 
+(use-package scratch
+  :config
+  (defun leo/scratch-buffer-setup ()
+    "Add contents to `scratch' buffer and name it accordingly."
+    (let* ((mode (format "%s" major-mode))
+           (string (concat "Scratch buffer for: " mode "\n\n")))
+      (when scratch-buffer
+        (save-excursion
+          (insert string)
+          (goto-char (point-min))
+          (comment-region (point-at-bol) (point-at-eol)))
+        (forward-line 2))
+      (rename-buffer (concat "*Scratch for " mode "*") t))
+    (evil-insert-state))
+  :hook (add-hook 'scratch-create-buffer-hook 'leo/scratch-buffer-setup))
+
 (use-package linum-relative
   :config
   (setq linum-relative-current-symbol "")
@@ -128,8 +144,7 @@ When using Homebrew, install it using \"brew install trash\"."
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
 
-(defun leo/generate-new-untitled-buffer ()
-  "Create a new buffer with name untitled."
+(defun leo/generate-new-scratch-buffer ()
   (interactive)
   (switch-to-buffer (generate-new-buffer "untitled"))
   (linum-relative-mode)

@@ -19,7 +19,7 @@
    "s-g" 'magit-status
    "s-t" 'leo/projectile-run-vterm
    "s-k" 'kill-this-buffer
-   "s-n" 'leo/generate-new-untitled-buffer
+   "s-n" 'leo/generate-new-scratch-buffer
    "s-o" 'evil-switch-to-windows-last-buffer
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
