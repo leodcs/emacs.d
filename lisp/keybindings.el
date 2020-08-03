@@ -11,7 +11,6 @@
    "s-L" 'leo/split-window-vertically
    "s-N" 'deft
    "s-P" 'counsel-projectile-switch-project
-   "s-M" 'leo/single-window-toggle
    "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
    "s-D" 'leo/duplicate-line
    "s-e" 'leo/neotree-toggle
@@ -24,7 +23,8 @@
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
    "s-j" 'leo/run-vterm-console
-   "s-W" 'delete-other-windows
+   "s-!" 'delete-other-windows
+   "s-W" 'leo/single-window-toggle
    "s-w" 'leo/delete-window
    "M-t" 'multi-vterm
    "M-T" 'multi-vterm-next
