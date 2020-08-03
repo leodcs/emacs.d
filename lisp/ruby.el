@@ -23,16 +23,14 @@
 (use-package rubocop)
 (use-package yaml-mode)
 (use-package hungry-delete)
-
 (use-package erblint
   :config
   (setq erblint-project-root-function 'projectile-rails-root
         erblint-check-command "/Users/dcsleo/.rvm/gems/ruby-2.4.2/bin/erblint"
         erblint-autocorrect-command (concat erblint-check-command " -a")))
-
 (use-package rvm)
-
 (use-package robe)
+(use-package evil-ruby-text-objects)
 
 ; -------------------------- Functions --------------------------------
 
