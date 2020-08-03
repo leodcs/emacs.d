@@ -34,6 +34,19 @@
 
 (require 'ansi-color)
 
+(use-package string-inflection
+  :config
+  (defun leo/string-inflection-cycle ()
+    "switching by major-mode"
+    (interactive)
+    (cond
+     ;; for emacs-lisp-mode
+     ((eq major-mode 'emacs-lisp-mode)
+      (string-inflection-all-cycle))
+     (t
+      ;; default
+      (string-inflection-ruby-style-cycle)))))
+
 (use-package scratch)
 
 (use-package linum-relative
@@ -100,8 +113,8 @@
   "Use \"trash\" to move FILE to the system trash.
 When using Homebrew, install it using \"brew install trash\"."
   (call-process (executable-find "trash")
-		nil 0 nil
-		file))
+                nil 0 nil
+                file))
 
 (defun leo/revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
@@ -118,7 +131,7 @@ When using Homebrew, install it using \"brew install trash\"."
         (evil-normal-state)
         (counsel-ag search-string))
     (counsel-ag))
-)
+  )
 
 (defun leo/eval-and-replace ()
   "Replace the preceding sexp with its value."
@@ -134,14 +147,14 @@ When using Homebrew, install it using \"brew install trash\"."
   (interactive)
   (call-interactively 'scratch)
   (let* ((mode (format "%s" major-mode))
-           (string (concat "Scratch buffer for: " mode "\n\n")))
-      (when scratch-buffer
-        (save-excursion
-          (insert string)
-          (goto-char (point-min))
-          (comment-region (point-at-bol) (point-at-eol)))
-        (forward-line 2))
-      (rename-buffer (concat "*Scratch for " mode "*") t))
+         (string (concat "Scratch buffer for: " mode "\n\n")))
+    (when scratch-buffer
+      (save-excursion
+        (insert string)
+        (goto-char (point-min))
+        (comment-region (point-at-bol) (point-at-eol)))
+      (forward-line 2))
+    (rename-buffer (concat "*Scratch for " mode "*") t))
   (linum-relative-mode)
   (evil-mc-mode)
   (evil-insert-state))
@@ -272,7 +285,7 @@ Note the weekly scope of the command's precision.")
   (interactive)
   (let* ((date (format-time-string current-date-format (current-time)))
          (time (format-time-string current-time-format (current-time))))
-  (insert (concat date " " time))))
+    (insert (concat date " " time))))
 
 (defun leo/insert-current-date ()
   "insert the current date into the current buffer."
