@@ -154,10 +154,8 @@
   (general-define-key
    :keymaps 'org-mode-map
    :states '(insert)
-   "<return>" 'org-insert-heading-respect-content
    "S-<tab>" 'org-metaleft
-   "<tab>" 'org-metaright
-   "C-<return>" 'org-return)
+   "<tab>" 'org-metaright)
 
   ;; vterm
   (general-imap 'vterm-mode-map
