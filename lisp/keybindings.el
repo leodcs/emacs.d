@@ -23,8 +23,8 @@
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
    "s-j" 'leo/run-vterm-console
-   "s-!" 'delete-other-windows
-   "s-W" 'leo/single-window-toggle
+   "s-A" 'leo/single-window-toggle
+   "s-W" 'delete-other-windows
    "s-w" 'leo/delete-window
    "M-t" 'multi-vterm
    "M-T" 'multi-vterm-next
