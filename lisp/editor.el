@@ -92,6 +92,7 @@
 (defun leo/delete-window ()
   (interactive)
   (delete-window)
+  (balance-windows)
   (evil-scroll-line-to-center (line-number-at-pos)))
 
 (defun leo/ie-keyboard-quit ()
