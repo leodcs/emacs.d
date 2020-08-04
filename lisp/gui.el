@@ -3,8 +3,22 @@
   :config
   (use-package distinguished-theme)
   (use-package doom-themes)
-  ;; List of favorites => '(doom-molokai distinguished junio granger spolsky)
-  (load-theme 'spolsky t))
+  (use-package doom-modeline :hook (after-init . doom-modeline-mode))
+  (use-package solarized-theme)
+  (use-package color-theme-sanityinc-tomorrow)
+  (use-package base16-theme)
+
+  ;; List of favorites => '(doom-molokai
+  ;;                        distinguished
+  ;;                        junio
+  ;;                        granger
+  ;;                        spolsky
+  ;;                        solarized-dark
+  ;;                        sanityinc-tomorrow-night
+  ;;                        base16-default-dark)
+
+  (load-theme 'base16-default-dark t)
+)
 
 (use-package auto-dim-other-buffers
   :config
@@ -54,9 +68,6 @@
 (use-package all-the-icons-dired
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
-
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
 
 (defvar leo/window-configuration nil)
 (define-minor-mode leo/single-window-toggle
