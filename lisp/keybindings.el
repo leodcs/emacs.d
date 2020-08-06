@@ -168,7 +168,7 @@
     "C-d" 'vterm-send-C-d
     "C-z" 'vterm-send-C-z
     "C-r" 'vterm-send-C-r
-    "C-u" 'vterm-send-C-u
+    "C-u" 'leo/vterm-send-C-u
     "C-k" 'vterm-send-C-k
     "M-p" 'vterm-send-up
     "M-n" 'vterm-send-down

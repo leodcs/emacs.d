@@ -58,6 +58,11 @@
     (vterm-clear)
     (evil-insert-state))
 
+  (defun leo/vterm-send-C-u ()
+    (interactive)
+    (vterm-send-C-e)
+    (vterm-send-C-u))
+
   (defun leo/vterm-copy-mode-done ()
     (interactive)
     (call-interactively #'vterm-copy-mode-done)
