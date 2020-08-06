@@ -5,6 +5,7 @@
   (general-define-key
    :keymaps 'override
    "s-<return>" 'ivy-switch-buffer
+   "s-u" 'universal-argument
    "s-C" 'leo/copy-relative-file-path
    "s-F" 'leo/counsel-ag-search-all-project
    "s-J" 'leo/split-window-horizontally
