@@ -20,7 +20,7 @@
    "s-t" 'leo/projectile-run-vterm
    "s-k" 'kill-this-buffer
    "s-n" 'leo/generate-new-scratch-buffer
-   "s-o" 'evil-switch-to-windows-last-buffer
+   "s-o" 'find-file
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
    "s-j" 'leo/run-vterm-console
@@ -87,8 +87,7 @@
   (general-define-key
    :prefix "C-C"
    :keymaps 'override
-   "y" 'browse-kill-ring
-   "C-f" 'find-file)
+   "y" 'browse-kill-ring)
 
   (general-define-key
    :prefix "C-c g"
