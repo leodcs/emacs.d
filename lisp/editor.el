@@ -156,6 +156,9 @@ When using Homebrew, install it using \"brew install trash\"."
         (comment-region (point-at-bol) (point-at-eol)))
       (forward-line 2))
     (rename-buffer (concat "*Scratch for " mode "*") t))
+  (flycheck-mode -1)
+  (display-fill-column-indicator-mode -1)
+  (whitespace-mode -1)
   (linum-relative-mode)
   (evil-mc-mode)
   (evil-insert-state))
@@ -234,7 +237,7 @@ When using Homebrew, install it using \"brew install trash\"."
   (interactive)
   (browse-url current-trello-card-url))
 
-(defun leo/send-C-u ()
+(defun leo/undo-last-text ()
   (interactive)
   (delete-region (line-beginning-position) (line-end-position)))
 
