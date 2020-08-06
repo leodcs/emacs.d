@@ -6,6 +6,7 @@
   (setq vterm-max-scrollback 20000000)
 
   (add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
+  (add-hook 'vterm-copy-mode-hook 'evil-normal-state)
 
   (defun leo/find-file ()
     (list "find-file"

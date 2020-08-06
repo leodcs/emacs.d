@@ -18,6 +18,7 @@
 
 (fset 'open-html-tag-macro "ysit\C-j=it")
 (fset 'close-html-tag-macro "JxJx")
+(fset 'select-current-line "^vg_")
 
 ; -------------------------- Packages --------------------------------
 (use-package rubocop)
@@ -102,3 +103,7 @@
 (defun leo/close-html-tag ()
   (interactive)
   (execute-kbd-macro 'close-html-tag-macro))
+
+(defun leo/select-current-line ()
+  (interactive)
+  (execute-kbd-macro 'select-current-line))

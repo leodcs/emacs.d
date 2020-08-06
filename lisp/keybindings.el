@@ -29,10 +29,11 @@
    "s-w" 'leo/delete-window
    "M-t" 'multi-vterm
    "M-T" 'multi-vterm-next
+   "M-1" 'leo/select-current-line
    "M-2" 'leo/expand-region
    "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
-   "C-u" 'leo/send-C-u
+   "C-u" 'leo/undo-last-text
    "C-s" 'evil-search-next
    "C-c nk" 'leo/nuke-all-buffers
    "C-c rm" 'projectile-rails-find-model
@@ -163,6 +164,7 @@
   (general-imap 'vterm-mode-map
     "<escape>" 'vterm--self-insert
     "<return>" 'vterm-send-return
+    "C-g" 'vterm-copy-mode
     "C-c" 'vterm-send-C-c
     "C-d" 'vterm-send-C-d
     "C-z" 'vterm-send-C-z
@@ -227,8 +229,7 @@
   ;; Help
   (general-nvmap
     "Kf" 'describe-function
-    "Kv" 'describe-variable
-    "Kk" 'describe-key)
+    "Kv" 'describe-variable)
 
   (general-nvmap 'browse-kill-ring-mode-map
     "<escape>" 'browse-kill-ring-quit)
