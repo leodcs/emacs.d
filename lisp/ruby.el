@@ -106,4 +106,5 @@
 
 (defun leo/select-current-line ()
   (interactive)
+  (evil-normal-state)
   (execute-kbd-macro 'select-current-line))
