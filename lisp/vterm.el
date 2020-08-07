@@ -8,6 +8,9 @@
   (add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
   (add-hook 'vterm-copy-mode-hook 'evil-normal-state)
 
+  (evil-define-key 'insert 'vterm-mode-map
+    (kbd "M-1") 'leo/vterm-select-current-line)
+
   (defun leo/find-file ()
     (list "find-file"
           (lambda (path)
@@ -62,6 +65,10 @@
     (interactive)
     (vterm-send-C-e)
     (vterm-send-C-u))
+
+  (defun leo/vterm-select-current-line ()
+    (interactive)
+    (execute-kbd-macro (kbd "\C-gvg_")))
 
   (defun leo/vterm-copy-mode-done ()
     (interactive)
