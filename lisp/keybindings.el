@@ -186,8 +186,8 @@
   (general-define-key
    :keymaps 'vterm-mode-map
    :states '(normal insert visual)
-   "C-k" 'vterm-previous-prompt
-   "C-j" 'vterm-next-prompt)
+   "M-k" 'vterm-previous-prompt
+   "M-j" 'vterm-next-prompt)
 
   (general-nvmap 'vterm-mode-map
     "<return>" 'evil-insert-resume
