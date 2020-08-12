@@ -3,7 +3,8 @@
   :config
   (use-package multi-vterm)
 
-  (setq vterm-max-scrollback 20000000)
+  (setq vterm-max-scrollback 20000000
+        vterm-kill-buffer-on-exit nil)
 
   (add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
   (add-hook 'vterm-copy-mode-hook 'evil-normal-state)
