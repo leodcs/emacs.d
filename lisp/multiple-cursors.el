@@ -8,10 +8,19 @@
   (add-hook 'multiple-cursors-mode-enabled-hook 'evil-emacs-state)
   (add-hook 'multiple-cursors-mode-disabled-hook 'evil-normal-state)
 
-  (setq mc/unsupported-minor-modes '(company-mode auto-complete-mode flyspell-mode jedi-mode)
-        mc/always-run-for-all t
+  (setq mc/always-run-for-all t
         mc/insert-numbers-default 1
-        evil-mc-undo-cursors-on-keyboard-quit t)
+        evil-mc-undo-cursors-on-keyboard-quit t
+        mc/unsupported-minor-modes '(company-mode
+                                     auto-complete-mode
+                                     flyspell-mode
+                                     linum-mode
+                                     linum-relative-mode
+                                     ivy-posframe-mode
+                                     yasnippet-mode
+                                     evil-mode
+                                     evil-mc-mode
+                                     jedi-mode))
 
   (defun leo/multiple-cursors-expand-or-mark-next-word ()
     (interactive)

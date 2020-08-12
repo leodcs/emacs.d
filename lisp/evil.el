@@ -11,7 +11,6 @@
   (define-key evil-insert-state-map (kbd "M-q") 'yas-expand)
   (define-key evil-insert-state-map (kbd "<ESCAPE>") 'keyboard-quit)
 
-  (global-display-line-numbers-mode 0)
   (setq evil-insert-state-cursor '(bar "#00FF00")
         evil-visual-state-cursor '(box "#FF00FF")
         evil-normal-state-cursor '(box "#E2E8EF")
