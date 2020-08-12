@@ -99,7 +99,6 @@
       (display-buffer-reuse-window display-buffer-pop-up-window))))
  '(flycheck-posframe-warning-prefix "⚠ ")
  '(global-company-mode t)
- '(global-flycheck-mode t)
  '(ivy-ignore-buffers '("\\` " "\\`\\*tramp/" "*RuboCop"))
  '(package-selected-packages
    '(base16-theme color-theme-sanityinc-tomorrow solarized-theme zenburn-theme zenburn-emacs vscode-dark-plus-theme vscdark-theme vsdark-theme objed scratch esup discover-my-major makey multi-vterm phi-search dashboard-hackernews emacs-nav sr-speedbar project-explorer dired-sidebar git-timemachine winum company-tabnine git-link vterm sublime-themes soothe-theme spacemacs-theme org-superstar flycheck-posframe ivy-posframe erblint neotree ox-twbs evil-org evil-goggles general distinguished-theme browse-kill-ring deft evil-magit auto-dim-other-buffers json-mode evil-ruby-text-objects evil-ruby-text-objects-mode evil-surround evil-mc evil-commentary linum-relative evil rubocop anzu rvm which-key yasnippet-snippets yasnippet company flycheck-popup-tip flycheck-pos-tip flycheck web-mode hungry-delete exec-path-from-shell robe projectile-rails counsel-projectile projectile magit wgrep-ag wgrep ivy-hydra counsel dashboard doom-themes all-the-icons-dired all-the-icons-ivy all-the-icons drag-stuff use-package))

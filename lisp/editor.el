@@ -78,7 +78,6 @@
 (use-package anzu :config (global-anzu-mode t))
 
 (use-package flycheck
-  :init (global-flycheck-mode)
   :config
   (use-package flycheck-posframe
     :config (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
