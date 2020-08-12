@@ -39,7 +39,6 @@
 
 (use-package dashboard
   :config
-  (use-package dashboard-hackernews)
   (dashboard-setup-startup-hook)
   (add-hook 'dashboard-mode-hook 'visual-line-mode)
   (add-hook 'dashboard-mode-hook 'redisplay)
@@ -54,7 +53,7 @@
         dashboard-startup-banner 2
         dashboard-items '((recents  . 10)
                           (projects . 5)
-                          (hackernews . 6))
+                          (bookmarks . 5))
         dashboard-footer-icon (all-the-icons-faicon "book"
                                                     :height 1.1
                                                     :v-adjust -0.05
