@@ -57,8 +57,8 @@
   (general-iemap
     "C-g" 'leo/ie-keyboard-quit)
 
-  (general-vmap
-    "C-<return>" 'leo/browse-selected-url)
+  (general-nmap
+    "C-<return>" 'browse-url-at-point)
 
   (general-emap
     "M-a" 'mc/edit-beginnings-of-lines

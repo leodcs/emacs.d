@@ -339,11 +339,3 @@ Note the weekly scope of the command's precision.")
 
   ;; put the point in the lowest line and return
   (next-line arg))
-
-(defun leo/browse-selected-url ()
-  (interactive)
-  (let ((selected-url (buffer-substring
-                        (evil-range-beginning (evil-visual-range))
-                        (evil-range-end (evil-visual-range)))))
-    (evil-normal-state)
-    (browse-url selected-url)))
