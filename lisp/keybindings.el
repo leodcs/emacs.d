@@ -43,8 +43,8 @@
    "C-x C-c" 'leo/string-inflection-cycle
    "C-x C-r" 'rename-buffer
    "C-x C-t" 'leo/insert-current-timestamp
-   "C-x tt" 'leo/set-current-trello-card-url
-   "C-x tg" 'leo/open-current-trello-card
+   "C-x ts" 'leo/set-current-trello-card-url
+   "C-x tt" 'leo/open-current-trello-card
    "C-=" 'leo/indent-whole-buffer)
 
   (general-define-key
