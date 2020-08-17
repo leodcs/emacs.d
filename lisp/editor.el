@@ -60,9 +60,7 @@
 
 (use-package drag-stuff
   :init
-  (drag-stuff-global-mode)
-  (global-set-key (kbd "<s-up>") 'drag-stuff-up)
-  (global-set-key (kbd "<s-down>") 'drag-stuff-down))
+  (drag-stuff-global-mode))
 
 (use-package undo-tree
   :config
