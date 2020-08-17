@@ -5,12 +5,11 @@
   (general-define-key
    :keymaps 'override
    "s-<return>" 'ivy-switch-buffer
-   "s-<up>" 'evil-search-backward
-   "s-S-<up>" 'drag-stuff-up
-   "s-S-<down>" 'drag-stuff-down
+   "s-?" 'leo/counsel-ag-search-all-project
+   "s-<up>" 'drag-stuff-up
+   "s-<down>" 'drag-stuff-down
    "s-u" 'universal-argument
    "s-C" 'leo/copy-relative-file-path
-   "s-F" 'leo/counsel-ag-search-all-project
    "s-J" 'leo/split-window-horizontally
    "s-L" 'leo/split-window-vertically
    "s-N" 'deft
@@ -19,6 +18,7 @@
    "s-D" 'leo/duplicate-line
    "s-e" 'leo/neotree-toggle
    "s-f" 'evil-search-forward
+   "s-F" 'evil-search-backward
    "s-g" 'magit-status
    "s-t" 'leo/projectile-run-vterm
    "s-k" 'kill-this-buffer
@@ -169,6 +169,7 @@
   (general-imap 'vterm-mode-map
     "<escape>" 'vterm--self-insert
     "<return>" 'vterm-send-return
+    "s-e" 'vterm-extra-edit-command-in-new-buffer
     "C-g" 'vterm-copy-mode
     "C-c" 'vterm-send-C-c
     "C-d" 'vterm-send-C-d
@@ -184,6 +185,7 @@
   (general-define-key
    :keymaps 'vterm-mode-map
    :states '(normal insert visual emacs)
+   "s-d" 'vterm-other-window
    "C-a" 'vterm-send-C-a
    "C-e" 'vterm-send-C-e
    "s-r" 'leo/vterm-clear
@@ -194,6 +196,11 @@
    :states '(normal insert visual)
    "M-k" 'vterm-previous-prompt
    "M-j" 'vterm-next-prompt)
+
+  (general-define-key
+   :keymaps 'vterm-extra-edit-mode-map
+   :states '(normal insert visual)
+   "s-w" 'leo/purge-this-buffer)
 
   (general-nvmap 'vterm-mode-map
     "<return>" 'evil-insert-resume

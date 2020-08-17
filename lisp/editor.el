@@ -92,6 +92,11 @@
   (balance-windows)
   (evil-scroll-line-to-center (line-number-at-pos)))
 
+(defun leo/purge-this-buffer ()
+  (interactive)
+  (kill-this-buffer)
+  (leo/delete-window))
+
 (defun leo/ie-keyboard-quit ()
   "Bind C-g to first deactivate-mark an only then goto normal state."
   (interactive)

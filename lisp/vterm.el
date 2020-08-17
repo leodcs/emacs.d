@@ -1,7 +1,6 @@
 (use-package vterm
   :load-path  "~/.emacs.d/vendor/emacs-libvterm/"
   :config
-  (use-package multi-vterm)
 
   (setq vterm-max-scrollback 20000000
         vterm-kill-buffer-on-exit nil)
@@ -75,3 +74,21 @@
     (interactive)
     (call-interactively #'vterm-copy-mode-done)
     (evil-insert-state)))
+
+(use-package multi-vterm
+  :after vterm)
+
+(use-package vterm-extra
+  :after vterm
+  :load-path  "~/.emacs.d/vendor/vterm-extra"
+  :config
+  (defun vterm-extra--kill-and-return-current-command ()
+    "Return the command in the current line after killing it.
+This is used to prepare the populate the buffer to edit commands."
+    (interactive)
+    (let ((command
+           (buffer-substring-no-properties
+            (vterm--get-prompt-point) (vterm--get-end-of-line))))
+      (vterm-send-C-a)
+      (vterm-send-C-k)
+      command)))
