@@ -5,6 +5,8 @@
   (general-define-key
    :keymaps 'override
    "s-<return>" 'ivy-switch-buffer
+   "s-]" 'evil-goto-definition
+   "s-[" 'evil-jump-backward
    "s-?" 'leo/counsel-ag-search-all-project
    "s-<up>" 'drag-stuff-up
    "s-<down>" 'drag-stuff-down
@@ -120,8 +122,6 @@
    :keymaps 'ruby-mode-map
    :states '(normal insert visual)
    "s-S" 'leo/save-and-run-rubocop
-   "s-]" 'robe-jump
-   "s-[" 'pop-tag-mark
    "C-c w" 'leo/copy-ruby-class-name)
 
   (general-define-key
@@ -221,7 +221,7 @@
   (general-define-key
    :keymaps 'vterm-mode-map
    :states '(normal insert)
-    "s-c" 'leo/vterm-copy-current-line)
+   "s-c" 'leo/vterm-copy-current-line)
 
   ;; Window numbers
   (general-define-key
