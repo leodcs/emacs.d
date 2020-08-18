@@ -39,7 +39,6 @@
    "C-u" 'leo/undo-last-text
    "C-s" 'evil-search-next
    "C-c nk" 'leo/nuke-all-buffers
-   "C-c rm" 'projectile-rails-find-model
    "C-c C-b" 'ivy-switch-buffer
    "C-c cp" 'leo/copy-full-file-path
    "C-x C-c" 'leo/string-inflection-cycle
@@ -274,4 +273,13 @@
    "o" 'leo/reveal-neotree-file-in-system-application
    "<tab>" 'leo/neotree-enter
    "<return>" 'leo/neotree-enter
-   "d" 'neotree-delete-node))
+   "d" 'neotree-delete-node)
+
+  ;; Ruby on Rails
+  (general-define-key
+   :keymaps 'override
+   :prefix "M-r"
+   "m" 'projectile-rails-find-model
+   "c" 'leo/projectile-run-vterm
+   "s" 'leo/run-vterm-console
+   "S" 'leo/goto-current-model-on-schema))

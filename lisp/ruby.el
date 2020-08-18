@@ -33,6 +33,8 @@
 (use-package robe)
 (use-package evil-ruby-text-objects)
 
+(require 'plural)
+
 ; -------------------------- Functions --------------------------------
 
 (defun leo/ruby-mode-enter ()
@@ -108,3 +110,12 @@
   (interactive)
   (evil-normal-state)
   (execute-kbd-macro 'select-current-line))
+
+(defun leo/goto-current-model-on-schema()
+  (interactive)
+  (let* ((model-name (projectile-rails-current-resource-name))
+         (pluralized-string (pluralize-string model-name)))
+    (projectile-rails-goto-schema)
+    (evil-goto-first-line)
+    (search-forward-regexp (concat "create_table \"" pluralized-string "\""))
+    (pulse-momentary-highlight-one-line (point))))
