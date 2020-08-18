@@ -86,6 +86,14 @@
 
 ; -------------------------- Functions --------------------------------
 
+(defun leo/copy-current-line()
+  (interactive)
+  (let* ((region-begin (current-indentation))
+         (region-end -1)
+         (line (substring (thing-at-point 'line) region-begin region-end)))
+    (kill-new line)
+    (pulse-momentary-highlight-one-line (point))))
+
 (defun leo/delete-window ()
   (interactive)
   (delete-window)

@@ -57,10 +57,16 @@
    "s-<left>" 'move-beginning-of-line)
 
   (general-iemap
+    "s-c" 'ns-copy-including-secondary
     "C-g" 'leo/ie-keyboard-quit)
 
   (general-nmap
-    "C-<return>" 'browse-url-at-point)
+    "C-<return>" 'browse-url-at-point
+    "s-c" 'leo/copy-current-line)
+
+  (general-vmap
+    "<backspace>" 'evil-delete
+    "s-c" 'ns-copy-including-secondary)
 
   (general-emap
     "M-a" 'mc/edit-beginnings-of-lines
@@ -210,9 +216,13 @@
     "M-<right>" 'vterm-send-M-f
     "\\" 'vterm-copy-mode)
 
-  (general-nvmap 'vterm-copy-mode-map
-    "\\" 'vterm-copy-mode
-    "s-c" 'leo/vterm-copy-mode-done)
+  (general-nmap 'vterm-copy-mode-map
+    "\\" 'vterm-copy-mode)
+
+  (general-define-key
+   :keymaps 'vterm-mode-map
+   :states '(normal insert)
+    "s-c" 'leo/vterm-copy-current-line)
 
   ;; Window numbers
   (general-define-key

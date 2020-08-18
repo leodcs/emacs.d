@@ -73,7 +73,15 @@
   (defun leo/vterm-copy-mode-done ()
     (interactive)
     (call-interactively #'vterm-copy-mode-done)
-    (evil-insert-state)))
+    (evil-insert-state))
+
+  (defun leo/vterm-copy-current-line()
+    (interactive)
+    (let* ((region-begin (vterm--get-prompt-point))
+           (region-end (vterm--get-end-of-line))
+           (command (buffer-substring-no-properties region-begin region-end)))
+      (kill-new command)
+      (pulse-momentary-highlight-region region-begin region-end))))
 
 (use-package multi-vterm
   :after vterm)
