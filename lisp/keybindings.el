@@ -7,7 +7,7 @@
    "s-<return>" 'ivy-switch-buffer
    "s-]" 'evil-goto-definition
    "s-[" 'evil-jump-backward
-   "s-?" 'leo/counsel-ag-search-all-project
+   "s-/" 'leo/counsel-ag-search-all-project
    "s-<up>" 'drag-stuff-up
    "s-<down>" 'drag-stuff-down
    "s-u" 'universal-argument
@@ -38,6 +38,7 @@
    "M-2" 'leo/expand-region
    "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
+   "M-#" 'evil-commentary-line
    "C-u" 'leo/undo-last-text
    "C-s" 'evil-search-next
    "C-c nk" 'leo/nuke-all-buffers
@@ -215,8 +216,9 @@
     "M-<right>" 'vterm-send-M-f
     "\\" 'vterm-copy-mode)
 
-  (general-nmap 'vterm-copy-mode-map
-    "\\" 'vterm-copy-mode)
+  (general-nvmap 'vterm-copy-mode-map
+    "\\" 'vterm-copy-mode
+    "s-c" 'leo/vterm-copy-mode-done)
 
   (general-define-key
    :keymaps 'vterm-mode-map
@@ -269,7 +271,7 @@
    "c" 'neotree-create-node
    "r" 'neotree-rename-node
    "s-r" 'neotree-refresh
-   "s-?" 'leo/neotree-search-inside-current-node-directory
+   "s-/" 'leo/neotree-search-inside-current-node-directory
    "o" 'leo/reveal-neotree-file-in-system-application
    "<tab>" 'leo/neotree-enter
    "<return>" 'leo/neotree-enter
