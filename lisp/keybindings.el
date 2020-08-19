@@ -112,7 +112,7 @@
    "t" 'git-timemachine
    "b" 'magit-blame-addition
    "o" 'leo/git-open-buffer-file-in-repo
-   "r" 'leo/open-git-repository-in-browser)
+   "r" 'git-link-homepage)
 
   (general-define-key
    "C-c e" 'leo/eval-and-replace

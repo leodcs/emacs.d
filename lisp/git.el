@@ -39,11 +39,3 @@
     (replace-regexp-in-string "\\(.*\\)@\\(.*\\):\\(.*\\)\\(\\.git?\\)"
                               "https://\\2/\\3"
                               url)))
-
-(defun leo/open-git-repository-in-browser ()
-  "Open remote repo URL in browser"
-  (interactive)
-  (let ((url (parse-git-url (magit-get "remote" "origin" "url"))))
-    (progn
-      (browse-url url)
-      (message "Browsing repo: %s" url))))
