@@ -269,7 +269,7 @@
    "c" 'neotree-create-node
    "r" 'neotree-rename-node
    "s-r" 'neotree-refresh
-   "s-F" 'leo/neotree-search-inside-current-node-directory
+   "s-?" 'leo/neotree-search-inside-current-node-directory
    "o" 'leo/reveal-neotree-file-in-system-application
    "<tab>" 'leo/neotree-enter
    "<return>" 'leo/neotree-enter
