@@ -7,7 +7,8 @@
   (use-package with-editor)
   (setq git-commit-summary-max-length 50
         magit-blame-time-format "%d/%m/%Y %H:%M")
-  (evil-define-key 'normal magit-blame-mode-map (kbd "<escape>") 'magit-blame-quit))
+  (evil-define-key 'normal magit-blame-mode-map (kbd "<escape>") 'magit-blame-quit)
+  (evil-define-key 'normal magit-process-mode-map (kbd "C-<return>") 'browse-url-at-point))
 
 (use-package diff-hl
   :config
