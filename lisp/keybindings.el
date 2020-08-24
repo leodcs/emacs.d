@@ -53,7 +53,7 @@
 
   (general-define-key
    :states '(normal insert visual emacs)
-   "C-<return>" 'newline
+   "M-<return>" 'newline
    "C-e" 'move-end-of-line
    "C-a" 'move-beginning-of-line
    "s-<right>" 'move-end-of-line
@@ -64,7 +64,7 @@
     "C-g" 'leo/ie-keyboard-quit)
 
   (general-nmap
-    "M-<return>" 'browse-url-at-point
+    "C-<return>" 'browse-url-at-point
     "s-c" 'leo/copy-current-line)
 
   (general-vmap

@@ -23,7 +23,7 @@
     '(push 'company-robe company-backends)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
-    (define-key company-active-map (kbd "C-<return>") 'newline)
+    (define-key company-active-map (kbd "M-<return>") 'newline)
     (define-key company-active-map (kbd "<tab>") 'yas-expand)))
 
 (use-package company-tabnine
