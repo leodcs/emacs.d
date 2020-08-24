@@ -22,6 +22,11 @@
         wgrep-auto-save-buffer t
         ivy-initial-inputs-alist nil)
 
-    (defun leo/ivy-occur-enter ()
-      (interactive)
-      (evil-normal-state)))
+  (defun leo/ivy-occur-enter ()
+    (interactive)
+    (evil-normal-state))
+
+  (defun leo/isearch-exit ()
+    (interactive)
+    (evil-normal-state)
+    (isearch-exit)))

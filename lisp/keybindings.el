@@ -285,4 +285,9 @@
    "m" 'projectile-rails-find-model
    "c" 'leo/projectile-run-vterm
    "s" 'leo/run-vterm-console
-   "S" 'leo/goto-current-model-on-schema))
+   "S" 'leo/goto-current-model-on-schema)
+
+  (general-define-key
+   :keymaps 'isearch-mode-map
+   "<return>" 'leo/isearch-exit)
+)
