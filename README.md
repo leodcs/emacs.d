@@ -59,7 +59,6 @@ Do your changes and finally press `C-c C-c` to confirm
 - https://github.com/asok/projectile-rails
 - https://github.com/bbatsov/projectile
 - https://github.com/emacs-evil/evil
-- https://github.com/gabesoft/evil-mc
 
 # Thanks
 Many thanks to [@otavioschwanck](https://github.com/otavioschwanck) for providing me with a setup repo for using Emacs when I was looking for one. Check it out at https://github.com/otavioschwanck/emacs_on_rails

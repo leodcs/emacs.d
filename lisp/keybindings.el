@@ -246,10 +246,6 @@
    "C-k" 'git-timemachine-show-previous-revision
    "C-g" 'git-timemachine-quit)
 
-  (general-vmap 'evil-mc-key-map
-    "A" #'evil-mc-make-cursor-in-visual-selection-end
-    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
-
   ;; Help
   (general-nvmap
     "Kf" 'describe-function

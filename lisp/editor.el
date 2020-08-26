@@ -170,7 +170,6 @@ When using Homebrew, install it using \"brew install trash\"."
   (display-fill-column-indicator-mode -1)
   (whitespace-mode -1)
   (linum-relative-mode)
-  (evil-mc-mode)
   (evil-insert-state))
 
 (defun leo/get-current-file-relative-path ()
