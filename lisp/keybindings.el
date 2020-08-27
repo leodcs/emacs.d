@@ -71,6 +71,9 @@
     "<backspace>" 'evil-delete
     "s-c" 'ns-copy-including-secondary)
 
+  (evil-define-key 'visual 'vterm-copy-mode-map
+    (kbd "s-c") 'leo/vterm-copy-mode-done)
+
   (general-emap
     "M-a" 'mc/edit-beginnings-of-lines
     "M-e" 'mc/edit-ends-of-lines

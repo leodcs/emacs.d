@@ -72,8 +72,8 @@
 
   (defun leo/vterm-copy-mode-done ()
     (interactive)
-    (call-interactively #'vterm-copy-mode-done)
-    (evil-insert-state))
+    (kill-ring-save (region-beginning) (region-end))
+    (call-interactively 'evil-insert-resume))
 
   (defun leo/vterm-copy-current-line()
     (interactive)
