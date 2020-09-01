@@ -8,9 +8,6 @@
   (add-hook 'vterm-mode-hook 'leo/vterm-mode-enter)
   (add-hook 'vterm-copy-mode-hook 'evil-normal-state)
 
-  (evil-define-key 'insert 'vterm-mode-map
-    (kbd "M-1") 'leo/vterm-select-current-line)
-
   (defun leo/find-file ()
     (list "find-file"
           (lambda (path)
@@ -66,22 +63,27 @@
     (vterm-send-C-e)
     (vterm-send-C-u))
 
-  (defun leo/vterm-select-current-line ()
-    (interactive)
-    (execute-kbd-macro (kbd "\C-gvg_")))
-
-  (defun leo/vterm-copy-mode-done ()
+  (defun leo/vterm-copy ()
     (interactive)
     (kill-ring-save (region-beginning) (region-end))
-    (call-interactively 'evil-insert-resume))
+    (call-interactively 'evil-insert-resume)
+    (evil-insert-state))
 
-  (defun leo/vterm-copy-current-line()
+  (defun leo/vterm-visual-copy ()
     (interactive)
-    (let* ((region-begin (vterm--get-prompt-point))
-           (region-end (vterm--get-end-of-line))
-           (command (buffer-substring-no-properties region-begin region-end)))
-      (kill-new command)
-      (pulse-momentary-highlight-region region-begin region-end))))
+    (if (evil-visual-state-p)
+        (leo/vterm-copy)
+      (ns-copy-including-secondary)))
+
+  (defun leo/vterm-search-forward ()
+    (interactive)
+    (evil-normal-state)
+    (evil-search-forward))
+
+  (defun leo/vterm-search-backward ()
+    (interactive)
+    (evil-normal-state)
+    (evil-search-backward)))
 
 (use-package multi-vterm
   :after vterm)

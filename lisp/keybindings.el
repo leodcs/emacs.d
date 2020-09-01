@@ -22,18 +22,14 @@
    "s-f" 'evil-search-forward
    "s-F" 'evil-search-backward
    "s-g" 'magit-status
-   "s-t" 'leo/projectile-run-vterm
    "s-k" 'kill-this-buffer
    "s-n" 'leo/generate-new-scratch-buffer
    "s-o" 'find-file
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
-   "s-j" 'leo/run-vterm-console
    "s-A" 'leo/single-window-toggle
    "s-W" 'delete-other-windows
    "s-w" 'leo/delete-window
-   "M-t" 'multi-vterm
-   "M-T" 'multi-vterm-next
    "M-1" 'leo/select-current-line
    "M-2" 'leo/expand-region
    "M-E" 'leo/eval-buffer
@@ -70,9 +66,6 @@
   (general-vmap
     "<backspace>" 'evil-delete
     "s-c" 'ns-copy-including-secondary)
-
-  (evil-define-key 'visual 'vterm-copy-mode-map
-    (kbd "s-c") 'leo/vterm-copy-mode-done)
 
   (general-emap
     "M-a" 'mc/edit-beginnings-of-lines
@@ -176,11 +169,20 @@
    "<tab>" 'org-metaright)
 
   ;; vterm
+  (general-define-key
+   :keymaps 'override
+   "s-t" 'leo/projectile-run-vterm
+   "s-j" 'leo/run-vterm-console
+   "M-T" 'multi-vterm-next
+   "M-t" 'multi-vterm)
+
+  (general-vmap 'vterm-mode-map
+    "s-c" 'leo/vterm-visual-copy)
+
   (general-imap 'vterm-mode-map
     "<escape>" 'vterm--self-insert
     "<return>" 'vterm-send-return
     "s-e" 'vterm-extra-edit-command-in-new-buffer
-    "C-g" 'vterm-copy-mode
     "C-c" 'vterm-send-C-c
     "C-d" 'vterm-send-C-d
     "C-z" 'vterm-send-C-z
@@ -195,6 +197,8 @@
   (general-define-key
    :keymaps 'vterm-mode-map
    :states '(normal insert visual emacs)
+   "s-f" 'leo/vterm-search-forward
+   "s-F" 'leo/vterm-search-backward
    "s-d" 'vterm-other-window
    "C-a" 'vterm-send-C-a
    "C-e" 'vterm-send-C-e
@@ -217,17 +221,7 @@
     "A" 'leo/vterm-evil-append-line
     "I" 'leo/vterm-evil-insert-line
     "M-<left>" 'vterm-send-M-b
-    "M-<right>" 'vterm-send-M-f
-    "\\" 'vterm-copy-mode)
-
-  (general-nvmap 'vterm-copy-mode-map
-    "\\" 'vterm-copy-mode
-    "s-c" 'leo/vterm-copy-mode-done)
-
-  (general-define-key
-   :keymaps 'vterm-mode-map
-   :states '(normal insert)
-   "s-c" 'leo/vterm-copy-current-line)
+    "M-<right>" 'vterm-send-M-f)
 
   ;; Window numbers
   (general-define-key
