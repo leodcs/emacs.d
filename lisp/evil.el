@@ -100,5 +100,6 @@
 (use-package evil-escape
   :after evil
   :config
-  (setq-default evil-escape-key-sequence "jk")
+  (setq-default evil-escape-key-sequence "jk"
+                evil-escape-unordered-key-sequence t)
   (evil-escape-mode))
