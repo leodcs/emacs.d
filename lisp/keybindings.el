@@ -101,7 +101,7 @@
    "y" 'browse-kill-ring)
 
   (general-define-key
-   :prefix "C-c g"
+   :prefix "M-g"
    :keymaps 'override
    "d" 'magit-diff-buffer-file
    "s" 'magit-status
