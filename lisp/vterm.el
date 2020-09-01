@@ -94,6 +94,11 @@
   :config
   (add-hook 'vterm-extra-edit-mode-hook (lambda () (setq-local require-final-newline nil)))
 
+  (defun leo/vterm-extra-edit-cancel ()
+    (interactive)
+    (leo/purge-this-buffer)
+    (vterm-send-string vterm-extra-edit-original-command))
+
   (defun vterm-extra--kill-and-return-current-command ()
     "Return the command in the current line after killing it.
 This is used to prepare the populate the buffer to edit commands."

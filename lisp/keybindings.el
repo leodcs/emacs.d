@@ -214,7 +214,7 @@
   (general-define-key
    :keymaps 'vterm-extra-edit-mode-map
    :states '(normal insert visual)
-   "s-w" 'leo/purge-this-buffer)
+   "s-w" 'leo/vterm-extra-edit-cancel)
 
   (general-nvmap 'vterm-mode-map
     "<return>" 'evil-insert-resume
