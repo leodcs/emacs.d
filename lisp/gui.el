@@ -1,9 +1,8 @@
-;; Themes
 (use-package sublime-themes
   :config
   (use-package distinguished-theme)
   (use-package doom-themes)
-  (use-package doom-modeline :hook (after-init . doom-modeline-mode))
+  (use-package doom-modeline :config (doom-modeline-mode))
   (use-package solarized-theme)
   (use-package color-theme-sanityinc-tomorrow)
   (use-package base16-theme)
@@ -72,10 +71,11 @@
 (define-minor-mode leo/single-window-toggle
   "Toggle between multiple windows and single window.
 This is the equivalent of maximising a window."
-  :lighter " [M]"
   :global nil
   (if (one-window-p)
       (when leo/window-configuration
+        (setq global-mode-string nil)
         (set-window-configuration leo/window-configuration))
     (setq leo/window-configuration (current-window-configuration))
+    (setq global-mode-string "< Maximized >")
     (delete-other-windows)))
