@@ -120,5 +120,5 @@
          (pluralized-string (pluralize-string model-name)))
     (projectile-rails-goto-schema)
     (evil-goto-first-line)
-    (search-forward-regexp (concat "create_table \"" pluralized-string "\""))
+    (search-forward-regexp (concat "create_table \".*" pluralized-string "\""))
     (pulse-momentary-highlight-one-line (point))))
