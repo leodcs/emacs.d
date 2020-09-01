@@ -50,7 +50,7 @@
 
   (general-define-key
    :states '(normal insert visual emacs)
-   "M-<return>" 'newline
+   "S-<return>" 'newline
    "C-e" 'move-end-of-line
    "C-a" 'move-beginning-of-line
    "s-<right>" 'move-end-of-line
