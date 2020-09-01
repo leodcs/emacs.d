@@ -29,6 +29,7 @@
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
+(add-hook 'text-mode-hook 'leo/text-mode-with-hash-comments)
 
 ; -------------------------- Packages --------------------------------
 
@@ -85,6 +86,11 @@
   :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
 
 ; -------------------------- Functions --------------------------------
+
+(defun leo/text-mode-with-hash-comments ()
+  "text-mode with # comments"
+  (setq comment-start "#")
+  (font-lock-add-keywords nil '(("#.+" . font-lock-comment-face))))
 
 (defun leo/copy-current-line()
   (interactive)
