@@ -259,7 +259,7 @@
   (general-define-key
    :keymaps 'neotree-mode-map
    :states '(normal visual)
-   "A" 'neotree-stretch-toggle
+   "s-A" 'neotree-stretch-toggle
    "P" 'neotree-select-up-node
    "H" 'neotree-hidden-file-toggle
    "y" 'neotree-copy-node
