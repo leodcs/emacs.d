@@ -69,6 +69,7 @@
     "s-c" 'ns-copy-including-secondary)
 
   (general-emap
+    "C-u" 'undo
     "M-a" 'mc/edit-beginnings-of-lines
     "M-e" 'mc/edit-ends-of-lines
     "M-r" 'mc/mark-all-dwim
