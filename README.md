@@ -9,7 +9,6 @@ My Emacs configuration directory to use on Ruby on Rails and Javascript developm
 - Vim keybindings knowledge. This is mandatory because I use a vim emulator called evil (hate that name btw). If you're not familiar with vim, go ahead and launch `vimtutor` on the terminal.
 - silversearcher-ag
 - Emacs 26+
-- RVM (for ruby projects)
 - rubocop (for ruby files)
 
 ## Quick Start

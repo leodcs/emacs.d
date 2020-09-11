@@ -9,7 +9,7 @@
 
 (setq ruby-insert-encoding-magic-comment nil
       flycheck-rubocoprc "~/projects/personal/dotfiles/rubocop/rubocop.yml"
-      rubocop-autocorrect-command "rubocop -a --format emacs --config /Users/dcsleo/projects/personal/dotfiles/rubocop/rubocop.yml"
+      rubocop-autocorrect-command "rubocop -A --format emacs --config /Users/dcsleo/projects/personal/dotfiles/rubocop/rubocop.yml"
       enh-ruby-add-encoding-comment-on-save nil)
 
 (defvar projectile-rails-vanilla-command "bin/rails")
@@ -31,7 +31,7 @@
   (setq erblint-project-root-function 'projectile-rails-root
         erblint-check-command "/Users/dcsleo/.rvm/gems/ruby-2.4.2/bin/erblint"
         erblint-autocorrect-command (concat erblint-check-command " -a")))
-(use-package rvm)
+(use-package rbenv)
 (use-package evil-ruby-text-objects)
 (use-package dumb-jump
   :load-path  "~/.emacs.d/vendor/dumb-jump"

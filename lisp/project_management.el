@@ -25,4 +25,4 @@
 (defun leo/projectile-switch-project-action ()
   "Set correct ruby version on project change."
   (interactive)
-  (rvm-activate-corresponding-ruby))
+  (rbenv-use-corresponding))
