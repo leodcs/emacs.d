@@ -18,7 +18,7 @@
 
 (fset 'open-html-tag-macro "ysit\C-j=it")
 (fset 'close-html-tag-macro "JxJx")
-(fset 'select-current-line "^vg_")
+(fset 'select-current-line "vg_")
 
 ; -------------------------- Packages --------------------------------
 (require 'plural)
