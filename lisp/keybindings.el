@@ -33,6 +33,7 @@
    "s-w" 'leo/delete-window
    "M-1" 'leo/select-current-line
    "M-2" 'leo/expand-region
+   "M-3" 'leo/select-current-line-from-beginning
    "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line

@@ -114,6 +114,11 @@
   (evil-normal-state)
   (execute-kbd-macro 'select-current-line))
 
+(defun leo/select-current-line-from-beginning ()
+  (interactive)
+  (back-to-indentation)
+  (leo/select-current-line))
+
 (defun leo/goto-current-model-on-schema()
   (interactive)
   (let* ((model-name (projectile-rails-current-resource-name))
