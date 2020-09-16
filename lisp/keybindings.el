@@ -173,7 +173,7 @@
   ;; vterm
   (general-define-key
    :keymaps 'override
-   "s-t" 'leo/projectile-run-vterm
+   "s-t" 'leo/toggle-vterm
    "s-j" 'leo/run-vterm-console
    "M-T" 'multi-vterm-next
    "M-t" 'multi-vterm)
@@ -199,6 +199,7 @@
   (general-define-key
    :keymaps 'vterm-mode-map
    :states '(normal insert visual emacs)
+   "s-t" 'leo/delete-window
    "s-f" 'leo/vterm-search-forward
    "s-F" 'leo/vterm-search-backward
    "s-d" 'vterm-other-window

@@ -23,6 +23,13 @@
     (multi-vterm-projectile)
     (evil-normal-state))
 
+  (defun leo/toggle-vterm ()
+    (interactive)
+    (let ((buffer (projectile-generate-process-name "vterm" nil)))
+      (if (get-buffer-window buffer)
+          (switch-to-buffer-other-window buffer)
+        (leo/projectile-run-vterm))))
+
   (defun leo/projectile-run-vterm ()
     "Opens one single instance of vterm inside current projectile project."
     (interactive)
