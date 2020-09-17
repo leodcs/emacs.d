@@ -40,3 +40,7 @@
     (replace-regexp-in-string "\\(.*\\)@\\(.*\\):\\(.*\\)\\(\\.git?\\)"
                               "https://\\2/\\3"
                               url)))
+
+(defun leo/open-gh-pull-request ()
+  (interactive)
+  (shell-command "gh pr view --web"))

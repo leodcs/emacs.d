@@ -112,7 +112,8 @@
    "t" 'git-timemachine
    "b" 'magit-blame-addition
    "o" 'leo/git-open-buffer-file-in-repo
-   "r" 'git-link-homepage)
+   "r" 'git-link-homepage
+   "p" 'leo/open-gh-pull-request)
 
   (general-define-key
    "C-c e" 'leo/eval-and-replace
