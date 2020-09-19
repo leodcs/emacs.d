@@ -87,6 +87,9 @@
 
 ; -------------------------- Functions --------------------------------
 
+(define-global-minor-mode leo/global-whitespace-mode whitespace-mode
+  (lambda () (whitespace-mode)))
+
 (defun leo/text-mode-with-hash-comments ()
   "text-mode with # comments"
   (setq comment-start "#")
@@ -174,7 +177,7 @@ When using Homebrew, install it using \"brew install trash\"."
     (rename-buffer (concat "*Scratch for " mode "*") t))
   (flycheck-mode -1)
   (display-fill-column-indicator-mode -1)
-  (whitespace-mode -1)
+  (leo/global-whitespace-mode -1)
   (linum-relative-mode)
   (evil-insert-state))
 
