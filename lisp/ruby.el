@@ -43,13 +43,13 @@
 (defun leo/ruby-mode-enter ()
   (interactive)
   (robe-mode)
-  (leo/global-whitespace-mode)
+  (whitespace-mode)
   (display-fill-column-indicator-mode)
   (evil-ruby-text-objects-mode))
 
 (defun leo/web-mode-enter ()
   (interactive)
-  (leo/global-whitespace-mode)
+  (whitespace-mode)
   (display-fill-column-indicator-mode))
 
 (defun leo/rubocop-current ()

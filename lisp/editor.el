@@ -87,8 +87,15 @@
 
 ; -------------------------- Functions --------------------------------
 
-(define-global-minor-mode leo/global-whitespace-mode whitespace-mode
-  (lambda () (whitespace-mode)))
+(defun leo/load-editor-config ()
+  (interactive)
+  (load (concat (projectile-project-root) "./.editorconfig")))
+
+(defun leo/disable-whitespace-mode ()
+  (interactive)
+  (whitespace-mode -1)
+  (setq whitespace-style '())
+  (message "whitespace-mode disabled"))
 
 (defun leo/text-mode-with-hash-comments ()
   "text-mode with # comments"
@@ -177,7 +184,7 @@ When using Homebrew, install it using \"brew install trash\"."
     (rename-buffer (concat "*Scratch for " mode "*") t))
   (flycheck-mode -1)
   (display-fill-column-indicator-mode -1)
-  (leo/global-whitespace-mode -1)
+  (whitespace-mode -1)
   (linum-relative-mode)
   (evil-insert-state))
 
