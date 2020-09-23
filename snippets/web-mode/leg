@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: leg
+# key: leg
+# --
+<legend>$0</legend>
