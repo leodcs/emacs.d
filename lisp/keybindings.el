@@ -266,8 +266,8 @@
    "s-A" 'neotree-stretch-toggle
    "P" 'neotree-select-up-node
    "H" 'neotree-hidden-file-toggle
-   "y" 'neotree-copy-node
-   "c" 'neotree-create-node
+   "a" 'neotree-create-node
+   "s-c" 'neotree-copy-node
    "r" 'neotree-rename-node
    "s-r" 'neotree-refresh
    "s-/" 'leo/neotree-search-inside-current-node-directory
@@ -281,7 +281,8 @@
    :keymaps 'override
    :prefix "M-r"
    "m" 'projectile-rails-find-model
-   "s" 'leo/goto-current-model-on-schema)
+   "s" 'leo/goto-current-model-on-schema
+   "c" 'projectile-rails-find-controller)
 
   (general-define-key
    :keymaps 'isearch-mode-map
