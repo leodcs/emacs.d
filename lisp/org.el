@@ -5,7 +5,7 @@
 ; -------------------------- Variables --------------------------------
 
 (setq org-startup-indented t
-      org-ellipsis "  " ;; folding symbol
+      org-ellipsis " ▼ " ;; folding symbol
       org-pretty-entities t
       org-hide-emphasis-markers t
       org-src-fontify-natively t
