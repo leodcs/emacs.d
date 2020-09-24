@@ -282,7 +282,8 @@
    :prefix "M-r"
    "m" 'projectile-rails-find-model
    "s" 'leo/goto-current-model-on-schema
-   "c" 'projectile-rails-find-controller)
+   "c" 'projectile-rails-find-controller
+   "v" 'projectile-rails-find-view)
 
   (general-define-key
    :keymaps 'isearch-mode-map
