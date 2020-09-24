@@ -91,6 +91,7 @@
   (interactive)
   (leo/indent-whole-buffer)
   (save-buffer)
+  (rbenv-use-corresponding)
   (rubocop-autocorrect-current-file))
 
 (defun leo/save-and-run-erblint-autocorrect ()
