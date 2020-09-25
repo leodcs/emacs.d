@@ -43,4 +43,8 @@
 
 (defun leo/open-gh-pull-request ()
   (interactive)
+  (shell-command "gh pr create --web"))
+
+(defun leo/view-gh-pull-request ()
+  (interactive)
   (shell-command "gh pr view --web"))

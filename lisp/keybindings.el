@@ -113,7 +113,8 @@
    "b" 'magit-blame-addition
    "o" 'leo/git-open-buffer-file-in-repo
    "r" 'git-link-homepage
-   "p" 'leo/open-gh-pull-request)
+   "p" 'leo/view-gh-pull-request
+   "c" 'leo/open-gh-pull-request)
 
   (general-define-key
    "C-c e" 'leo/eval-and-replace
