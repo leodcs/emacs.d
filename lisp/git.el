@@ -8,7 +8,13 @@
   (setq git-commit-summary-max-length 50
         magit-blame-time-format "%d/%m/%Y %H:%M")
   (evil-define-key 'normal magit-blame-mode-map (kbd "<escape>") 'magit-blame-quit)
-  (evil-define-key 'normal magit-process-mode-map (kbd "C-<return>") 'browse-url-at-point))
+  (evil-define-key 'normal magit-process-mode-map (kbd "C-<return>") 'browse-url-at-point)
+
+  (defun leo/magit-process-kill-no-confirm ()
+    "Kill the process at point instantly."
+    (interactive)
+    (let ((process (magit-section-value-if 'process)))
+      (kill-process process))))
 
 (use-package diff-hl
   :config

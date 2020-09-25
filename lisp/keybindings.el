@@ -104,6 +104,11 @@
    "y" 'browse-kill-ring)
 
   (general-define-key
+   :states '(normal)
+   :keymaps 'magit-process-mode-map
+   "C-c" 'leo/magit-process-kill-no-confirm)
+
+  (general-define-key
    :prefix "M-g"
    :keymaps 'override
    "d" 'magit-diff-buffer-file
@@ -175,6 +180,19 @@
 
   ;; vterm
   (general-define-key
+   :keymaps 'vterm-mode-map
+   :states '(normal insert visual emacs)
+   "s-t" 'leo/delete-window
+   "s-f" 'leo/vterm-search-forward
+   "s-F" 'leo/vterm-search-backward
+   "s-d" 'vterm-other-window
+   "C-a" 'vterm-send-C-a
+   "C-e" 'vterm-send-C-e
+   "s-r" 'leo/vterm-clear
+   "M-m" 'evil-first-non-blank
+   "s-s" 'leo/export-buffer-contents)
+
+  (general-define-key
    :keymaps 'override
    "s-t" 'leo/toggle-vterm
    "s-j" 'leo/run-vterm-console
@@ -198,18 +216,6 @@
     "M-n" 'vterm-send-down
     "M-<left>" 'vterm-send-M-b
     "M-<right>" 'vterm-send-M-f)
-
-  (general-define-key
-   :keymaps 'vterm-mode-map
-   :states '(normal insert visual emacs)
-   "s-t" 'leo/delete-window
-   "s-f" 'leo/vterm-search-forward
-   "s-F" 'leo/vterm-search-backward
-   "s-d" 'vterm-other-window
-   "C-a" 'vterm-send-C-a
-   "C-e" 'vterm-send-C-e
-   "s-r" 'leo/vterm-clear
-   "s-s" 'leo/export-buffer-contents)
 
   (general-define-key
    :keymaps 'vterm-mode-map
