@@ -175,8 +175,8 @@
   (general-define-key
    :keymaps 'org-mode-map
    :states '(insert)
-   "S-<tab>" 'org-metaleft
-   "<tab>" 'org-metaright)
+   "M-S-<tab>" 'org-metaleft
+   "M-<tab>" 'org-metaright)
 
   ;; vterm
   (general-define-key
