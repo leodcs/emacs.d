@@ -1,7 +1,7 @@
 (use-package neotree
   :after evil
   :config
-  (setq-default neo-show-hidden-files t)
+  (setq-default neo-show-hidden-files nil)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)
         neo-smart-open t
         neo-confirm-create-file 'off-p
