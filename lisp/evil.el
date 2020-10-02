@@ -96,10 +96,3 @@
   :after evil
   :config
   (global-evil-surround-mode 1))
-
-(use-package evil-escape
-  :after evil
-  :config
-  (setq-default evil-escape-key-sequence "jk"
-                evil-escape-unordered-key-sequence t)
-  (evil-escape-mode))
