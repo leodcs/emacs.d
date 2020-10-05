@@ -11,6 +11,7 @@
       org-src-fontify-natively t
       org-src-tab-acts-natively t
       org-html-postamble nil
+      org-use-sub-superscripts nil
       org-superstar-headline-bullets-list '("➣" "◉" "○" "➝" "»" "➥"))
 
 ; -------------------------- Packages --------------------------------
