@@ -128,3 +128,10 @@
     (evil-goto-first-line)
     (search-forward-regexp (concat "create_table \".*" pluralized-string "\""))
     (pulse-momentary-highlight-one-line (point))))
+
+(defun leo/browse-rubygem()
+  (interactive)
+  (let ((rubygems-url "https://rubygems.org/gems/"))
+    (execute-kbd-macro (kbd "yi'"))
+    ;; Bundler.definition.dependencies.find { |d| d.name == <GEM_NAME> }&.to_spec&.homepage
+    (browse-url (concat rubygems-url (current-kill 0)))))
