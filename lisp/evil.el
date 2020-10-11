@@ -3,8 +3,9 @@
   (evil-mode t)
 
   (add-hook 'after-save-hook 'evil-normal-state)
+  (define-key evil-normal-state-map (kbd "#") 'evil-search-word-forward)
+  (define-key evil-normal-state-map (kbd "*") 'evil-search-word-backward)
   (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
-  (define-key evil-normal-state-map (kbd "C-t") 'projectile-run-shell)
 
   (define-key evil-insert-state-map (kbd "C-y") 'yank)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
