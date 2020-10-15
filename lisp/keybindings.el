@@ -25,7 +25,7 @@
    "s-k" 'kill-this-buffer
    "s-K" 'leo/purge-this-buffer
    "s-n" 'leo/generate-new-scratch-buffer
-   "s-o" 'find-file
+   "s-o" 'leo/projectile-find-file
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
    "s-A" 'leo/single-window-toggle

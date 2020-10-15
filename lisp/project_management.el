@@ -27,3 +27,7 @@
   "Set correct ruby version on project change."
   (interactive)
   (rbenv-use-corresponding))
+
+(defun leo/projectile-find-file ()
+  (interactive)
+  (ido-find-file-in-dir (projectile-project-root)))
