@@ -35,6 +35,11 @@
 
 (require 'ansi-color)
 
+(use-package browse-kill-ring
+  :config
+  (setq browse-kill-ring-highlight-current-entry t)
+  (setq browse-kill-ring-highlight-inserted-item "pulse"))
+
 (use-package string-inflection
   :config
   (defun leo/string-inflection-cycle ()

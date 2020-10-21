@@ -4,13 +4,9 @@
 ; -------------------------- Hooks --------------------------------
 
 (add-to-list 'auto-mode-alist '("\\.js\\..*\\'" . javascript-mode))
+(add-hook 'js2-mode-hook 'leo/js2-mode-enter)
 
 ; -------------------------- Packages --------------------------------
-
-(use-package browse-kill-ring
-  :config
-  (setq browse-kill-ring-highlight-current-entry t)
-  (setq browse-kill-ring-highlight-inserted-item "pulse"))
 
 (use-package js2-mode
   :config
@@ -34,3 +30,8 @@
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
+
+(defun leo/js2-mode-enter ()
+  (interactive)
+  (whitespace-mode)
+  (display-fill-column-indicator-mode))
