@@ -37,11 +37,11 @@
    "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line
+   "C-s-c" 'leo/copy-full-file-path
    "C-u" 'leo/undo-last-text
    "C-s" 'evil-search-next
    "C-c nk" 'leo/nuke-all-buffers
    "C-c C-b" 'ivy-switch-buffer
-   "C-c cp" 'leo/copy-full-file-path
    "C-x C-c" 'leo/string-inflection-cycle
    "C-x C-r" 'rename-buffer
    "C-x C-t" 'leo/insert-current-timestamp
