@@ -16,12 +16,16 @@
   ;;                        sanityinc-tomorrow-night
   ;;                        base16-default-dark)
 
-  (load-theme 'base16-default-dark t)
+  (load-theme 'distinguished t)
 )
 
 (use-package auto-dim-other-buffers
   :config
   (auto-dim-other-buffers-mode -1))
+
+(use-package zoom
+  :config
+  (zoom-mode t))
 
 (use-package which-key
   :init
