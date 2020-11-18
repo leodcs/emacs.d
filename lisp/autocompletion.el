@@ -18,14 +18,13 @@
         company-show-numbers t
         company-idle-delay 0)
   :config
-  (global-company-mode)
+  (global-company-mode -1)
   (with-eval-after-load 'company
     '(push 'company-robe company-backends)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "M-<return>") 'newline)
-    (define-key company-active-map (kbd "<tab>") 'yas-expand)))
-
-(use-package company-tabnine
+    (define-key company-active-map (kbd "<tab>") 'yas-expand))
+  (use-package company-tabnine
   :config
-  (add-to-list 'company-backends #'company-tabnine))
+  (add-to-list 'company-backends #'company-tabnine)))
