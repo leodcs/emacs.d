@@ -21,7 +21,7 @@
 
 (use-package auto-dim-other-buffers
   :config
-  (auto-dim-other-buffers-mode))
+  (auto-dim-other-buffers-mode -1))
 
 (use-package which-key
   :init
