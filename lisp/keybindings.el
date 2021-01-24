@@ -170,7 +170,9 @@
    "s-<up>" 'org-metaup
    "s-<down>" 'org-metadown
    "C-x <left>" 'org-metaleft
-   "C-x <right>" 'org-metaright)
+   "C-x <right>" 'org-metaright
+   "C-x p" 'leo/org-screenshot
+   "M-<return>" 'org-open-at-point)
 
   (general-define-key
    :keymaps 'org-mode-map

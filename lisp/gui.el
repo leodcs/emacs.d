@@ -16,8 +16,8 @@
   ;;                        sanityinc-tomorrow-night
   ;;                        base16-default-dark)
 
-  (load-theme 'distinguished t)
-)
+  (load-theme 'doom-molokai t)
+  )
 
 (use-package auto-dim-other-buffers
   :config

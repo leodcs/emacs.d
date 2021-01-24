@@ -84,8 +84,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-dabbrev-downcase 0)
+ '(company-dabbrev-downcase 0 t)
  '(company-idle-delay 0)
+ '(custom-safe-themes
+   '("17d158ec27961156ee222055f1089364b7fd38cf838304a1f9fe8b1cd561c188" "dd4628d6c2d1f84ad7908c859797b24cc6239dfe7d71b3363ccdd2b88963f336" "aea30125ef2e48831f46695418677b9d676c3babf43959c8e978c0ad672a7329" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" default))
  '(display-buffer-alist
    '(("*Help*"
       (leo/display-buffer-at-bottom))
