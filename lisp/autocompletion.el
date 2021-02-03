@@ -18,7 +18,7 @@
         company-show-numbers t
         company-idle-delay 0)
   :config
-  (global-company-mode -1)
+  (global-company-mode)
   (with-eval-after-load 'company
     '(push 'company-robe company-backends)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
