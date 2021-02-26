@@ -17,6 +17,7 @@
 (setq-default frame-title-format '((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%f"))))
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 (setq whitespace-line-column 80
+      css-indent-offset 2
       column-number-indicator-zero-based nil
       whitespace-style '(face lines-tail)
       delete-by-moving-to-trash t
