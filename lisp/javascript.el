@@ -12,6 +12,11 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
+(use-package rjsx-mode
+  :config
+  (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+  (add-to-list 'auto-mode-alist '("src\\/.*\\.js\\'" . rjsx-mode)))
+
 (use-package js2-refactor
   :defer 3
   :config

@@ -197,9 +197,7 @@
   (general-define-key
    :keymaps 'override
    "s-t" 'leo/toggle-vterm
-   "s-j" 'leo/run-vterm-console
-   "M-T" 'multi-vterm-next
-   "M-t" 'multi-vterm)
+   "s-j" 'leo/run-vterm-console)
 
   (general-vmap 'vterm-mode-map
     "s-c" 'leo/vterm-visual-copy)

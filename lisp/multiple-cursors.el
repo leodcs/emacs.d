@@ -5,7 +5,7 @@
   (use-package phi-search)
 
   (add-hook 'multiple-cursors-mode-enabled-hook 'evil-emacs-state)
-  (add-hook 'multiple-cursors-mode-disabled-hook 'evil-normal-state)
+  (add-hook 'multiple-cursors-mode-disabled-hook 'leo/multiple-cursors-mode-exit)
 
   (setq mc/always-run-for-all t
         mc/insert-numbers-default 1
@@ -30,4 +30,9 @@
     (if (evil-emacs-state-p)
         (call-interactively #'er/expand-region)
       (evil-emacs-state)
-      (call-interactively #'er/expand-region))))
+      (call-interactively #'er/expand-region)))
+
+  (defun leo/multiple-cursors-mode-exit()
+    (interactive)
+    (evil-force-normal-state)
+    (ivy-posframe-enable)))
