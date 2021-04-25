@@ -6,17 +6,25 @@
   (use-package solarized-theme)
   (use-package color-theme-sanityinc-tomorrow)
   (use-package base16-theme)
+  (use-package zenburn-theme)
+  (use-package material-theme)
+  (use-package monokai-theme)
+  (use-package alect-themes)
+  (use-package gotham-theme)
+  (use-package afternoon-theme)
+  (use-package vscode-dark-plus-theme)
 
   ;; List of favorites => '(doom-molokai
   ;;                        distinguished
-  ;;                        junio
-  ;;                        granger
-  ;;                        spolsky
-  ;;                        solarized-dark
-  ;;                        sanityinc-tomorrow-night
+  ;;                        zenburn
+  ;;                        monokai
+  ;;                        alect-black
+  ;;                        gotham
+  ;;                        afternoon
+  ;;                        vscode-dark-plus
   ;;                        base16-default-dark)
 
-  (load-theme 'distinguished t)
+  (load-theme 'vscode-dark-plus t)
   )
 
 (use-package auto-dim-other-buffers
