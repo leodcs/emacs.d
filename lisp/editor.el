@@ -35,6 +35,11 @@
 
 ; -------------------------- Packages --------------------------------
 
+(use-package vimish-fold
+  :ensure t
+  :config
+  (vimish-fold-global-mode t))
+
 (require 'ansi-color)
 
 (use-package browse-kill-ring

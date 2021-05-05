@@ -63,10 +63,13 @@
 
   (general-nmap
     "C-<return>" 'browse-url-at-point
+    "<tab>" 'vimish-fold-toggle
+    "C-C d" 'vimish-fold-delete
     "s-c" 'leo/copy-current-line)
 
   (general-vmap
     "<backspace>" 'evil-delete
+    "<tab>" 'vimish-fold
     "s-c" 'ns-copy-including-secondary)
 
   (general-emap
@@ -146,7 +149,8 @@
 
   (general-define-key
    :keymaps 'magit-mode-map
-   "s-r" 'magit-refresh-all)
+   "s-r" 'magit-refresh-all
+   "<tab>" 'magit-section-toggle)
 
   (general-define-key
    :states '(normal visual)
