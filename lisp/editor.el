@@ -4,6 +4,7 @@
 (transient-mark-mode t)
 (global-auto-revert-mode t) ;; Always reload the file if it changed on disk
 (savehist-mode t)
+(global-hl-line-mode t)
 
 ; -------------------------- Variables --------------------------------
 
@@ -25,20 +26,29 @@
       select-enable-clipboard t
       tab-width 2
       system-uses-terminfo nil
+      highlight-indent-guides-method 'bitmap
+      highlight-indent-guides-responsive 'top
       find-ls-option '("-print0 | xargs -0 ls -alhd" . "")
+      hl-line-sticky-flag nil
       kill-buffer-query-functions nil)
 
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
 (add-hook 'text-mode-hook 'leo/text-mode-with-hash-comments)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 ; -------------------------- Packages --------------------------------
 
 (use-package vimish-fold
   :ensure t
   :config
-  (vimish-fold-global-mode t))
+  (vimish-fold-global-mode t)
+  (use-package evil-vimish-fold
+    :ensure
+    :after vimish-fold
+    :config
+    (global-evil-vimish-fold-mode)))
 
 (require 'ansi-color)
 
@@ -96,6 +106,8 @@
 
 (use-package dotenv-mode
   :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
+
+(use-package highlight-indent-guides)
 
 ; -------------------------- Functions --------------------------------
 
