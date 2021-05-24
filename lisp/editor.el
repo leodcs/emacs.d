@@ -40,6 +40,13 @@
 
 ; -------------------------- Packages --------------------------------
 
+(use-package google-c-style
+  :config
+  (add-hook 'java-mode-hook
+            (lambda()
+              (subword-mode)
+              (setq c-basic-offset 2))))
+
 (use-package vimish-fold
   :ensure t
   :config

@@ -1,5 +1,6 @@
 ; -------------------------- Variables --------------------------------
 (setq js-indent-level 2)
+(setq company-tooltip-align-annotations t)
 
 ; -------------------------- Hooks --------------------------------
 
@@ -33,10 +34,14 @@
   :defer 2
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
+         (typescript-mode . tide-hl-identifier-mode)))
 
 (defun leo/js2-mode-enter ()
   (interactive)
   (whitespace-mode)
-  (display-fill-column-indicator-mode))
+  (display-fill-column-indicator-mode)
+  (tide-setup)
+  (flycheck-mode +1)
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
