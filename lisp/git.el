@@ -1,5 +1,6 @@
 (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
 (add-hook 'with-editor-mode-hook 'leo/with-editor-mode-enter)
+(add-hook 'magit-mode-hook 'leo/magit-mode-enter)
 
 (use-package magit
   :config
@@ -54,3 +55,7 @@
 (defun leo/view-gh-pull-request ()
   (interactive)
   (shell-command "gh pr view --web"))
+
+(defun leo/magit-mode-enter ()
+  (interactive)
+  (linum-relative-mode -1))
