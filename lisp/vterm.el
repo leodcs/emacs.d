@@ -43,7 +43,8 @@
     (interactive)
     (setq-local evil-move-cursor-back nil
                 evil-insert-state-cursor '(box "#00FF00"))
-    (rbenv-use-corresponding))
+    (rbenv-use-corresponding)
+    (linum-relative-mode -1))
 
   (defun leo/vterm-evil-append-line ()
     (interactive)
