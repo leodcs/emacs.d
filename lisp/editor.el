@@ -343,9 +343,8 @@ Note the weekly scope of the command's precision.")
 (defun leo/insert-current-timestamp ()
   "insert the current date and time into current buffer."
   (interactive)
-  (let* ((date (format-time-string current-date-format (current-time)))
-         (time (format-time-string current-time-format (current-time))))
-    (insert (concat date " " time))))
+  (let ((timestamp (format-time-string "%Y%m%d_%H%M%S" (current-time))))
+    (insert timestamp)))
 
 (defun leo/insert-current-date ()
   "insert the current date into the current buffer."
