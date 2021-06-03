@@ -136,7 +136,7 @@
    "C-c w" 'leo/copy-ruby-class-name)
 
   (general-define-key
-   :keymaps 'web-mode-map
+   :keymaps '(web-mode-map rjsx-mode-map)
    :states '(normal insert visual)
    "C-c j" 'leo/open-html-tag
    "C-c k" 'leo/close-html-tag
