@@ -30,13 +30,16 @@
       highlight-indent-guides-responsive 'top
       find-ls-option '("-print0 | xargs -0 ls -alhd" . "")
       hl-line-sticky-flag nil
+      mac-option-modifier 'meta
+      mac-command-modifier 'super
+      mac-pass-command-to-system nil
       kill-buffer-query-functions nil)
 
 ; -------------------------- Hooks --------------------------------
 
 (add-hook 'compilation-filter-hook 'leo/fix-colors-on-compilation-mode)
 (add-hook 'text-mode-hook 'leo/text-mode-with-hash-comments)
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(add-hook 'prog-mode-hook 'leo/prog-mode-enter)
 
 ; -------------------------- Packages --------------------------------
 
@@ -81,8 +84,7 @@
 
 (use-package linum-relative
   :config
-  (setq linum-relative-current-symbol "")
-  (linum-relative-global-mode t))
+  (setq linum-relative-current-symbol ""))
 
 (use-package winum
   :config
@@ -117,6 +119,11 @@
 (use-package highlight-indent-guides)
 
 ; -------------------------- Functions --------------------------------
+
+(defun leo/prog-mode-enter ()
+  (interactive)
+  (highlight-indent-guides-mode)
+  (linum-relative-mode))
 
 (defun leo/load-editor-config ()
   (interactive)
