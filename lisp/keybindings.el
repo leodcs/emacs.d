@@ -4,6 +4,9 @@
 
   (general-define-key
    :keymaps 'override
+   "s-q" 'save-buffers-kill-emacs
+   "s-s" 'save-buffer
+   "s-v" 'yank
    "s-<return>" 'ivy-switch-buffer
    "s-]" 'evil-goto-definition
    "s-[" 'evil-jump-backward
@@ -58,7 +61,7 @@
    "s-<left>" 'move-beginning-of-line)
 
   (general-iemap
-    "s-c" 'ns-copy-including-secondary
+    "s-c" 'kill-ring-save
     "C-g" 'leo/ie-keyboard-quit)
 
   (general-nmap
@@ -70,7 +73,7 @@
   (general-vmap
     "<backspace>" 'evil-delete
     "<tab>" 'vimish-fold
-    "s-c" 'ns-copy-including-secondary)
+    "s-c" 'kill-ring-save)
 
   (general-emap
     "C-u" 'undo

@@ -24,7 +24,6 @@
 (delete-selection-mode 1)
 (global-set-key [escape] 'keyboard-escape-quit)
 (global-set-key (kbd "M-o") 'other-window)
-(dotimes (n 3) (toggle-frame-maximized))
 
 ;; UTF-8
 (setq locale-coding-system 'utf-8)
