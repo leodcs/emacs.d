@@ -50,7 +50,8 @@
    "C-x C-t" 'leo/insert-current-timestamp
    "C-x ts" 'leo/set-current-trello-card-url
    "C-x tt" 'leo/open-current-trello-card
-   "C-=" 'leo/indent-whole-buffer)
+   "C-=" 'leo/indent-whole-buffer
+   "<f11>" 'toggle-frame-maximized)
 
   (general-define-key
    :states '(normal insert visual emacs)
