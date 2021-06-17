@@ -16,7 +16,7 @@
       frame-resize-pixelwise t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (menu-bar-mode -1) ; no need for the menu bars - we've got key combos for that!
-(toggle-scroll-bar -1)
+(toggle-scroll-bar t)
 (tool-bar-mode -1)
 (winner-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
