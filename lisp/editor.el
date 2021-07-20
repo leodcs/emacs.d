@@ -10,7 +10,7 @@
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Monaco")
-  (set-face-attribute 'default nil :height 172)
+  (set-face-attribute 'default nil :height 150)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
 (progn (setq-default indent-tabs-mode nil))
 (setq-default line-spacing 1)
@@ -123,7 +123,7 @@
 (defun leo/prog-mode-enter ()
   (interactive)
   (highlight-indent-guides-mode)
-  (linum-relative-mode))
+  (linum-relative-mode t))
 
 (defun leo/load-editor-config ()
   (interactive)
@@ -423,3 +423,11 @@ same directory as the org-buffer and insert a link to this file."
   ; insert into file if correctly taken
   (if (file-exists-p filename)
     (insert (concat "[[file:" filename "][" (read-string "Link text: ") "]]"))))
+
+(defun leo/delete-line ()
+  "Delete (not kill) the current line."
+  (interactive)
+  (save-excursion
+    (delete-region
+     (progn (forward-visible-line 0) (point))
+     (progn (forward-visible-line 1) (point)))))

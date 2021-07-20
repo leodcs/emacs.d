@@ -16,7 +16,6 @@
 
   ;; List of favorites => '(doom-molokai
   ;;                        distinguished
-  ;;                        zenburn
   ;;                        monokai
   ;;                        alect-black
   ;;                        gotham
@@ -24,7 +23,7 @@
   ;;                        vscode-dark-plus
   ;;                        base16-default-dark)
 
-  (load-theme 'vscode-dark-plus t)
+  (load-theme 'doom-molokai t)
   )
 
 (use-package auto-dim-other-buffers

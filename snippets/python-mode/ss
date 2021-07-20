@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: set_trace
+# key: ss
+# --
+set_trace()

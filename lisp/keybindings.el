@@ -4,12 +4,17 @@
 
   (general-define-key
    :keymaps 'override
+   "s-a" 'mark-whole-buffer
+   "s-z" 'undo-tree-undo
    "s-q" 'save-buffers-kill-emacs
    "s-s" 'save-buffer
    "s-v" 'yank
    "s-<return>" 'ivy-switch-buffer
-   "s-]" 'evil-goto-definition
-   "s-[" 'evil-jump-backward
+   "s-]" 'evil-shift-right
+   "s-[" 'evil-shift-left
+   "s-<mouse-1>" 'evil-goto-definition
+   "s-." 'evil-goto-definition
+   "s->" 'evil-jump-backward
    "s-/" 'leo/counsel-ag-search-all-project
    "s-<up>" 'drag-stuff-up
    "s-<down>" 'drag-stuff-down
@@ -21,7 +26,8 @@
    "s-P" 'counsel-projectile-switch-project
    "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
    "s-D" 'leo/duplicate-line
-   "s-e" 'leo/neotree-toggle
+   "s-e" 'treemacs
+   "s-E" 'treemacs-select-window
    "s-f" 'evil-search-forward
    "s-F" 'evil-search-backward
    "s-g" 'magit-status
@@ -40,6 +46,7 @@
    "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line
+   "M-D" 'leo/delete-line
    "C-s-c" 'leo/copy-full-file-path
    "C-u" 'leo/undo-last-text
    "C-s" 'evil-search-next
@@ -63,6 +70,7 @@
 
   (general-iemap
     "s-c" 'kill-ring-save
+    "C-d" 'delete-char
     "C-g" 'leo/ie-keyboard-quit)
 
   (general-nmap
@@ -130,7 +138,10 @@
 
   (general-define-key
    "C-c e" 'leo/eval-and-replace
-   "C-q" 'yas-expand
+   "C-q" 'yas-expand)
+
+  (general-define-key
+   :keymaps 'emacs-lisp-mode-map
    "s-E" 'eval-last-sexp)
 
   (general-define-key
