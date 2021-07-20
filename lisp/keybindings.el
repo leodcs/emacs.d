@@ -46,7 +46,6 @@
    "M-3" 'leo/select-current-line-from-beginning
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line
-   "M-D" 'leo/delete-line
    "M-E" 'eval-last-sexp
    "C-s-c" 'leo/copy-full-file-path
    "C-u" 'leo/undo-last-text
@@ -79,12 +78,14 @@
 
   (general-nmap
     "C-<return>" 'browse-url-at-point
+    "M-D" 'leo/delete-line
     "<tab>" 'vimish-fold-toggle
     "C-C d" 'vimish-fold-delete
     "s-c" 'leo/copy-current-line)
 
   (general-vmap
     "<backspace>" 'evil-delete
+    "M-D" 'delete-region
     "<tab>" 'vimish-fold
     "s-c" 'kill-ring-save)
 
