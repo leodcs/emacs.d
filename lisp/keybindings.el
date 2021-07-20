@@ -6,6 +6,7 @@
    :keymaps 'override
    "s-a" 'mark-whole-buffer
    "s-z" 'undo-tree-undo
+   "s-Z" 'undo-tree-redo
    "s-q" 'save-buffers-kill-emacs
    "s-s" 'save-buffer
    "s-v" 'yank
