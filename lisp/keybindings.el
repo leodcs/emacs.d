@@ -44,13 +44,14 @@
    "M-1" 'leo/select-current-line
    "M-2" 'leo/expand-region
    "M-3" 'leo/select-current-line-from-beginning
-   "M-E" 'leo/eval-buffer
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line
    "M-D" 'leo/delete-line
+   "M-E" 'eval-last-sexp
    "C-s-c" 'leo/copy-full-file-path
    "C-u" 'leo/undo-last-text
    "C-s" 'evil-search-next
+   "C-M-e" 'leo/eval-buffer
    "C-c nk" 'leo/nuke-all-buffers
    "C-c C-b" 'ivy-switch-buffer
    "C-x C-c" 'leo/string-inflection-cycle
@@ -70,6 +71,8 @@
    "s-<left>" 'move-beginning-of-line)
 
   (general-iemap
+    "C-o" 'evil-open-above
+    "C-j" 'evil-open-below
     "s-c" 'kill-ring-save
     "C-d" 'delete-char
     "C-g" 'leo/ie-keyboard-quit)
@@ -140,10 +143,6 @@
   (general-define-key
    "C-c e" 'leo/eval-and-replace
    "C-q" 'yas-expand)
-
-  (general-define-key
-   :keymaps 'emacs-lisp-mode-map
-   "s-E" 'eval-last-sexp)
 
   (general-define-key
    :keymaps 'ruby-mode-map
