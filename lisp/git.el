@@ -59,3 +59,8 @@
 (defun leo/magit-mode-enter ()
   (interactive)
   (linum-relative-mode -1))
+
+(defun leo/magit-push ()
+  (interactive)
+  (magit-push)
+  (magit-process-buffer))

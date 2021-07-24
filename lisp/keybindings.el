@@ -141,6 +141,11 @@
    "C-c" 'leo/magit-process-kill-no-confirm)
 
   (general-define-key
+   :states '(normal)
+   :keymaps 'magit-mode-map
+   "p" 'leo/magit-push)
+
+  (general-define-key
    :prefix "M-g"
    :keymaps 'override
    "d" 'magit-diff-buffer-file
