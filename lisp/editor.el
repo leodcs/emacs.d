@@ -43,6 +43,8 @@
 
 ; -------------------------- Packages --------------------------------
 
+(use-package symbol-overlay)
+
 (use-package google-c-style
   :config
   (add-hook 'java-mode-hook
@@ -123,7 +125,8 @@
 (defun leo/prog-mode-enter ()
   (interactive)
   (highlight-indent-guides-mode)
-  (linum-relative-mode t))
+  (linum-relative-mode t)
+  (symbol-overlay-mode 1))
 
 (defun leo/load-editor-config ()
   (interactive)
