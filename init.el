@@ -78,6 +78,7 @@
 (load "~/.emacs.d/lisp/treemacs.el")
 (load "~/.emacs.d/lisp/vterm.el")
 (load "~/.emacs.d/lisp/multiple-cursors.el")
+(load "~/.emacs.d/lisp/python.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
