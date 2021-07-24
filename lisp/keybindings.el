@@ -11,8 +11,6 @@
    "s-s" 'save-buffer
    "s-v" 'yank
    "s-<return>" 'ivy-switch-buffer
-   "s-]" 'evil-shift-right
-   "s-[" 'evil-shift-left
    "s-<mouse-1>" 'evil-goto-definition
    "s-." 'evil-goto-definition
    "s->" 'evil-jump-backward
@@ -38,15 +36,18 @@
    "s-o" 'leo/projectile-find-file
    "s-p" 'counsel-projectile-find-file
    "s-r" 'leo/revert-buffer-no-confirm
-   "s-A" 'leo/single-window-toggle
    "s-W" 'delete-other-windows
    "s-w" 'leo/delete-window
+   "s-A" 'winner-undo
+   "M-A" 'winner-redo
    "M-1" 'leo/select-current-line
    "M-2" 'leo/expand-region
    "M-3" 'leo/select-current-line-from-beginning
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line
    "M-E" 'eval-last-sexp
+   "C-k" 'kill-line
+   "C-a" 'back-to-indentation
    "C-s-c" 'leo/copy-full-file-path
    "C-u" 'leo/undo-last-text
    "C-s" 'evil-search-next
@@ -65,8 +66,9 @@
    :states '(normal insert visual emacs)
    "S-<return>" 'newline
    "C-e" 'move-end-of-line
-   "C-a" 'move-beginning-of-line
+   "C-a" 'back-to-indentation
    "s-<right>" 'move-end-of-line
+   "C-k" 'kill-line
    "s-<left>" 'move-beginning-of-line)
 
   (general-iemap
@@ -80,6 +82,10 @@
     "C-<return>" 'browse-url-at-point
     "M-D" 'leo/delete-line
     "<tab>" 'vimish-fold-toggle
+    ">" 'evil-shift-right-line
+    "s-]" 'evil-shift-right-line
+    "<" 'evil-shift-left-line
+    "s-[" 'evil-shift-left-line
     "C-C d" 'vimish-fold-delete
     "s-c" 'leo/copy-current-line)
 
@@ -87,6 +93,10 @@
     "<backspace>" 'evil-delete
     "M-D" 'delete-region
     "<tab>" 'vimish-fold
+    ">" 'evil-shift-right
+    "s-]" 'evil-shift-right
+    "<" 'evil-shift-left
+    "s-[" 'evil-shift-left
     "s-c" 'kill-ring-save)
 
   (general-emap
@@ -315,4 +325,9 @@
   (general-define-key
    :keymaps 'isearch-mode-map
    "<return>" 'leo/isearch-exit)
+
+  ;; Python
+  (general-define-key
+   :keymaps 'python-mode-map
+   "s-S" 'py-autopep8)
 )
