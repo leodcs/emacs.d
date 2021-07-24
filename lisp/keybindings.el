@@ -76,6 +76,8 @@
     "C-j" 'evil-open-below
     "s-c" 'kill-ring-save
     "C-d" 'delete-char
+    "s-]" 'evil-shift-right-line
+    "s-[" 'evil-shift-left-line
     "C-g" 'leo/ie-keyboard-quit)
 
   (general-nmap
