@@ -13,6 +13,7 @@
   (use-package gotham-theme)
   (use-package afternoon-theme)
   (use-package vscode-dark-plus-theme)
+  (use-package gruvbox-theme)
 
   ;; List of favorites => '(doom-molokai
   ;;                        distinguished
@@ -21,10 +22,15 @@
   ;;                        gotham
   ;;                        afternoon
   ;;                        vscode-dark-plus
+  ;;                        doom-one
+  ;;                        doom-vibrant
+  ;;                        doom-acario-dark
+  ;;                        doom-dark+
+  ;;                        doom-horizon
+  ;;                        doom-tomorrow-night
   ;;                        base16-default-dark)
 
-  (load-theme 'doom-molokai t)
-  )
+  (load-theme 'doom-tomorrow-night t))
 
 (use-package auto-dim-other-buffers
   :config
