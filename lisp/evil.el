@@ -77,7 +77,20 @@
     "Move down after indenting"
     (interactive)
     (indent-according-to-mode)
-    (evil-next-line)))
+    (evil-next-line))
+
+  (defun leo/evil-shift-right ()
+    (interactive)
+    (evil-shift-right evil-visual-beginning evil-visual-end)
+    (evil-normal-state)
+    (evil-visual-restore))
+
+  (defun leo/evil-shift-left ()
+    (interactive)
+    (evil-shift-left evil-visual-beginning evil-visual-end)
+    (evil-normal-state)
+    (evil-visual-restore))
+  )
 
 (use-package evil-org
   :after '(org evil)

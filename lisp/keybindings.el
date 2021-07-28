@@ -95,10 +95,10 @@
     "<backspace>" 'evil-delete
     "M-D" 'delete-region
     "<tab>" 'vimish-fold
-    ">" 'evil-shift-right
-    "s-]" 'evil-shift-right
-    "<" 'evil-shift-left
-    "s-[" 'evil-shift-left
+    ">" 'leo/evil-shift-right
+    "s-]" 'leo/evil-shift-right
+    "<" 'leo/evil-shift-left
+    "s-[" 'leo/evil-shift-left
     "s-c" 'kill-ring-save)
 
   (general-emap
