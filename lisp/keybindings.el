@@ -46,7 +46,6 @@
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line
    "M-E" 'eval-last-sexp
-   "C-k" 'kill-line
    "C-a" 'back-to-indentation
    "C-s-c" 'leo/copy-full-file-path
    "C-u" 'leo/undo-last-text
@@ -67,6 +66,7 @@
    "S-<return>" 'newline
    "C-e" 'move-end-of-line
    "C-a" 'back-to-indentation
+   "C-s" 'ace-jump-mode
    "s-<right>" 'move-end-of-line
    "C-k" 'kill-line
    "s-<left>" 'move-beginning-of-line)
@@ -337,4 +337,13 @@
   (general-define-key
    :keymaps 'python-mode-map
    "s-S" 'py-autopep8)
+
+  (general-define-key
+   :keymaps 'ivy-switch-buffer-mode-map
+   "C-k" 'ivy-switch-buffer-kill)
+
+  (general-define-key
+   :keymaps '(evil-motion-state-map evil-operator-state-map)
+   "SPC" 'evil-ace-jump-char-mode
+   "C-SPC" 'evil-ace-jump-word-mode)
 )

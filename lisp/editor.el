@@ -13,8 +13,10 @@
   (set-face-attribute 'default nil :height 150)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
 (progn (setq-default indent-tabs-mode nil))
+(setq-default evil-shift-width 2)
 (setq-default line-spacing 1)
 (setq-default fill-column 80)
+(setq-default truncate-lines t)
 (setq-default frame-title-format '((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%f"))))
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 (setq whitespace-line-column 80
@@ -42,6 +44,8 @@
 (add-hook 'prog-mode-hook 'leo/prog-mode-enter)
 
 ; -------------------------- Packages --------------------------------
+
+(use-package ace-jump-mode)
 
 (use-package symbol-overlay)
 
@@ -84,10 +88,6 @@
 
 (use-package scratch)
 
-(use-package linum-relative
-  :config
-  (setq linum-relative-current-symbol ""))
-
 (use-package winum
   :config
   (winum-mode))
@@ -125,8 +125,8 @@
 (defun leo/prog-mode-enter ()
   (interactive)
   (highlight-indent-guides-mode)
-  (linum-relative-mode t)
-  (symbol-overlay-mode 1))
+  (symbol-overlay-mode 1)
+  (display-line-numbers-mode t))
 
 (defun leo/load-editor-config ()
   (interactive)
@@ -226,7 +226,6 @@ When using Homebrew, install it using \"brew install trash\"."
   (flycheck-mode -1)
   (display-fill-column-indicator-mode -1)
   (whitespace-mode -1)
-  (linum-relative-mode)
   (evil-insert-state))
 
 (defun leo/get-current-file-relative-path ()

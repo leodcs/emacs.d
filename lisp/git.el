@@ -57,8 +57,7 @@
   (shell-command "gh pr view --web"))
 
 (defun leo/magit-mode-enter ()
-  (interactive)
-  (linum-relative-mode -1))
+  (interactive))
 
 (defun leo/magit-push ()
   (interactive)

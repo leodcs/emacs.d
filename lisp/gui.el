@@ -30,7 +30,7 @@
   ;;                        doom-tomorrow-night
   ;;                        base16-default-dark)
 
-  (load-theme 'doom-tomorrow-night t))
+  (load-theme 'vscode-dark-plus t))
 
 (use-package auto-dim-other-buffers
   :config

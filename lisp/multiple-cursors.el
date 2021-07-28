@@ -13,7 +13,6 @@
                                      auto-complete-mode
                                      flyspell-mode
                                      linum-mode
-                                     linum-relative-mode
                                      ivy-posframe-mode
                                      yasnippet-mode
                                      evil-mode

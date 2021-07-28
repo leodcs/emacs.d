@@ -8,4 +8,5 @@
 (defun leo/python-mode-enter ()
   (interactive)
   (flycheck-mode 1)
-  (flymake-python-pyflakes-load))
+  (flymake-python-pyflakes-load)
+  (setq evil-shift-width 4))
