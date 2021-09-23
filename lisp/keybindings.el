@@ -53,6 +53,7 @@
    "C-M-e" 'leo/eval-buffer
    "C-c nk" 'leo/nuke-all-buffers
    "C-c C-b" 'ivy-switch-buffer
+   "C-c C-f" 'flyspell-correct-wrapper
    "C-x C-c" 'leo/string-inflection-cycle
    "C-x C-r" 'rename-buffer
    "C-x C-t" 'leo/insert-current-timestamp
@@ -347,4 +348,8 @@
    :keymaps '(evil-motion-state-map evil-operator-state-map)
    "SPC" 'evil-ace-jump-char-mode
    "C-SPC" 'evil-ace-jump-word-mode)
+
+  (general-define-key
+   :keymaps 'xref--xref-buffer-mode-map
+   "<return>" 'xref-show-location-at-point)
 )

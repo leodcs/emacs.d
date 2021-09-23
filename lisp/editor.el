@@ -13,6 +13,7 @@
   (set-face-attribute 'default nil :height 150)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
 (progn (setq-default indent-tabs-mode nil))
+(setq-default bidi-paragraph-direction 'left-to-right)
 (setq-default evil-shift-width 2)
 (setq-default line-spacing 1)
 (setq-default fill-column 80)
@@ -20,6 +21,8 @@
 (setq-default frame-title-format '((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%f"))))
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 (setq whitespace-line-column 80
+      bidi-inhibit-bpa t
+      flyspell-correct-interface #'flyspell-correct-helm
       css-indent-offset 2
       column-number-indicator-zero-based nil
       whitespace-style '(face lines-tail)
@@ -44,6 +47,12 @@
 (add-hook 'prog-mode-hook 'leo/prog-mode-enter)
 
 ; -------------------------- Packages --------------------------------
+
+(use-package auto-dictionary
+  :init
+  (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1))))
+
+(use-package flyspell-correct-helm)
 
 (use-package ace-jump-mode)
 
@@ -122,10 +131,16 @@
 
 ; -------------------------- Functions --------------------------------
 
+(defun leo/current-line-empty-p ()
+  (save-excursion
+    (beginning-of-line)
+    (looking-at-p "[[:space:]]*$")))
+
 (defun leo/prog-mode-enter ()
   (interactive)
   (highlight-indent-guides-mode)
   (symbol-overlay-mode 1)
+  (flyspell-mode 1)
   (display-line-numbers-mode t))
 
 (defun leo/load-editor-config ()
