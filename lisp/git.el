@@ -1,6 +1,7 @@
 (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
 (add-hook 'with-editor-mode-hook 'leo/with-editor-mode-enter)
 (add-hook 'magit-mode-hook 'leo/magit-mode-enter)
+(add-hook 'git-commit-setup-hook 'leo/git-commit-insert-branch)
 
 (use-package magit
   :config
@@ -63,3 +64,12 @@
   (interactive)
   (magit-push)
   (magit-process-buffer))
+
+(defun leo/extract-branch-tag (branch-name)
+  (let ((TICKET-PATTERN "\\(?:[[:alpha:]]+-\\)?\\([[:alpha:]]+-[[:digit:]]+\\)-.*"))
+    (when (string-match-p TICKET-PATTERN branch-name)
+       (s-upcase (replace-regexp-in-string TICKET-PATTERN "\\1 " branch-name)))))
+
+(defun leo/git-commit-insert-branch ()
+  (if (leo/current-line-empty-p)
+      (insert (leo/extract-branch-tag (magit-get-current-branch)))))
