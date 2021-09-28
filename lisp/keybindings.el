@@ -139,7 +139,6 @@
   (general-define-key
    :states '(normal)
    :keymaps 'magit-process-mode-map
-   "s-w" 'leo/purge-this-buffer
    "C-c" 'leo/magit-process-kill-no-confirm)
 
   (general-define-key
