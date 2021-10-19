@@ -22,7 +22,6 @@
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 (setq whitespace-line-column 80
       bidi-inhibit-bpa t
-      flyspell-correct-interface #'flyspell-correct-helm
       css-indent-offset 2
       column-number-indicator-zero-based nil
       whitespace-style '(face lines-tail)
@@ -47,12 +46,6 @@
 (add-hook 'prog-mode-hook 'leo/prog-mode-enter)
 
 ; -------------------------- Packages --------------------------------
-
-(use-package auto-dictionary
-  :init
-  (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1))))
-
-(use-package flyspell-correct-helm)
 
 (use-package ace-jump-mode)
 
@@ -118,12 +111,6 @@
 
 (use-package anzu :config (global-anzu-mode t))
 
-(use-package flycheck
-  :config
-  (use-package flycheck-posframe
-    :config (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
-    (setq flycheck-posframe-warning-prefix "\u26a0 ")))
-
 (use-package dotenv-mode
   :config (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
 
@@ -140,7 +127,6 @@
   (interactive)
   (highlight-indent-guides-mode)
   (symbol-overlay-mode 1)
-  (flyspell-mode 1)
   (display-line-numbers-mode t))
 
 (defun leo/load-editor-config ()
@@ -238,7 +224,6 @@ When using Homebrew, install it using \"brew install trash\"."
         (comment-region (point-at-bol) (point-at-eol)))
       (forward-line 2))
     (rename-buffer (concat "*Scratch for " mode "*") t))
-  (flycheck-mode -1)
   (display-fill-column-indicator-mode -1)
   (whitespace-mode -1)
   (evil-insert-state))

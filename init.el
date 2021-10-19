@@ -100,7 +100,6 @@
       (display-buffer-reuse-window display-buffer-same-window))
      ("magit"
       (display-buffer-reuse-window display-buffer-pop-up-window))))
- '(flycheck-posframe-warning-prefix "⚠ ")
  '(ivy-ignore-buffers '("\\` " "\\`\\*tramp/" "*RuboCop"))
  '(neo-hidden-regexp-list '("\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.o$" "\\.DS_Store"))
  '(package-selected-packages

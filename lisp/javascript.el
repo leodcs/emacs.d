@@ -32,7 +32,7 @@
 
 (use-package tide
   :defer 2
-  :after (typescript-mode company flycheck)
+  :after (typescript-mode company)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)))
 
@@ -41,7 +41,6 @@
   (whitespace-mode)
   (display-fill-column-indicator-mode)
   (tide-setup)
-  (flycheck-mode +1)
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (company-mode +1))

@@ -53,7 +53,6 @@
    "C-M-e" 'leo/eval-buffer
    "C-c nk" 'leo/nuke-all-buffers
    "C-c C-b" 'ivy-switch-buffer
-   "C-c C-f" 'flyspell-correct-wrapper
    "C-x C-c" 'leo/string-inflection-cycle
    "C-x C-r" 'rename-buffer
    "C-x C-t" 'leo/insert-current-timestamp

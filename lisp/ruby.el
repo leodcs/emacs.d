@@ -8,7 +8,6 @@
 ; -------------------------- Variables --------------------------------
 
 (setq ruby-insert-encoding-magic-comment nil
-      flycheck-rubocoprc "~/projects/personal/dotfiles/rubocop/rubocop.yml"
       rubocop-autocorrect-command "rubocop -A --format emacs --config /Users/dcsleo/projects/personal/dotfiles/rubocop/rubocop.yml"
       enh-ruby-add-encoding-comment-on-save nil)
 

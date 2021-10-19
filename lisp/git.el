@@ -38,7 +38,7 @@
 (defun leo/with-editor-mode-enter ()
   (interactive)
   (evil-insert-state)
-  (setq-local fill-column 50)
+  (setq-local fill-column 57)
   (display-fill-column-indicator-mode))
 
 (defun parse-git-url (url)

@@ -11,7 +11,6 @@
         mc/insert-numbers-default 1
         mc/unsupported-minor-modes '(company-mode
                                      auto-complete-mode
-                                     flyspell-mode
                                      linum-mode
                                      ivy-posframe-mode
                                      yasnippet-mode
