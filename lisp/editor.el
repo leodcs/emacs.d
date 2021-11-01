@@ -37,7 +37,8 @@
       mac-option-modifier 'meta
       mac-command-modifier 'super
       mac-pass-command-to-system nil
-      kill-buffer-query-functions nil)
+      kill-buffer-query-functions nil
+      evil-want-keybinding nil)
 
 ; -------------------------- Hooks --------------------------------
 
@@ -100,6 +101,7 @@
 
 (use-package undo-tree
   :config
+  (global-undo-tree-mode)
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))))
 

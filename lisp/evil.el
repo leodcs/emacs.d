@@ -1,4 +1,5 @@
 (use-package evil
+  :ensure t
   :config
   (evil-mode t)
 
@@ -110,3 +111,9 @@
   :after evil
   :config
   (global-evil-surround-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))

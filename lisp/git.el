@@ -5,7 +5,6 @@
 
 (use-package magit
   :config
-  (use-package evil-magit)
   (use-package with-editor)
   (setq git-commit-summary-max-length 50
         magit-blame-time-format "%d/%m/%Y %H:%M")
