@@ -15,8 +15,6 @@
    "s-." 'evil-goto-definition
    "s->" 'evil-jump-backward
    "s-/" 'leo/counsel-ag-search-all-project
-   "s-<up>" 'drag-stuff-up
-   "s-<down>" 'drag-stuff-down
    "s-u" 'universal-argument
    "s-C" 'leo/copy-relative-file-path
    "s-J" 'leo/split-window-horizontally
@@ -39,6 +37,8 @@
    "s-W" 'delete-other-windows
    "s-w" 'leo/delete-window
    "s-A" 'winner-undo
+   "M-<up>" 'drag-stuff-up
+   "M-<down>" 'drag-stuff-down
    "M-A" 'winner-redo
    "M-1" 'leo/select-current-line
    "M-2" 'leo/expand-region
