@@ -1,7 +1,7 @@
 (use-package projectile
   :init
   (setq projectile-completion-system 'ivy
-        projectile-git-command "fd . -0 --type f --hidden --color=never")
+        projectile-git-command "fdfind . -0 --type f --hidden --color=never")
   (projectile-mode +1)
   :bind (("C-c p" . projectile-command-map)
          ("C-," . counsel-projectile-switch-to-buffer)
