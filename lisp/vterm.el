@@ -20,8 +20,8 @@
   (defun leo/run-vterm-console ()
     "Opens a instance of vterm on projectile root."
     (interactive)
-    (multi-vterm-projectile)
-    (evil-normal-state))
+    (multi-vterm-project)
+    (evil-window-move-very-bottom))
 
   (defun leo/toggle-vterm ()
     (interactive)
@@ -93,6 +93,7 @@
     (evil-search-backward)))
 
 (use-package multi-vterm
+  :ensure t
   :after vterm)
 
 (use-package vterm-extra
