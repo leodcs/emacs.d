@@ -37,6 +37,7 @@
    "s-W" 'delete-other-windows
    "s-w" 'leo/delete-window
    "s-A" 'winner-undo
+   "s-l" 'goto-line
    "M-<up>" 'drag-stuff-up
    "M-<down>" 'drag-stuff-down
    "M-A" 'winner-redo
