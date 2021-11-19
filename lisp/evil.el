@@ -93,6 +93,12 @@
     (evil-visual-restore))
   )
 
+(fset 'evil-redirect-digit-argument 'ignore)
+
+(add-to-list 'evil-digit-bound-motions 'evil-org-beginning-of-line)
+(evil-define-key 'motion 'evil-org-mode
+  (kbd "0") 'evil-org-beginning-of-line)
+
 (use-package evil-org
   :after '(org evil)
   :config

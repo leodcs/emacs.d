@@ -12,6 +12,8 @@
   (set-face-attribute 'default nil :family "Monaco")
   (set-face-attribute 'default nil :height 150)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
+(when (eq system-type 'gnu/linux)
+  (set-face-attribute 'default nil :height 130))
 (progn (setq-default indent-tabs-mode nil))
 (setq-default bidi-paragraph-direction 'left-to-right)
 (setq-default evil-shift-width 2)

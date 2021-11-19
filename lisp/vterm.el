@@ -21,7 +21,7 @@
     "Opens a instance of vterm on projectile root."
     (interactive)
     (multi-vterm-project)
-    (evil-window-move-very-bottom))
+    (evil-normal-state))
 
   (defun leo/toggle-vterm ()
     (interactive)

@@ -94,3 +94,7 @@
   :after (treemacs persp-mode) ;;or perspective vs. persp-mode
   :ensure t
   :config (treemacs-set-scope-type 'Perspectives))
+
+(use-package all-the-icons
+  :after (treemacs)
+  :if (display-graphic-p))

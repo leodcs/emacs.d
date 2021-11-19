@@ -23,7 +23,6 @@
    "s-P" 'counsel-projectile-switch-project
    "s-d" 'leo/multiple-cursors-expand-or-mark-next-word
    "s-D" 'leo/duplicate-line
-   "s-e" 'treemacs
    "s-E" 'treemacs-select-window
    "s-f" 'evil-search-forward
    "s-F" 'evil-search-backward
@@ -38,6 +37,8 @@
    "s-w" 'leo/delete-window
    "s-A" 'winner-undo
    "s-l" 'goto-line
+   "s-x" 'kill-region
+   "M-e" 'treemacs
    "M-<up>" 'drag-stuff-up
    "M-<down>" 'drag-stuff-down
    "M-A" 'winner-redo
@@ -79,7 +80,8 @@
     "C-d" 'delete-char
     "s-]" 'evil-shift-right-line
     "s-[" 'evil-shift-left-line
-    "C-g" 'leo/ie-keyboard-quit)
+    "C-g" 'leo/ie-keyboard-quit
+    "<S-mouse-1>" 'mouse-save-then-kill)
 
   (general-nmap
     "C-<return>" 'browse-url-at-point

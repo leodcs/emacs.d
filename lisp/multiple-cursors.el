@@ -33,4 +33,4 @@
   (defun leo/multiple-cursors-mode-exit()
     (interactive)
     (evil-force-normal-state)
-    (ivy-posframe-enable)))
+    (ivy-posframe-mode t)))
