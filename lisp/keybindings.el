@@ -47,6 +47,7 @@
    "M-3" 'leo/select-current-line-from-beginning
    "M-x" 'counsel-M-x
    "M-#" 'evil-commentary-line
+   "M-D" 'leo/delete-line
    "M-E" 'eval-last-sexp
    "C-a" 'back-to-indentation
    "C-s-c" 'leo/copy-full-file-path
@@ -85,7 +86,6 @@
 
   (general-nmap
     "C-<return>" 'browse-url-at-point
-    "M-D" 'leo/delete-line
     "<tab>" 'vimish-fold-toggle
     ">" 'evil-shift-right-line
     "s-]" 'evil-shift-right-line
@@ -230,6 +230,7 @@
    "s-d" 'vterm-other-window
    "C-a" 'vterm-send-C-a
    "C-e" 'vterm-send-C-e
+   "C-x" 'vterm-send-C-x
    "s-r" 'leo/vterm-clear
    "M-m" 'evil-first-non-blank
    "s-s" 'leo/export-buffer-contents)
