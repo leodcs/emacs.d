@@ -230,7 +230,6 @@
    "s-d" 'vterm-other-window
    "C-a" 'vterm-send-C-a
    "C-e" 'vterm-send-C-e
-   "C-x" 'vterm-send-C-x
    "s-r" 'leo/vterm-clear
    "M-m" 'evil-first-non-blank
    "s-s" 'leo/export-buffer-contents)

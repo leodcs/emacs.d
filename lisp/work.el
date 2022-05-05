@@ -22,6 +22,7 @@
 ; -------------------------- Packages --------------------------------
 (require 'plural)
 
+(use-package dart-mode)
 (use-package rubocop)
 (use-package yaml-mode)
 (use-package hungry-delete)
